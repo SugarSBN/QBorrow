@@ -38,9 +38,12 @@ std :: shared_ptr<Expr> Expr :: make_binary_op(Binary_Op op,
 // Stmt factory methods
 
 std :: shared_ptr<Stmt> Stmt :: make_let(const std :: string& name, std :: shared_ptr<Expr> expr){
-        return std :: make_shared<Stmt>(Stmt :: Stmt_Type :: LET, name, std :: move(expr));
+        return std :: make_shared<Stmt>(Stmt_Type :: LET, name, std :: move(expr));
 }
 
+std :: shared_ptr<Stmt> Stmt :: make_borrow(const std :: string& name, bool is_register, std :: shared_ptr<Expr> expr) {
+        return std :: make_shared<Stmt>(Stmt_Type :: BORROW, name, is_register, std :: move(expr));
+}
 
 
 
@@ -96,7 +99,18 @@ void Stmt :: print_stmt(std :: ostream& os) const {
             case Stmt_Type :: LET : { 
                 const auto& let_stmt = std :: get<Stmt_Let>(stmt_);
                 os << BLUE << "let " << RESET << let_stmt.id_ << RED << " = " << RESET;
-                Expr :: print_expr(let_stmt.expr_, os);
+                Expr :: print_expr(*let_stmt.expr_, os);
+                os << ";";
+                break;
+            }
+            case Stmt_Type :: BORROW : {
+                const auto& borrow_stmt = std :: get<Stmt_Borrow>(stmt_);
+                os << BLUE << "borrow " << RESET << borrow_stmt.id_;
+                if (borrow_stmt.is_register_) {
+                    os << "["; 
+                    Expr :: print_expr(*borrow_stmt.expr_, os);
+                    os << "]";
+                }
                 os << ";";
                 break;
             }

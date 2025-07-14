@@ -117,9 +117,22 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QDirtyParser :: StatementConte
 
         return Stmt :: make_let(id, expr);
 
-    } else if (ctx->getStart()->getText() == "borrow") {
+    } else if (ctx -> getStart() -> getText() == "borrow") {
 
-        // return visit_borrow_alloc(ctx, /*is_alloc=*/false);
+        std :: string id = ctx -> ID() -> getText();
+
+
+        if (ctx -> expr() == nullptr) {
+
+            return Stmt :: make_borrow(id, false, nullptr);
+
+        } else {
+
+
+            return Stmt :: make_borrow(id, true, visit_expr(ctx -> expr()));
+
+
+        }
 
     } else if (ctx->getStart()->getText() == "alloc") {
 

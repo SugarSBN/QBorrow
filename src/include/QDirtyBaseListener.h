@@ -22,9 +22,6 @@ public:
   virtual void enterStatement(QDirtyParser::StatementContext * /*ctx*/) override { }
   virtual void exitStatement(QDirtyParser::StatementContext * /*ctx*/) override { }
 
-  virtual void enterRegister(QDirtyParser::RegisterContext * /*ctx*/) override { }
-  virtual void exitRegister(QDirtyParser::RegisterContext * /*ctx*/) override { }
-
   virtual void enterExpr(QDirtyParser::ExprContext * /*ctx*/) override { }
   virtual void exitExpr(QDirtyParser::ExprContext * /*ctx*/) override { }
 

@@ -20,9 +20,6 @@ public:
   virtual void enterStatement(QDirtyParser::StatementContext *ctx) = 0;
   virtual void exitStatement(QDirtyParser::StatementContext *ctx) = 0;
 
-  virtual void enterRegister(QDirtyParser::RegisterContext *ctx) = 0;
-  virtual void exitRegister(QDirtyParser::RegisterContext *ctx) = 0;
-
   virtual void enterExpr(QDirtyParser::ExprContext *ctx) = 0;
   virtual void exitExpr(QDirtyParser::ExprContext *ctx) = 0;
 

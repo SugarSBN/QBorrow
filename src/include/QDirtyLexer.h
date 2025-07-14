@@ -13,8 +13,8 @@ class  QDirtyLexer : public antlr4::Lexer {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    T__7 = 8, T__8 = 9, ADD = 10, SUB = 11, MUL = 12, ID = 13, NUMBER = 14, 
-    WS = 15, LINE_COMMENT = 16, BLOCK_COMMENT = 17
+    T__7 = 8, ADD = 9, SUB = 10, MUL = 11, ID = 12, NUMBER = 13, WS = 14, 
+    LINE_COMMENT = 15, BLOCK_COMMENT = 16
   };
 
   explicit QDirtyLexer(antlr4::CharStream *input);

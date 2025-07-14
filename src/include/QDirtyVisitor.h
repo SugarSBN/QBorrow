@@ -23,8 +23,6 @@ public:
 
     virtual std::any visitStatement(QDirtyParser::StatementContext *context) = 0;
 
-    virtual std::any visitRegister(QDirtyParser::RegisterContext *context) = 0;
-
     virtual std::any visitExpr(QDirtyParser::ExprContext *context) = 0;
 
     virtual std::any visitTerm(QDirtyParser::TermContext *context) = 0;

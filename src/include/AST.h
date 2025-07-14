@@ -97,7 +97,7 @@ class Stmt {
 public:
     enum class Stmt_Type {
         LET,
-        // BORROW, 
+        BORROW, 
         // ALLOC, 
         // X, 
         // CNOT, 
@@ -107,21 +107,33 @@ public:
 
     struct Stmt_Let {
         std :: string id_;
-        Expr expr_;
+        std :: shared_ptr<Expr> expr_;
     };
 
-    // constructor for let
+    struct Stmt_Borrow {
+        std :: string id_;
+        bool is_register_;
+        std :: shared_ptr<Expr> expr_;
+    };
+
+
+    // constructors
     explicit Stmt (Stmt_Type t, const std :: string& name, std :: shared_ptr<Expr> expr)
-        : stmt_(Stmt_Let{name, *expr}), type_(t) {}
+        : stmt_(Stmt_Let{name, expr}), type_(t) {}
     
+    explicit Stmt (Stmt_Type t, const std :: string& name, bool is_register, std :: shared_ptr<Expr> expr)
+        : stmt_(Stmt_Borrow{name, is_register, expr}), type_(t) {}
+
         
     // factory methods for creating pointers to statements
     static std :: shared_ptr<Stmt> make_let(const std :: string& name, std :: shared_ptr<Expr> expr);
+    static std :: shared_ptr<Stmt> make_borrow(const std :: string& name, bool is_register, std :: shared_ptr<Expr> expr);
     
 
     // interfaces to obtain the statement type and its content
     std :: variant<
-       Stmt_Let
+       Stmt_Let,
+       Stmt_Borrow
     > get_stmt() const;
 
 
@@ -131,7 +143,8 @@ public:
 
 private:
     std :: variant<
-       Stmt_Let
+       Stmt_Let,
+       Stmt_Borrow
     > stmt_;
 
     Stmt_Type type_;

@@ -23,10 +23,6 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual std::any visitRegister(QDirtyParser::RegisterContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual std::any visitExpr(QDirtyParser::ExprContext *ctx) override {
     return visitChildren(ctx);
   }

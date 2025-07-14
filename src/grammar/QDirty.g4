@@ -6,13 +6,8 @@ program : statement+ ;
 
 statement 
     : 'let' ID '=' expr ';'
-    | 'borrow' register ';'
-    | 'alloc' register ';'
-    ;
-
-register 
-    : ID 
-    | ID '[' expr ']'
+    | 'borrow' ID ';'
+    | 'borrow' ID '[' expr ']' ';'
     ;
 
 
