@@ -10,11 +10,14 @@
 #include "QDirtyParser.h"
 #include "QDirtyBaseListener.h"
 
-// 自定义错误监听器：在终端打印红色错误信息
+
 class Custom_Error_Listener : public antlr4 :: BaseErrorListener {
 
 public:
-    explicit Custom_Error_Listener(std :: ostream& err_stream);
+
+    explicit Custom_Error_Listener(std :: ostream& error_stream)
+        : error_output_(error_stream), 
+        error_occurred_(false) {}
 
     void syntaxError(antlr4 :: Recognizer* recognizer,
                      antlr4 :: Token* offendingSymbol,
@@ -33,12 +36,20 @@ private:
 
 
 
-// 主解析器类
 class Parser {
 
 public:
-    explicit Parser(std :: ostream& err_output);
+    /*
+        constructor, taking an error output stream
+    */
+    explicit Parser(std :: ostream& error_output)
+        : error_output_(error_output), custom_error_listener_(error_output) {}
 
+    /*
+        parse the input string
+        returns true if parsing is successful, false otherwise
+        automatically builds the parse tree
+    */
     bool parse_string(const std :: string& input_string);
 
     /*
@@ -47,12 +58,19 @@ public:
     std :: vector<std :: shared_ptr<Stmt> > get_statements() const;
 
 private:
+
+    /*
+        build the parse tree, store results in statements_
+    */
     void build_parse_tree(antlr4 :: tree :: ParseTree* tree);
 
     std :: ostream& error_output_;
 
     Custom_Error_Listener custom_error_listener_;
 
+    /*
+        parse results
+    */
     std :: vector<std :: shared_ptr<Stmt> > statements_;
 
 
@@ -60,9 +78,9 @@ private:
         Visitors, in particular, visit_statements() store results in statements_
     */
     void visit_statements(const std :: vector<QDirtyParser :: StatementContext*>& stmts);
-
-    std :: shared_ptr<Stmt> visit_statement(QDirtyParser :: StatementContext* ctx);
     
+    std :: shared_ptr<Stmt> visit_statement(QDirtyParser :: StatementContext* ctx);
+
     std :: shared_ptr<Expr> visit_expr(QDirtyParser :: ExprContext* ctx);
     std :: shared_ptr<Expr> visit_term(QDirtyParser :: TermContext* ctx);
     std :: shared_ptr<Expr> visit_factor(QDirtyParser :: FactorContext* ctx);

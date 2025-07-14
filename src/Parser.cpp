@@ -5,9 +5,6 @@
 #define RED     "\033[1;31m"
 #define RESET   "\033[0m"
 
-Custom_Error_Listener :: Custom_Error_Listener(std :: ostream& err_stream)
-    : error_output_(err_stream), 
-      error_occurred_(false) {}
 
 void Custom_Error_Listener :: syntaxError(antlr4 :: Recognizer*,
                                         antlr4 :: Token* offendingSymbol,
@@ -29,8 +26,6 @@ bool Custom_Error_Listener :: has_error() const {
 }
 
 
-Parser :: Parser(std :: ostream& err_output)
-    : error_output_(err_output), custom_error_listener_(err_output) {}
 
 
 

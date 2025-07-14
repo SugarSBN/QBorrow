@@ -8,7 +8,13 @@
 
 struct Expr {
 
-    // type definitions
+    /*
+        expression types
+        ID: variable name
+        NUMBER: integer number
+        UnaryOp: unary operator, e.g., -x
+        BinaryOp: binary operator, e.g., x + y
+    */
     enum class Expr_Type {
         ID,
         NUMBER,
@@ -16,6 +22,9 @@ struct Expr {
         BinaryOp
     };
 
+    /*
+        operator types
+    */
     enum class Unary_Op {
         NEGATE
     };
@@ -27,7 +36,9 @@ struct Expr {
     };
 
 
-    // expressions
+    /*
+        specific expressions
+    */
     struct Expr_ID {
         std :: string id;
     };
@@ -48,7 +59,9 @@ struct Expr {
     };
 
 
-    // an expression is type + contents
+    /*
+        an expression is a type + variant.
+    */
     Expr_Type type_;
 
     std :: variant<
@@ -58,7 +71,11 @@ struct Expr {
         Expr_Binary_Op
     > expr_;
 
-    // constructors
+
+
+    /*
+        constructors
+    */
     Expr(Expr_Type t, const std :: string& name)
         : type_(t), expr_(Expr_ID{name}) {}
 
@@ -74,7 +91,9 @@ struct Expr {
         : type_(t), expr_(Expr_Binary_Op{op, std :: move(left), std :: move(right)}) {}
 
     
-    // factory methods for creating pointers to expressions
+    /*
+        factory methods for creating pointers to expressions
+    */ 
     static std :: shared_ptr<Expr> make_variable(const std :: string& name);
     static std :: shared_ptr<Expr> make_number(int value);
     static std :: shared_ptr<Expr> make_unary_op(Unary_Op op, std :: shared_ptr<Expr> operand);
@@ -82,6 +101,10 @@ struct Expr {
                                                 std :: shared_ptr<Expr> left,
                                                 std :: shared_ptr<Expr> right);
 
+
+    /*        
+        pretty print expressions
+    */
     static void print_expr(const Expr& expr, std :: ostream& os = std :: cout); 
 };
 
@@ -95,6 +118,9 @@ struct Expr {
 class Stmt {
     
 public:
+    /*
+        statement types
+    */
     enum class Stmt_Type {
         LET,
         BORROW, 
@@ -105,6 +131,9 @@ public:
     };
 
 
+    /*
+        specific statements
+    */
     struct Stmt_Let {
         std :: string id_;
         std :: shared_ptr<Expr> expr_;
@@ -117,31 +146,43 @@ public:
     };
 
 
-    // constructors
+    /*
+        constructors
+    */
     explicit Stmt (Stmt_Type t, const std :: string& name, std :: shared_ptr<Expr> expr)
         : stmt_(Stmt_Let{name, expr}), type_(t) {}
     
     explicit Stmt (Stmt_Type t, const std :: string& name, bool is_register, std :: shared_ptr<Expr> expr)
         : stmt_(Stmt_Borrow{name, is_register, expr}), type_(t) {}
 
-        
-    // factory methods for creating pointers to statements
+
+    /*
+        factory methods for creating pointers to statements
+    */ 
     static std :: shared_ptr<Stmt> make_let(const std :: string& name, std :: shared_ptr<Expr> expr);
     static std :: shared_ptr<Stmt> make_borrow(const std :: string& name, bool is_register, std :: shared_ptr<Expr> expr);
     
 
-    // interfaces to obtain the statement type and its content
+    /*
+        interfaces to obtain the statement type and its content
+    */ 
     std :: variant<
        Stmt_Let,
        Stmt_Borrow
     > get_stmt() const;
 
-
     Stmt get_type() const;
 
+    /*
+        pretty print statements
+    */
     void print_stmt(std :: ostream& os = std :: cout) const;
 
 private:
+
+    /*
+        a statement is a type + variant.
+    */
     std :: variant<
        Stmt_Let,
        Stmt_Borrow
