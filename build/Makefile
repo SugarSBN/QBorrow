@@ -129,293 +129,293 @@ qborrow/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/build
 .PHONY : qborrow/fast
 
-src/AST/AST_Expr.o: src/AST/AST_Expr.cpp.o
-.PHONY : src/AST/AST_Expr.o
+src/frontend/AST/AST_Expr.o: src/frontend/AST/AST_Expr.cpp.o
+.PHONY : src/frontend/AST/AST_Expr.o
 
 # target to build an object file
-src/AST/AST_Expr.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o
-.PHONY : src/AST/AST_Expr.cpp.o
+src/frontend/AST/AST_Expr.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o
+.PHONY : src/frontend/AST/AST_Expr.cpp.o
 
-src/AST/AST_Expr.i: src/AST/AST_Expr.cpp.i
-.PHONY : src/AST/AST_Expr.i
+src/frontend/AST/AST_Expr.i: src/frontend/AST/AST_Expr.cpp.i
+.PHONY : src/frontend/AST/AST_Expr.i
 
 # target to preprocess a source file
-src/AST/AST_Expr.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.i
-.PHONY : src/AST/AST_Expr.cpp.i
+src/frontend/AST/AST_Expr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.i
+.PHONY : src/frontend/AST/AST_Expr.cpp.i
 
-src/AST/AST_Expr.s: src/AST/AST_Expr.cpp.s
-.PHONY : src/AST/AST_Expr.s
+src/frontend/AST/AST_Expr.s: src/frontend/AST/AST_Expr.cpp.s
+.PHONY : src/frontend/AST/AST_Expr.s
 
 # target to generate assembly for a file
-src/AST/AST_Expr.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.s
-.PHONY : src/AST/AST_Expr.cpp.s
+src/frontend/AST/AST_Expr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.s
+.PHONY : src/frontend/AST/AST_Expr.cpp.s
 
-src/AST/AST_Function.o: src/AST/AST_Function.cpp.o
-.PHONY : src/AST/AST_Function.o
+src/frontend/AST/AST_Function.o: src/frontend/AST/AST_Function.cpp.o
+.PHONY : src/frontend/AST/AST_Function.o
 
 # target to build an object file
-src/AST/AST_Function.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o
-.PHONY : src/AST/AST_Function.cpp.o
+src/frontend/AST/AST_Function.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.o
+.PHONY : src/frontend/AST/AST_Function.cpp.o
 
-src/AST/AST_Function.i: src/AST/AST_Function.cpp.i
-.PHONY : src/AST/AST_Function.i
+src/frontend/AST/AST_Function.i: src/frontend/AST/AST_Function.cpp.i
+.PHONY : src/frontend/AST/AST_Function.i
 
 # target to preprocess a source file
-src/AST/AST_Function.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.i
-.PHONY : src/AST/AST_Function.cpp.i
+src/frontend/AST/AST_Function.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.i
+.PHONY : src/frontend/AST/AST_Function.cpp.i
 
-src/AST/AST_Function.s: src/AST/AST_Function.cpp.s
-.PHONY : src/AST/AST_Function.s
+src/frontend/AST/AST_Function.s: src/frontend/AST/AST_Function.cpp.s
+.PHONY : src/frontend/AST/AST_Function.s
 
 # target to generate assembly for a file
-src/AST/AST_Function.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.s
-.PHONY : src/AST/AST_Function.cpp.s
+src/frontend/AST/AST_Function.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.s
+.PHONY : src/frontend/AST/AST_Function.cpp.s
 
-src/AST/AST_Register.o: src/AST/AST_Register.cpp.o
-.PHONY : src/AST/AST_Register.o
+src/frontend/AST/AST_Register.o: src/frontend/AST/AST_Register.cpp.o
+.PHONY : src/frontend/AST/AST_Register.o
 
 # target to build an object file
-src/AST/AST_Register.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o
-.PHONY : src/AST/AST_Register.cpp.o
+src/frontend/AST/AST_Register.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.o
+.PHONY : src/frontend/AST/AST_Register.cpp.o
 
-src/AST/AST_Register.i: src/AST/AST_Register.cpp.i
-.PHONY : src/AST/AST_Register.i
+src/frontend/AST/AST_Register.i: src/frontend/AST/AST_Register.cpp.i
+.PHONY : src/frontend/AST/AST_Register.i
 
 # target to preprocess a source file
-src/AST/AST_Register.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.i
-.PHONY : src/AST/AST_Register.cpp.i
+src/frontend/AST/AST_Register.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.i
+.PHONY : src/frontend/AST/AST_Register.cpp.i
 
-src/AST/AST_Register.s: src/AST/AST_Register.cpp.s
-.PHONY : src/AST/AST_Register.s
+src/frontend/AST/AST_Register.s: src/frontend/AST/AST_Register.cpp.s
+.PHONY : src/frontend/AST/AST_Register.s
 
 # target to generate assembly for a file
-src/AST/AST_Register.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.s
-.PHONY : src/AST/AST_Register.cpp.s
+src/frontend/AST/AST_Register.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.s
+.PHONY : src/frontend/AST/AST_Register.cpp.s
 
-src/AST/AST_Stmt.o: src/AST/AST_Stmt.cpp.o
-.PHONY : src/AST/AST_Stmt.o
+src/frontend/AST/AST_Stmt.o: src/frontend/AST/AST_Stmt.cpp.o
+.PHONY : src/frontend/AST/AST_Stmt.o
 
 # target to build an object file
-src/AST/AST_Stmt.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o
-.PHONY : src/AST/AST_Stmt.cpp.o
+src/frontend/AST/AST_Stmt.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Stmt.cpp.o
+.PHONY : src/frontend/AST/AST_Stmt.cpp.o
 
-src/AST/AST_Stmt.i: src/AST/AST_Stmt.cpp.i
-.PHONY : src/AST/AST_Stmt.i
+src/frontend/AST/AST_Stmt.i: src/frontend/AST/AST_Stmt.cpp.i
+.PHONY : src/frontend/AST/AST_Stmt.i
 
 # target to preprocess a source file
-src/AST/AST_Stmt.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.i
-.PHONY : src/AST/AST_Stmt.cpp.i
+src/frontend/AST/AST_Stmt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Stmt.cpp.i
+.PHONY : src/frontend/AST/AST_Stmt.cpp.i
 
-src/AST/AST_Stmt.s: src/AST/AST_Stmt.cpp.s
-.PHONY : src/AST/AST_Stmt.s
+src/frontend/AST/AST_Stmt.s: src/frontend/AST/AST_Stmt.cpp.s
+.PHONY : src/frontend/AST/AST_Stmt.s
 
 # target to generate assembly for a file
-src/AST/AST_Stmt.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.s
-.PHONY : src/AST/AST_Stmt.cpp.s
+src/frontend/AST/AST_Stmt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Stmt.cpp.s
+.PHONY : src/frontend/AST/AST_Stmt.cpp.s
 
-src/Argument.o: src/Argument.cpp.o
-.PHONY : src/Argument.o
+src/frontend/Argument.o: src/frontend/Argument.cpp.o
+.PHONY : src/frontend/Argument.o
 
 # target to build an object file
-src/Argument.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Argument.cpp.o
-.PHONY : src/Argument.cpp.o
+src/frontend/Argument.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Argument.cpp.o
+.PHONY : src/frontend/Argument.cpp.o
 
-src/Argument.i: src/Argument.cpp.i
-.PHONY : src/Argument.i
+src/frontend/Argument.i: src/frontend/Argument.cpp.i
+.PHONY : src/frontend/Argument.i
 
 # target to preprocess a source file
-src/Argument.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Argument.cpp.i
-.PHONY : src/Argument.cpp.i
+src/frontend/Argument.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Argument.cpp.i
+.PHONY : src/frontend/Argument.cpp.i
 
-src/Argument.s: src/Argument.cpp.s
-.PHONY : src/Argument.s
+src/frontend/Argument.s: src/frontend/Argument.cpp.s
+.PHONY : src/frontend/Argument.s
 
 # target to generate assembly for a file
-src/Argument.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Argument.cpp.s
-.PHONY : src/Argument.cpp.s
+src/frontend/Argument.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Argument.cpp.s
+.PHONY : src/frontend/Argument.cpp.s
 
-src/Parser.o: src/Parser.cpp.o
-.PHONY : src/Parser.o
+src/frontend/Parser.o: src/frontend/Parser.cpp.o
+.PHONY : src/frontend/Parser.o
 
 # target to build an object file
-src/Parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Parser.cpp.o
-.PHONY : src/Parser.cpp.o
+src/frontend/Parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Parser.cpp.o
+.PHONY : src/frontend/Parser.cpp.o
 
-src/Parser.i: src/Parser.cpp.i
-.PHONY : src/Parser.i
+src/frontend/Parser.i: src/frontend/Parser.cpp.i
+.PHONY : src/frontend/Parser.i
 
 # target to preprocess a source file
-src/Parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Parser.cpp.i
-.PHONY : src/Parser.cpp.i
+src/frontend/Parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Parser.cpp.i
+.PHONY : src/frontend/Parser.cpp.i
 
-src/Parser.s: src/Parser.cpp.s
-.PHONY : src/Parser.s
+src/frontend/Parser.s: src/frontend/Parser.cpp.s
+.PHONY : src/frontend/Parser.s
 
 # target to generate assembly for a file
-src/Parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Parser.cpp.s
-.PHONY : src/Parser.cpp.s
+src/frontend/Parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Parser.cpp.s
+.PHONY : src/frontend/Parser.cpp.s
 
-src/antlr-gen/QBorrowBaseListener.o: src/antlr-gen/QBorrowBaseListener.cpp.o
-.PHONY : src/antlr-gen/QBorrowBaseListener.o
+src/frontend/antlr-gen/QBorrowBaseListener.o: src/frontend/antlr-gen/QBorrowBaseListener.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowBaseListener.o
 
 # target to build an object file
-src/antlr-gen/QBorrowBaseListener.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o
-.PHONY : src/antlr-gen/QBorrowBaseListener.cpp.o
+src/frontend/antlr-gen/QBorrowBaseListener.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseListener.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowBaseListener.cpp.o
 
-src/antlr-gen/QBorrowBaseListener.i: src/antlr-gen/QBorrowBaseListener.cpp.i
-.PHONY : src/antlr-gen/QBorrowBaseListener.i
+src/frontend/antlr-gen/QBorrowBaseListener.i: src/frontend/antlr-gen/QBorrowBaseListener.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowBaseListener.i
 
 # target to preprocess a source file
-src/antlr-gen/QBorrowBaseListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.i
-.PHONY : src/antlr-gen/QBorrowBaseListener.cpp.i
+src/frontend/antlr-gen/QBorrowBaseListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseListener.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowBaseListener.cpp.i
 
-src/antlr-gen/QBorrowBaseListener.s: src/antlr-gen/QBorrowBaseListener.cpp.s
-.PHONY : src/antlr-gen/QBorrowBaseListener.s
+src/frontend/antlr-gen/QBorrowBaseListener.s: src/frontend/antlr-gen/QBorrowBaseListener.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowBaseListener.s
 
 # target to generate assembly for a file
-src/antlr-gen/QBorrowBaseListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.s
-.PHONY : src/antlr-gen/QBorrowBaseListener.cpp.s
+src/frontend/antlr-gen/QBorrowBaseListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseListener.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowBaseListener.cpp.s
 
-src/antlr-gen/QBorrowBaseVisitor.o: src/antlr-gen/QBorrowBaseVisitor.cpp.o
-.PHONY : src/antlr-gen/QBorrowBaseVisitor.o
+src/frontend/antlr-gen/QBorrowBaseVisitor.o: src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowBaseVisitor.o
 
 # target to build an object file
-src/antlr-gen/QBorrowBaseVisitor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o
-.PHONY : src/antlr-gen/QBorrowBaseVisitor.cpp.o
+src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.o
 
-src/antlr-gen/QBorrowBaseVisitor.i: src/antlr-gen/QBorrowBaseVisitor.cpp.i
-.PHONY : src/antlr-gen/QBorrowBaseVisitor.i
+src/frontend/antlr-gen/QBorrowBaseVisitor.i: src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowBaseVisitor.i
 
 # target to preprocess a source file
-src/antlr-gen/QBorrowBaseVisitor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.i
-.PHONY : src/antlr-gen/QBorrowBaseVisitor.cpp.i
+src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.i
 
-src/antlr-gen/QBorrowBaseVisitor.s: src/antlr-gen/QBorrowBaseVisitor.cpp.s
-.PHONY : src/antlr-gen/QBorrowBaseVisitor.s
+src/frontend/antlr-gen/QBorrowBaseVisitor.s: src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowBaseVisitor.s
 
 # target to generate assembly for a file
-src/antlr-gen/QBorrowBaseVisitor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.s
-.PHONY : src/antlr-gen/QBorrowBaseVisitor.cpp.s
+src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.s
 
-src/antlr-gen/QBorrowLexer.o: src/antlr-gen/QBorrowLexer.cpp.o
-.PHONY : src/antlr-gen/QBorrowLexer.o
+src/frontend/antlr-gen/QBorrowLexer.o: src/frontend/antlr-gen/QBorrowLexer.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowLexer.o
 
 # target to build an object file
-src/antlr-gen/QBorrowLexer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o
-.PHONY : src/antlr-gen/QBorrowLexer.cpp.o
+src/frontend/antlr-gen/QBorrowLexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowLexer.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowLexer.cpp.o
 
-src/antlr-gen/QBorrowLexer.i: src/antlr-gen/QBorrowLexer.cpp.i
-.PHONY : src/antlr-gen/QBorrowLexer.i
+src/frontend/antlr-gen/QBorrowLexer.i: src/frontend/antlr-gen/QBorrowLexer.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowLexer.i
 
 # target to preprocess a source file
-src/antlr-gen/QBorrowLexer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.i
-.PHONY : src/antlr-gen/QBorrowLexer.cpp.i
+src/frontend/antlr-gen/QBorrowLexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowLexer.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowLexer.cpp.i
 
-src/antlr-gen/QBorrowLexer.s: src/antlr-gen/QBorrowLexer.cpp.s
-.PHONY : src/antlr-gen/QBorrowLexer.s
+src/frontend/antlr-gen/QBorrowLexer.s: src/frontend/antlr-gen/QBorrowLexer.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowLexer.s
 
 # target to generate assembly for a file
-src/antlr-gen/QBorrowLexer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.s
-.PHONY : src/antlr-gen/QBorrowLexer.cpp.s
+src/frontend/antlr-gen/QBorrowLexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowLexer.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowLexer.cpp.s
 
-src/antlr-gen/QBorrowListener.o: src/antlr-gen/QBorrowListener.cpp.o
-.PHONY : src/antlr-gen/QBorrowListener.o
+src/frontend/antlr-gen/QBorrowListener.o: src/frontend/antlr-gen/QBorrowListener.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowListener.o
 
 # target to build an object file
-src/antlr-gen/QBorrowListener.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o
-.PHONY : src/antlr-gen/QBorrowListener.cpp.o
+src/frontend/antlr-gen/QBorrowListener.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowListener.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowListener.cpp.o
 
-src/antlr-gen/QBorrowListener.i: src/antlr-gen/QBorrowListener.cpp.i
-.PHONY : src/antlr-gen/QBorrowListener.i
+src/frontend/antlr-gen/QBorrowListener.i: src/frontend/antlr-gen/QBorrowListener.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowListener.i
 
 # target to preprocess a source file
-src/antlr-gen/QBorrowListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.i
-.PHONY : src/antlr-gen/QBorrowListener.cpp.i
+src/frontend/antlr-gen/QBorrowListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowListener.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowListener.cpp.i
 
-src/antlr-gen/QBorrowListener.s: src/antlr-gen/QBorrowListener.cpp.s
-.PHONY : src/antlr-gen/QBorrowListener.s
+src/frontend/antlr-gen/QBorrowListener.s: src/frontend/antlr-gen/QBorrowListener.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowListener.s
 
 # target to generate assembly for a file
-src/antlr-gen/QBorrowListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.s
-.PHONY : src/antlr-gen/QBorrowListener.cpp.s
+src/frontend/antlr-gen/QBorrowListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowListener.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowListener.cpp.s
 
-src/antlr-gen/QBorrowParser.o: src/antlr-gen/QBorrowParser.cpp.o
-.PHONY : src/antlr-gen/QBorrowParser.o
+src/frontend/antlr-gen/QBorrowParser.o: src/frontend/antlr-gen/QBorrowParser.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowParser.o
 
 # target to build an object file
-src/antlr-gen/QBorrowParser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o
-.PHONY : src/antlr-gen/QBorrowParser.cpp.o
+src/frontend/antlr-gen/QBorrowParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowParser.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowParser.cpp.o
 
-src/antlr-gen/QBorrowParser.i: src/antlr-gen/QBorrowParser.cpp.i
-.PHONY : src/antlr-gen/QBorrowParser.i
+src/frontend/antlr-gen/QBorrowParser.i: src/frontend/antlr-gen/QBorrowParser.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowParser.i
 
 # target to preprocess a source file
-src/antlr-gen/QBorrowParser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.i
-.PHONY : src/antlr-gen/QBorrowParser.cpp.i
+src/frontend/antlr-gen/QBorrowParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowParser.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowParser.cpp.i
 
-src/antlr-gen/QBorrowParser.s: src/antlr-gen/QBorrowParser.cpp.s
-.PHONY : src/antlr-gen/QBorrowParser.s
+src/frontend/antlr-gen/QBorrowParser.s: src/frontend/antlr-gen/QBorrowParser.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowParser.s
 
 # target to generate assembly for a file
-src/antlr-gen/QBorrowParser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.s
-.PHONY : src/antlr-gen/QBorrowParser.cpp.s
+src/frontend/antlr-gen/QBorrowParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowParser.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowParser.cpp.s
 
-src/antlr-gen/QBorrowVisitor.o: src/antlr-gen/QBorrowVisitor.cpp.o
-.PHONY : src/antlr-gen/QBorrowVisitor.o
+src/frontend/antlr-gen/QBorrowVisitor.o: src/frontend/antlr-gen/QBorrowVisitor.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowVisitor.o
 
 # target to build an object file
-src/antlr-gen/QBorrowVisitor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o
-.PHONY : src/antlr-gen/QBorrowVisitor.cpp.o
+src/frontend/antlr-gen/QBorrowVisitor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowVisitor.cpp.o
+.PHONY : src/frontend/antlr-gen/QBorrowVisitor.cpp.o
 
-src/antlr-gen/QBorrowVisitor.i: src/antlr-gen/QBorrowVisitor.cpp.i
-.PHONY : src/antlr-gen/QBorrowVisitor.i
+src/frontend/antlr-gen/QBorrowVisitor.i: src/frontend/antlr-gen/QBorrowVisitor.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowVisitor.i
 
 # target to preprocess a source file
-src/antlr-gen/QBorrowVisitor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.i
-.PHONY : src/antlr-gen/QBorrowVisitor.cpp.i
+src/frontend/antlr-gen/QBorrowVisitor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowVisitor.cpp.i
+.PHONY : src/frontend/antlr-gen/QBorrowVisitor.cpp.i
 
-src/antlr-gen/QBorrowVisitor.s: src/antlr-gen/QBorrowVisitor.cpp.s
-.PHONY : src/antlr-gen/QBorrowVisitor.s
+src/frontend/antlr-gen/QBorrowVisitor.s: src/frontend/antlr-gen/QBorrowVisitor.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowVisitor.s
 
 # target to generate assembly for a file
-src/antlr-gen/QBorrowVisitor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.s
-.PHONY : src/antlr-gen/QBorrowVisitor.cpp.s
+src/frontend/antlr-gen/QBorrowVisitor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowVisitor.cpp.s
+.PHONY : src/frontend/antlr-gen/QBorrowVisitor.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -450,42 +450,42 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... qborrow"
-	@echo "... src/AST/AST_Expr.o"
-	@echo "... src/AST/AST_Expr.i"
-	@echo "... src/AST/AST_Expr.s"
-	@echo "... src/AST/AST_Function.o"
-	@echo "... src/AST/AST_Function.i"
-	@echo "... src/AST/AST_Function.s"
-	@echo "... src/AST/AST_Register.o"
-	@echo "... src/AST/AST_Register.i"
-	@echo "... src/AST/AST_Register.s"
-	@echo "... src/AST/AST_Stmt.o"
-	@echo "... src/AST/AST_Stmt.i"
-	@echo "... src/AST/AST_Stmt.s"
-	@echo "... src/Argument.o"
-	@echo "... src/Argument.i"
-	@echo "... src/Argument.s"
-	@echo "... src/Parser.o"
-	@echo "... src/Parser.i"
-	@echo "... src/Parser.s"
-	@echo "... src/antlr-gen/QBorrowBaseListener.o"
-	@echo "... src/antlr-gen/QBorrowBaseListener.i"
-	@echo "... src/antlr-gen/QBorrowBaseListener.s"
-	@echo "... src/antlr-gen/QBorrowBaseVisitor.o"
-	@echo "... src/antlr-gen/QBorrowBaseVisitor.i"
-	@echo "... src/antlr-gen/QBorrowBaseVisitor.s"
-	@echo "... src/antlr-gen/QBorrowLexer.o"
-	@echo "... src/antlr-gen/QBorrowLexer.i"
-	@echo "... src/antlr-gen/QBorrowLexer.s"
-	@echo "... src/antlr-gen/QBorrowListener.o"
-	@echo "... src/antlr-gen/QBorrowListener.i"
-	@echo "... src/antlr-gen/QBorrowListener.s"
-	@echo "... src/antlr-gen/QBorrowParser.o"
-	@echo "... src/antlr-gen/QBorrowParser.i"
-	@echo "... src/antlr-gen/QBorrowParser.s"
-	@echo "... src/antlr-gen/QBorrowVisitor.o"
-	@echo "... src/antlr-gen/QBorrowVisitor.i"
-	@echo "... src/antlr-gen/QBorrowVisitor.s"
+	@echo "... src/frontend/AST/AST_Expr.o"
+	@echo "... src/frontend/AST/AST_Expr.i"
+	@echo "... src/frontend/AST/AST_Expr.s"
+	@echo "... src/frontend/AST/AST_Function.o"
+	@echo "... src/frontend/AST/AST_Function.i"
+	@echo "... src/frontend/AST/AST_Function.s"
+	@echo "... src/frontend/AST/AST_Register.o"
+	@echo "... src/frontend/AST/AST_Register.i"
+	@echo "... src/frontend/AST/AST_Register.s"
+	@echo "... src/frontend/AST/AST_Stmt.o"
+	@echo "... src/frontend/AST/AST_Stmt.i"
+	@echo "... src/frontend/AST/AST_Stmt.s"
+	@echo "... src/frontend/Argument.o"
+	@echo "... src/frontend/Argument.i"
+	@echo "... src/frontend/Argument.s"
+	@echo "... src/frontend/Parser.o"
+	@echo "... src/frontend/Parser.i"
+	@echo "... src/frontend/Parser.s"
+	@echo "... src/frontend/antlr-gen/QBorrowBaseListener.o"
+	@echo "... src/frontend/antlr-gen/QBorrowBaseListener.i"
+	@echo "... src/frontend/antlr-gen/QBorrowBaseListener.s"
+	@echo "... src/frontend/antlr-gen/QBorrowBaseVisitor.o"
+	@echo "... src/frontend/antlr-gen/QBorrowBaseVisitor.i"
+	@echo "... src/frontend/antlr-gen/QBorrowBaseVisitor.s"
+	@echo "... src/frontend/antlr-gen/QBorrowLexer.o"
+	@echo "... src/frontend/antlr-gen/QBorrowLexer.i"
+	@echo "... src/frontend/antlr-gen/QBorrowLexer.s"
+	@echo "... src/frontend/antlr-gen/QBorrowListener.o"
+	@echo "... src/frontend/antlr-gen/QBorrowListener.i"
+	@echo "... src/frontend/antlr-gen/QBorrowListener.s"
+	@echo "... src/frontend/antlr-gen/QBorrowParser.o"
+	@echo "... src/frontend/antlr-gen/QBorrowParser.i"
+	@echo "... src/frontend/antlr-gen/QBorrowParser.s"
+	@echo "... src/frontend/antlr-gen/QBorrowVisitor.o"
+	@echo "... src/frontend/antlr-gen/QBorrowVisitor.i"
+	@echo "... src/frontend/antlr-gen/QBorrowVisitor.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

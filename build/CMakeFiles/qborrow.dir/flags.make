@@ -4,7 +4,7 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/subonan/subonan_THU/QBorrow/src/include -I/Users/subonan/subonan_THU/QBorrow/src/include/AST -I/Users/subonan/subonan_THU/QBorrow/src/include/antlr-gen -I/Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime -I/usr/local/include/cvc5
+CXX_INCLUDES = -I/Users/subonan/subonan_THU/QBorrow/include/frontend -I/Users/subonan/subonan_THU/QBorrow/include/frontend/AST -I/Users/subonan/subonan_THU/QBorrow/include/frontend/antlr-gen -I/Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime -I/usr/local/include/cvc5
 
 CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=14.5 -Wall -Wextra -O2
 

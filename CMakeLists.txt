@@ -110,11 +110,11 @@ list(APPEND PROJECT_LINK_LIBS "cvc5") # CVC5 库名
 
 ## ANTLR4 generation
 
-set(ANTLR4_GRAMMAR_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/grammar")
+set(ANTLR4_GRAMMAR_DIR "${CMAKE_CURRENT_SOURCE_DIR}/grammar")
 file(GLOB ANTLR4_GRAMMAR_FILES "${ANTLR4_GRAMMAR_DIR}/*.g4")
 
-set(ANTLR4_GENERATED_HEADERS_OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/include/antlr-gen") 
-set(ANTLR4_GENERATED_SOURCES_OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/antlr-gen")     
+set(ANTLR4_GENERATED_HEADERS_OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include/frontend/antlr-gen") 
+set(ANTLR4_GENERATED_SOURCES_OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/frontend/antlr-gen")     
 
 file(MAKE_DIRECTORY "${ANTLR4_GENERATED_HEADERS_OUTPUT_DIR}")
 file(MAKE_DIRECTORY "${ANTLR4_GENERATED_SOURCES_OUTPUT_DIR}")
@@ -171,24 +171,27 @@ add_compile_options(-Wall -Wextra -O2)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    src/Argument.cpp
-    src/Parser.cpp
-    src/AST/AST_Expr.cpp
-    src/AST/AST_Stmt.cpp
-    src/AST/AST_Register.cpp
-    src/AST/AST_Function.cpp
-    src/antlr-gen/QBorrowBaseListener.cpp
-    src/antlr-gen/QBorrowBaseVisitor.cpp
-    src/antlr-gen/QBorrowLexer.cpp
-    src/antlr-gen/QBorrowListener.cpp
-    src/antlr-gen/QBorrowParser.cpp
-    src/antlr-gen/QBorrowVisitor.cpp
+    
+    src/frontend/Argument.cpp
+    src/frontend/Parser.cpp
+
+    src/frontend/AST/AST_Expr.cpp
+    src/frontend/AST/AST_Stmt.cpp
+    src/frontend/AST/AST_Register.cpp
+    src/frontend/AST/AST_Function.cpp
+
+    src/frontend/antlr-gen/QBorrowBaseListener.cpp
+    src/frontend/antlr-gen/QBorrowBaseVisitor.cpp
+    src/frontend/antlr-gen/QBorrowLexer.cpp
+    src/frontend/antlr-gen/QBorrowListener.cpp
+    src/frontend/antlr-gen/QBorrowParser.cpp
+    src/frontend/antlr-gen/QBorrowVisitor.cpp
 )
 
 # ( -I)
 target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/include/AST
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/frontend
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/frontend/AST
 
     ${ANTLR4_GENERATED_HEADERS_OUTPUT_DIR}   
     ${PROJECT_INCLUDE_DIRS}                   
