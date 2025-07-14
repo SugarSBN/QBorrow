@@ -2,6 +2,9 @@
 #include "Argument.h"
 #include <fstream>
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"      
+
 Argument_Parser :: Argument_Parser(std :: ostream & error_stream) : error_output_(error_stream) {
 
 }
@@ -37,6 +40,19 @@ bool Argument_Parser :: parse_argument(int argc, char* argv[]){
 
     input_file.close(); 
 
+
+    int idx = 2;
+    while (idx < argc) {
+        if (std :: string(argv[idx]) == "--pretty-print") {
+            need_print_ = true;
+        } else {
+            error_output_ << RED << "[QBorrow Error] Unknown argument: " << argv[idx] << RESET << std :: endl;
+            return false;
+        }
+        idx++;
+    }
+
+
     return true;
 }
 
@@ -44,6 +60,9 @@ std :: string Argument_Parser :: get_parse_result() const {
     return parse_result_;
 }
 
+bool Argument_Parser :: get_need_print() const {
+    return need_print_;
+}
 
 
 

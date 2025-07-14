@@ -3,8 +3,6 @@
 #include <iostream>
 #include <string>
 
-#define RESET   "\033[0m"
-#define RED     "\033[31m"      /* Red */
 
 class Argument_Parser{
 
@@ -25,6 +23,7 @@ public:
         interface to get the result of parsing arguments
     */
     std :: string get_parse_result() const;
+    bool get_need_print() const;
 
 private:
 
@@ -37,6 +36,8 @@ private:
         the result of parsing arguments
     */ 
     std :: string parse_result_;
+
+    bool need_print_ = false;
 
     
     /*
