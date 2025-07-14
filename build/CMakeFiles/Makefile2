@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QDirty/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/qdirty.dir/all
+all: CMakeFiles/qborrow.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/qdirty.dir/clean
+clean: CMakeFiles/qborrow.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/qdirty.dir
+# Target rules for target CMakeFiles/qborrow.dir
 
 # All Build rule for target.
-CMakeFiles/qdirty.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target qdirty"
-.PHONY : CMakeFiles/qdirty.dir/all
+CMakeFiles/qborrow.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target qborrow"
+.PHONY : CMakeFiles/qborrow.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/qdirty.dir/rule: cmake_check_build_system
+CMakeFiles/qborrow.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QDirty/build/CMakeFiles 11
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/qdirty.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/qborrow.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QDirty/build/CMakeFiles 0
-.PHONY : CMakeFiles/qdirty.dir/rule
+.PHONY : CMakeFiles/qborrow.dir/rule
 
 # Convenience name for target.
-qdirty: CMakeFiles/qdirty.dir/rule
-.PHONY : qdirty
+qborrow: CMakeFiles/qborrow.dir/rule
+.PHONY : qborrow
 
 # clean rule for target.
-CMakeFiles/qdirty.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/clean
-.PHONY : CMakeFiles/qdirty.dir/clean
+CMakeFiles/qborrow.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/clean
+.PHONY : CMakeFiles/qborrow.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

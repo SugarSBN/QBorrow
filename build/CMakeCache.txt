@@ -137,7 +137,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=qdirty
+CMAKE_PROJECT_NAME:STATIC=qborrow
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/ranlib
@@ -214,13 +214,13 @@ CVC5_LIB_DIRS:PATH=/usr/local/lib
 JAVA_EXECUTABLE:FILEPATH=/usr/bin/java
 
 //Value Computed by CMake
-qdirty_BINARY_DIR:STATIC=/Users/subonan/subonan_THU/QDirty/build
+qborrow_BINARY_DIR:STATIC=/Users/subonan/subonan_THU/QDirty/build
 
 //Value Computed by CMake
-qdirty_IS_TOP_LEVEL:STATIC=ON
+qborrow_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-qdirty_SOURCE_DIR:STATIC=/Users/subonan/subonan_THU/QDirty
+qborrow_SOURCE_DIR:STATIC=/Users/subonan/subonan_THU/QDirty
 
 
 ########################

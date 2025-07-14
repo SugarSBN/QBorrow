@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named qdirty
+# Target rules for targets named qborrow
 
 # Build rule for target.
-qdirty: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 qdirty
-.PHONY : qdirty
+qborrow: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 qborrow
+.PHONY : qborrow
 
 # fast build rule for target.
-qdirty/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/build
-.PHONY : qdirty/fast
+qborrow/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/build
+.PHONY : qborrow/fast
 
 src/AST.o: src/AST.cpp.o
 .PHONY : src/AST.o
 
 # target to build an object file
 src/AST.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/AST.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST.cpp.o
 .PHONY : src/AST.cpp.o
 
 src/AST.i: src/AST.cpp.i
@@ -142,7 +142,7 @@ src/AST.i: src/AST.cpp.i
 
 # target to preprocess a source file
 src/AST.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/AST.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST.cpp.i
 .PHONY : src/AST.cpp.i
 
 src/AST.s: src/AST.cpp.s
@@ -150,7 +150,7 @@ src/AST.s: src/AST.cpp.s
 
 # target to generate assembly for a file
 src/AST.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/AST.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/AST.cpp.s
 .PHONY : src/AST.cpp.s
 
 src/Argument.o: src/Argument.cpp.o
@@ -158,7 +158,7 @@ src/Argument.o: src/Argument.cpp.o
 
 # target to build an object file
 src/Argument.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/Argument.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Argument.cpp.o
 .PHONY : src/Argument.cpp.o
 
 src/Argument.i: src/Argument.cpp.i
@@ -166,7 +166,7 @@ src/Argument.i: src/Argument.cpp.i
 
 # target to preprocess a source file
 src/Argument.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/Argument.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Argument.cpp.i
 .PHONY : src/Argument.cpp.i
 
 src/Argument.s: src/Argument.cpp.s
@@ -174,7 +174,7 @@ src/Argument.s: src/Argument.cpp.s
 
 # target to generate assembly for a file
 src/Argument.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/Argument.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Argument.cpp.s
 .PHONY : src/Argument.cpp.s
 
 src/Parser.o: src/Parser.cpp.o
@@ -182,7 +182,7 @@ src/Parser.o: src/Parser.cpp.o
 
 # target to build an object file
 src/Parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/Parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Parser.cpp.o
 .PHONY : src/Parser.cpp.o
 
 src/Parser.i: src/Parser.cpp.i
@@ -190,7 +190,7 @@ src/Parser.i: src/Parser.cpp.i
 
 # target to preprocess a source file
 src/Parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/Parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Parser.cpp.i
 .PHONY : src/Parser.cpp.i
 
 src/Parser.s: src/Parser.cpp.s
@@ -198,159 +198,159 @@ src/Parser.s: src/Parser.cpp.s
 
 # target to generate assembly for a file
 src/Parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/Parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/Parser.cpp.s
 .PHONY : src/Parser.cpp.s
 
-src/QDirtyBaseListener.o: src/QDirtyBaseListener.cpp.o
-.PHONY : src/QDirtyBaseListener.o
+src/QBorrowBaseListener.o: src/QBorrowBaseListener.cpp.o
+.PHONY : src/QBorrowBaseListener.o
 
 # target to build an object file
-src/QDirtyBaseListener.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o
-.PHONY : src/QDirtyBaseListener.cpp.o
+src/QBorrowBaseListener.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o
+.PHONY : src/QBorrowBaseListener.cpp.o
 
-src/QDirtyBaseListener.i: src/QDirtyBaseListener.cpp.i
-.PHONY : src/QDirtyBaseListener.i
+src/QBorrowBaseListener.i: src/QBorrowBaseListener.cpp.i
+.PHONY : src/QBorrowBaseListener.i
 
 # target to preprocess a source file
-src/QDirtyBaseListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.i
-.PHONY : src/QDirtyBaseListener.cpp.i
+src/QBorrowBaseListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.i
+.PHONY : src/QBorrowBaseListener.cpp.i
 
-src/QDirtyBaseListener.s: src/QDirtyBaseListener.cpp.s
-.PHONY : src/QDirtyBaseListener.s
+src/QBorrowBaseListener.s: src/QBorrowBaseListener.cpp.s
+.PHONY : src/QBorrowBaseListener.s
 
 # target to generate assembly for a file
-src/QDirtyBaseListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.s
-.PHONY : src/QDirtyBaseListener.cpp.s
+src/QBorrowBaseListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.s
+.PHONY : src/QBorrowBaseListener.cpp.s
 
-src/QDirtyBaseVisitor.o: src/QDirtyBaseVisitor.cpp.o
-.PHONY : src/QDirtyBaseVisitor.o
+src/QBorrowBaseVisitor.o: src/QBorrowBaseVisitor.cpp.o
+.PHONY : src/QBorrowBaseVisitor.o
 
 # target to build an object file
-src/QDirtyBaseVisitor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o
-.PHONY : src/QDirtyBaseVisitor.cpp.o
+src/QBorrowBaseVisitor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o
+.PHONY : src/QBorrowBaseVisitor.cpp.o
 
-src/QDirtyBaseVisitor.i: src/QDirtyBaseVisitor.cpp.i
-.PHONY : src/QDirtyBaseVisitor.i
+src/QBorrowBaseVisitor.i: src/QBorrowBaseVisitor.cpp.i
+.PHONY : src/QBorrowBaseVisitor.i
 
 # target to preprocess a source file
-src/QDirtyBaseVisitor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.i
-.PHONY : src/QDirtyBaseVisitor.cpp.i
+src/QBorrowBaseVisitor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.i
+.PHONY : src/QBorrowBaseVisitor.cpp.i
 
-src/QDirtyBaseVisitor.s: src/QDirtyBaseVisitor.cpp.s
-.PHONY : src/QDirtyBaseVisitor.s
+src/QBorrowBaseVisitor.s: src/QBorrowBaseVisitor.cpp.s
+.PHONY : src/QBorrowBaseVisitor.s
 
 # target to generate assembly for a file
-src/QDirtyBaseVisitor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.s
-.PHONY : src/QDirtyBaseVisitor.cpp.s
+src/QBorrowBaseVisitor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.s
+.PHONY : src/QBorrowBaseVisitor.cpp.s
 
-src/QDirtyLexer.o: src/QDirtyLexer.cpp.o
-.PHONY : src/QDirtyLexer.o
+src/QBorrowLexer.o: src/QBorrowLexer.cpp.o
+.PHONY : src/QBorrowLexer.o
 
 # target to build an object file
-src/QDirtyLexer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o
-.PHONY : src/QDirtyLexer.cpp.o
+src/QBorrowLexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o
+.PHONY : src/QBorrowLexer.cpp.o
 
-src/QDirtyLexer.i: src/QDirtyLexer.cpp.i
-.PHONY : src/QDirtyLexer.i
+src/QBorrowLexer.i: src/QBorrowLexer.cpp.i
+.PHONY : src/QBorrowLexer.i
 
 # target to preprocess a source file
-src/QDirtyLexer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.i
-.PHONY : src/QDirtyLexer.cpp.i
+src/QBorrowLexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.i
+.PHONY : src/QBorrowLexer.cpp.i
 
-src/QDirtyLexer.s: src/QDirtyLexer.cpp.s
-.PHONY : src/QDirtyLexer.s
+src/QBorrowLexer.s: src/QBorrowLexer.cpp.s
+.PHONY : src/QBorrowLexer.s
 
 # target to generate assembly for a file
-src/QDirtyLexer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.s
-.PHONY : src/QDirtyLexer.cpp.s
+src/QBorrowLexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.s
+.PHONY : src/QBorrowLexer.cpp.s
 
-src/QDirtyListener.o: src/QDirtyListener.cpp.o
-.PHONY : src/QDirtyListener.o
+src/QBorrowListener.o: src/QBorrowListener.cpp.o
+.PHONY : src/QBorrowListener.o
 
 # target to build an object file
-src/QDirtyListener.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o
-.PHONY : src/QDirtyListener.cpp.o
+src/QBorrowListener.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o
+.PHONY : src/QBorrowListener.cpp.o
 
-src/QDirtyListener.i: src/QDirtyListener.cpp.i
-.PHONY : src/QDirtyListener.i
+src/QBorrowListener.i: src/QBorrowListener.cpp.i
+.PHONY : src/QBorrowListener.i
 
 # target to preprocess a source file
-src/QDirtyListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.i
-.PHONY : src/QDirtyListener.cpp.i
+src/QBorrowListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.i
+.PHONY : src/QBorrowListener.cpp.i
 
-src/QDirtyListener.s: src/QDirtyListener.cpp.s
-.PHONY : src/QDirtyListener.s
+src/QBorrowListener.s: src/QBorrowListener.cpp.s
+.PHONY : src/QBorrowListener.s
 
 # target to generate assembly for a file
-src/QDirtyListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.s
-.PHONY : src/QDirtyListener.cpp.s
+src/QBorrowListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.s
+.PHONY : src/QBorrowListener.cpp.s
 
-src/QDirtyParser.o: src/QDirtyParser.cpp.o
-.PHONY : src/QDirtyParser.o
+src/QBorrowParser.o: src/QBorrowParser.cpp.o
+.PHONY : src/QBorrowParser.o
 
 # target to build an object file
-src/QDirtyParser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o
-.PHONY : src/QDirtyParser.cpp.o
+src/QBorrowParser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o
+.PHONY : src/QBorrowParser.cpp.o
 
-src/QDirtyParser.i: src/QDirtyParser.cpp.i
-.PHONY : src/QDirtyParser.i
+src/QBorrowParser.i: src/QBorrowParser.cpp.i
+.PHONY : src/QBorrowParser.i
 
 # target to preprocess a source file
-src/QDirtyParser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.i
-.PHONY : src/QDirtyParser.cpp.i
+src/QBorrowParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.i
+.PHONY : src/QBorrowParser.cpp.i
 
-src/QDirtyParser.s: src/QDirtyParser.cpp.s
-.PHONY : src/QDirtyParser.s
+src/QBorrowParser.s: src/QBorrowParser.cpp.s
+.PHONY : src/QBorrowParser.s
 
 # target to generate assembly for a file
-src/QDirtyParser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.s
-.PHONY : src/QDirtyParser.cpp.s
+src/QBorrowParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.s
+.PHONY : src/QBorrowParser.cpp.s
 
-src/QDirtyVisitor.o: src/QDirtyVisitor.cpp.o
-.PHONY : src/QDirtyVisitor.o
+src/QBorrowVisitor.o: src/QBorrowVisitor.cpp.o
+.PHONY : src/QBorrowVisitor.o
 
 # target to build an object file
-src/QDirtyVisitor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o
-.PHONY : src/QDirtyVisitor.cpp.o
+src/QBorrowVisitor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o
+.PHONY : src/QBorrowVisitor.cpp.o
 
-src/QDirtyVisitor.i: src/QDirtyVisitor.cpp.i
-.PHONY : src/QDirtyVisitor.i
+src/QBorrowVisitor.i: src/QBorrowVisitor.cpp.i
+.PHONY : src/QBorrowVisitor.i
 
 # target to preprocess a source file
-src/QDirtyVisitor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.i
-.PHONY : src/QDirtyVisitor.cpp.i
+src/QBorrowVisitor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.i
+.PHONY : src/QBorrowVisitor.cpp.i
 
-src/QDirtyVisitor.s: src/QDirtyVisitor.cpp.s
-.PHONY : src/QDirtyVisitor.s
+src/QBorrowVisitor.s: src/QBorrowVisitor.cpp.s
+.PHONY : src/QBorrowVisitor.s
 
 # target to generate assembly for a file
-src/QDirtyVisitor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.s
-.PHONY : src/QDirtyVisitor.cpp.s
+src/QBorrowVisitor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.s
+.PHONY : src/QBorrowVisitor.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -358,7 +358,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -366,7 +366,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qdirty.dir/build.make CMakeFiles/qdirty.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -377,7 +377,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... qdirty"
+	@echo "... qborrow"
 	@echo "... src/AST.o"
 	@echo "... src/AST.i"
 	@echo "... src/AST.s"
@@ -387,24 +387,24 @@ help:
 	@echo "... src/Parser.o"
 	@echo "... src/Parser.i"
 	@echo "... src/Parser.s"
-	@echo "... src/QDirtyBaseListener.o"
-	@echo "... src/QDirtyBaseListener.i"
-	@echo "... src/QDirtyBaseListener.s"
-	@echo "... src/QDirtyBaseVisitor.o"
-	@echo "... src/QDirtyBaseVisitor.i"
-	@echo "... src/QDirtyBaseVisitor.s"
-	@echo "... src/QDirtyLexer.o"
-	@echo "... src/QDirtyLexer.i"
-	@echo "... src/QDirtyLexer.s"
-	@echo "... src/QDirtyListener.o"
-	@echo "... src/QDirtyListener.i"
-	@echo "... src/QDirtyListener.s"
-	@echo "... src/QDirtyParser.o"
-	@echo "... src/QDirtyParser.i"
-	@echo "... src/QDirtyParser.s"
-	@echo "... src/QDirtyVisitor.o"
-	@echo "... src/QDirtyVisitor.i"
-	@echo "... src/QDirtyVisitor.s"
+	@echo "... src/QBorrowBaseListener.o"
+	@echo "... src/QBorrowBaseListener.i"
+	@echo "... src/QBorrowBaseListener.s"
+	@echo "... src/QBorrowBaseVisitor.o"
+	@echo "... src/QBorrowBaseVisitor.i"
+	@echo "... src/QBorrowBaseVisitor.s"
+	@echo "... src/QBorrowLexer.o"
+	@echo "... src/QBorrowLexer.i"
+	@echo "... src/QBorrowLexer.s"
+	@echo "... src/QBorrowListener.o"
+	@echo "... src/QBorrowListener.i"
+	@echo "... src/QBorrowListener.s"
+	@echo "... src/QBorrowParser.o"
+	@echo "... src/QBorrowParser.i"
+	@echo "... src/QBorrowParser.s"
+	@echo "... src/QBorrowVisitor.o"
+	@echo "... src/QBorrowVisitor.i"
+	@echo "... src/QBorrowVisitor.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

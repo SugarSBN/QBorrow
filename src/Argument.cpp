@@ -8,13 +8,13 @@ Argument_Parser :: Argument_Parser(std :: ostream & error_stream) : error_output
 
 
 void Argument_Parser :: message_absence_input_file(){
-    error_output_ << RED << "[QDirty Error] Input: no input file." << std :: endl;
-    error_output_ << RESET << "[QDirty Usage:] qdirty <input_file_path>";
-    error_output_ << RESET << "   Example: qdirty ../example/eg1.qdt" << std :: endl;
+    error_output_ << RED << "[QBorrow Error] Input: no input file." << std :: endl;
+    error_output_ << RESET << "[QBorrow Usage:] qborrow <input_file_path>";
+    error_output_ << RESET << "   Example: qborrow ../example/eg1.qdt" << std :: endl;
 }
 
 void Argument_Parser :: message_file_open_error(const std :: string& file_path){
-    error_output_ << RED << "[QDirty Error] Input: could not open input file '" << file_path << "'" << std :: endl;
+    error_output_ << RED << "[QBorrow Error] Input: could not open input file '" << file_path << "'" << std :: endl;
 }
 
 bool Argument_Parser :: parse_argument(int argc, char* argv[]){

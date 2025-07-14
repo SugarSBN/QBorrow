@@ -13,11 +13,11 @@ void Custom_Error_Listener :: syntaxError(antlr4 :: Recognizer*,
                                         std::exception_ptr /*e*/) {
     error_occurred_ = true;
     error_output_ << RED
-                  << "[QDirty Error] Lexical or syntax error at line " << line << ", column " << charPositionInLine << ": " << msg 
+                  << "[QBorrow Error] Lexical or syntax error at line " << line << ", column " << charPositionInLine << ": " << msg 
                   << RESET << std :: endl;
 
     if (offendingSymbol) {
-        error_output_ << RED << "[QDirty Error] Offending symbol: " << offendingSymbol -> getText() << std :: endl;
+        error_output_ << RED << "[QBorrow Error] Offending symbol: " << offendingSymbol -> getText() << std :: endl;
     }
 }
 
@@ -33,7 +33,7 @@ bool Custom_Error_Listener :: has_error() const {
 bool Parser :: parse_string(const std :: string& input_string) {
 
     antlr4 :: ANTLRInputStream input(input_string);
-    QDirtyLexer lexer(&input);
+    QBorrowLexer lexer(&input);
 
     lexer.removeErrorListeners();
     lexer.addErrorListener(&custom_error_listener_);
@@ -47,7 +47,7 @@ bool Parser :: parse_string(const std :: string& input_string) {
     }
 
 
-    QDirtyParser parser(&tokens);
+    QBorrowParser parser(&tokens);
     parser.removeErrorListeners();
     parser.addErrorListener(&custom_error_listener_);
 
@@ -64,7 +64,7 @@ bool Parser :: parse_string(const std :: string& input_string) {
 
     } catch (const std :: exception& ex) {
         error_output_ << RED 
-                      << "[QDirty Error] Parse failed: " << ex.what() 
+                      << "[QBorrow Error] Parse failed: " << ex.what() 
                       << RESET << std :: endl;
         return false;
     }
@@ -82,7 +82,7 @@ void Parser :: build_parse_tree(antlr4 :: tree :: ParseTree* tree) {
     statements_.clear();
     if (tree == nullptr) return;
 
-    auto* program_ctx = dynamic_cast<QDirtyParser :: ProgramContext*>(tree);
+    auto* program_ctx = dynamic_cast<QBorrowParser :: ProgramContext*>(tree);
     if (!program_ctx || program_ctx -> statement().empty()) {
         throw std::runtime_error("Empty or invalid program.");
     }
@@ -90,7 +90,7 @@ void Parser :: build_parse_tree(antlr4 :: tree :: ParseTree* tree) {
     visit_statements(program_ctx -> statement());
 }
 
-void Parser :: visit_statements(const std::vector<QDirtyParser::StatementContext*>& stmts){
+void Parser :: visit_statements(const std::vector<QBorrowParser::StatementContext*>& stmts){
 
     for (auto* s : stmts) {
 
@@ -103,7 +103,7 @@ void Parser :: visit_statements(const std::vector<QDirtyParser::StatementContext
 
 
 
-std :: shared_ptr<Stmt> Parser :: visit_statement(QDirtyParser :: StatementContext* ctx) {
+std :: shared_ptr<Stmt> Parser :: visit_statement(QBorrowParser :: StatementContext* ctx) {
 
     if (ctx -> getStart() -> getText() == "let") {
         
@@ -140,7 +140,7 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QDirtyParser :: StatementConte
 
 
 
-std :: shared_ptr<Expr> Parser :: visit_expr(QDirtyParser :: ExprContext* ctx) {
+std :: shared_ptr<Expr> Parser :: visit_expr(QBorrowParser :: ExprContext* ctx) {
     // binary operatior
     if (ctx -> expr() != nullptr && ctx -> term() != nullptr) {
 
@@ -180,7 +180,7 @@ std :: shared_ptr<Expr> Parser :: visit_expr(QDirtyParser :: ExprContext* ctx) {
 }
 
 
-std :: shared_ptr<Expr> Parser :: visit_term(QDirtyParser :: TermContext* ctx) {
+std :: shared_ptr<Expr> Parser :: visit_term(QBorrowParser :: TermContext* ctx) {
     if (ctx -> term()) {
 
         auto left = visit_term(ctx -> term());
@@ -191,7 +191,7 @@ std :: shared_ptr<Expr> Parser :: visit_term(QDirtyParser :: TermContext* ctx) {
     return visit_factor(ctx -> factor());
 }
 
-std :: shared_ptr<Expr> Parser :: visit_factor(QDirtyParser :: FactorContext* ctx) {
+std :: shared_ptr<Expr> Parser :: visit_factor(QBorrowParser :: FactorContext* ctx) {
     if (ctx -> NUMBER()) {
 
         return Expr :: make_number(std :: stoi(ctx -> NUMBER() -> getText()));

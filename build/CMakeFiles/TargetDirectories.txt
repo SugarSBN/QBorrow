@@ -1,3 +1,3 @@
-/Users/subonan/subonan_THU/QDirty/build/CMakeFiles/qdirty.dir
+/Users/subonan/subonan_THU/QDirty/build/CMakeFiles/qborrow.dir
 /Users/subonan/subonan_THU/QDirty/build/CMakeFiles/edit_cache.dir
 /Users/subonan/subonan_THU/QDirty/build/CMakeFiles/rebuild_cache.dir

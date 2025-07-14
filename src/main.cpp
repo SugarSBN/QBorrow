@@ -3,7 +3,7 @@
 #include <fstream>  // 用于文件操作，例如 std :: ifstream
 #include "Argument.h"
 #include "Parser.h" 
-#include "QDirtyParser.h" 
+#include "QBorrowParser.h" 
 
 int main(int argc, char* argv[]) {
     // 1. 检查参数数量

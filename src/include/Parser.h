@@ -6,9 +6,9 @@
 
 // 根据你提供的语法生成的头文件
 #include "AST.h"
-#include "QDirtyLexer.h"
-#include "QDirtyParser.h"
-#include "QDirtyBaseListener.h"
+#include "QBorrowLexer.h"
+#include "QBorrowParser.h"
+#include "QBorrowBaseListener.h"
 
 
 class Custom_Error_Listener : public antlr4 :: BaseErrorListener {
@@ -77,12 +77,12 @@ private:
     /* 
         Visitors, in particular, visit_statements() store results in statements_
     */
-    void visit_statements(const std :: vector<QDirtyParser :: StatementContext*>& stmts);
+    void visit_statements(const std :: vector<QBorrowParser :: StatementContext*>& stmts);
     
-    std :: shared_ptr<Stmt> visit_statement(QDirtyParser :: StatementContext* ctx);
+    std :: shared_ptr<Stmt> visit_statement(QBorrowParser :: StatementContext* ctx);
 
-    std :: shared_ptr<Expr> visit_expr(QDirtyParser :: ExprContext* ctx);
-    std :: shared_ptr<Expr> visit_term(QDirtyParser :: TermContext* ctx);
-    std :: shared_ptr<Expr> visit_factor(QDirtyParser :: FactorContext* ctx);
+    std :: shared_ptr<Expr> visit_expr(QBorrowParser :: ExprContext* ctx);
+    std :: shared_ptr<Expr> visit_term(QBorrowParser :: TermContext* ctx);
+    std :: shared_ptr<Expr> visit_factor(QBorrowParser :: FactorContext* ctx);
 };
 
