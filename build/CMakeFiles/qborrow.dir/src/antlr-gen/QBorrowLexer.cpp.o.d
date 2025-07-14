@@ -1,6 +1,6 @@
-CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o: \
-  /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseVisitor.cpp \
-  /Users/subonan/subonan_THU/QBorrow/src/include/QBorrowBaseVisitor.h \
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o: \
+  /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowLexer.cpp \
+  /Users/subonan/subonan_THU/QBorrow/src/include/antlr-gen/QBorrowLexer.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-runtime.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/algorithm \
@@ -1169,6 +1169,4 @@ CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o: \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathTokenAnywhereElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathTokenElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardAnywhereElement.h \
-  /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardElement.h \
-  /Users/subonan/subonan_THU/QBorrow/src/include/QBorrowVisitor.h \
-  /Users/subonan/subonan_THU/QBorrow/src/include/QBorrowParser.h
+  /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardElement.h

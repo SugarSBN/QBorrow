@@ -1,6 +1,6 @@
-CMakeFiles/qborrow.dir/src/AST.cpp.o: \
-  /Users/subonan/subonan_THU/QBorrow/src/AST.cpp \
-  /Users/subonan/subonan_THU/QBorrow/src/include/AST.h \
+CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o: \
+  /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Stmt.cpp \
+  /Users/subonan/subonan_THU/QBorrow/src/include/AST/AST_Stmt.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/comp.h \
@@ -956,4 +956,6 @@ CMakeFiles/qborrow.dir/src/AST.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__format/formatter_string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__format/formatter_tuple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/print \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/unistd.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/unistd.h \
+  /Users/subonan/subonan_THU/QBorrow/src/include/AST/AST_Expr.h \
+  /Users/subonan/subonan_THU/QBorrow/src/include/AST/AST_Register.h

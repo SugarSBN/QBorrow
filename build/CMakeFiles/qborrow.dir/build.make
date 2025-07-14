@@ -69,19 +69,19 @@ include CMakeFiles/qborrow.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/qborrow.dir/flags.make
 
-CMakeFiles/qborrow.dir/src/AST.cpp.o: CMakeFiles/qborrow.dir/flags.make
-CMakeFiles/qborrow.dir/src/AST.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/AST.cpp
-CMakeFiles/qborrow.dir/src/AST.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/qborrow.dir/src/AST.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/AST.cpp.o -MF CMakeFiles/qborrow.dir/src/AST.cpp.o.d -o CMakeFiles/qborrow.dir/src/AST.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/AST.cpp
+CMakeFiles/qborrow.dir/src/main.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/main.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/main.cpp
+CMakeFiles/qborrow.dir/src/main.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/qborrow.dir/src/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/main.cpp.o -MF CMakeFiles/qborrow.dir/src/main.cpp.o.d -o CMakeFiles/qborrow.dir/src/main.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/main.cpp
 
-CMakeFiles/qborrow.dir/src/AST.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/AST.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/AST.cpp > CMakeFiles/qborrow.dir/src/AST.cpp.i
+CMakeFiles/qborrow.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/main.cpp > CMakeFiles/qborrow.dir/src/main.cpp.i
 
-CMakeFiles/qborrow.dir/src/AST.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/AST.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/AST.cpp -o CMakeFiles/qborrow.dir/src/AST.cpp.s
+CMakeFiles/qborrow.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/main.cpp -o CMakeFiles/qborrow.dir/src/main.cpp.s
 
 CMakeFiles/qborrow.dir/src/Argument.cpp.o: CMakeFiles/qborrow.dir/flags.make
 CMakeFiles/qborrow.dir/src/Argument.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/Argument.cpp
@@ -111,133 +111,181 @@ CMakeFiles/qborrow.dir/src/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/Parser.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/Parser.cpp -o CMakeFiles/qborrow.dir/src/Parser.cpp.s
 
-CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o: CMakeFiles/qborrow.dir/flags.make
-CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseListener.cpp
-CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o -MF CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o.d -o CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseListener.cpp
+CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Expr.cpp
+CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o -MF CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o.d -o CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Expr.cpp
 
-CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseListener.cpp > CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.i
+CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Expr.cpp > CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.i
 
-CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseListener.cpp -o CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.s
+CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Expr.cpp -o CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.s
 
-CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o: CMakeFiles/qborrow.dir/flags.make
-CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseVisitor.cpp
-CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o -MF CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o.d -o CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseVisitor.cpp
+CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Stmt.cpp
+CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o -MF CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o.d -o CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Stmt.cpp
 
-CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseVisitor.cpp > CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.i
+CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Stmt.cpp > CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.i
 
-CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/QBorrowBaseVisitor.cpp -o CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.s
+CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Stmt.cpp -o CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.s
 
-CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o: CMakeFiles/qborrow.dir/flags.make
-CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/QBorrowLexer.cpp
-CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o -MF CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o.d -o CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/QBorrowLexer.cpp
+CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Register.cpp
+CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o -MF CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o.d -o CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Register.cpp
 
-CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/QBorrowLexer.cpp > CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.i
+CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Register.cpp > CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.i
 
-CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/QBorrowLexer.cpp -o CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.s
+CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Register.cpp -o CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.s
 
-CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o: CMakeFiles/qborrow.dir/flags.make
-CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/QBorrowListener.cpp
-CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o -MF CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o.d -o CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/QBorrowListener.cpp
+CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Function.cpp
+CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o -MF CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o.d -o CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Function.cpp
 
-CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/QBorrowListener.cpp > CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.i
+CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Function.cpp > CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.i
 
-CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/QBorrowListener.cpp -o CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.s
+CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/AST/AST_Function.cpp -o CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.s
 
-CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o: CMakeFiles/qborrow.dir/flags.make
-CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/QBorrowParser.cpp
-CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o -MF CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o.d -o CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/QBorrowParser.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowBaseListener.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o -MF CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o.d -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowBaseListener.cpp
 
-CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/QBorrowParser.cpp > CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.i
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowBaseListener.cpp > CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.i
 
-CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/QBorrowParser.cpp -o CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.s
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowBaseListener.cpp -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.s
 
-CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o: CMakeFiles/qborrow.dir/flags.make
-CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/QBorrowVisitor.cpp
-CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o -MF CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o.d -o CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/QBorrowVisitor.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowBaseVisitor.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o -MF CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o.d -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowBaseVisitor.cpp
 
-CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/QBorrowVisitor.cpp > CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.i
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowBaseVisitor.cpp > CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.i
 
-CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/QBorrowVisitor.cpp -o CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.s
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowBaseVisitor.cpp -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.s
 
-CMakeFiles/qborrow.dir/src/main.cpp.o: CMakeFiles/qborrow.dir/flags.make
-CMakeFiles/qborrow.dir/src/main.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/main.cpp
-CMakeFiles/qborrow.dir/src/main.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/qborrow.dir/src/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/main.cpp.o -MF CMakeFiles/qborrow.dir/src/main.cpp.o.d -o CMakeFiles/qborrow.dir/src/main.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/main.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowLexer.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o -MF CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o.d -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowLexer.cpp
 
-CMakeFiles/qborrow.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/main.cpp > CMakeFiles/qborrow.dir/src/main.cpp.i
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowLexer.cpp > CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.i
 
-CMakeFiles/qborrow.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/main.cpp -o CMakeFiles/qborrow.dir/src/main.cpp.s
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowLexer.cpp -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.s
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowListener.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o -MF CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o.d -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowListener.cpp
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowListener.cpp > CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.i
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowListener.cpp -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.s
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowParser.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o -MF CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o.d -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowParser.cpp
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowParser.cpp > CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.i
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowParser.cpp -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.s
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o: CMakeFiles/qborrow.dir/flags.make
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o: /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowVisitor.cpp
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o: CMakeFiles/qborrow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o -MF CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o.d -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o -c /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowVisitor.cpp
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowVisitor.cpp > CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.i
+
+CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QBorrow/src/antlr-gen/QBorrowVisitor.cpp -o CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.s
 
 # Object files for target qborrow
 qborrow_OBJECTS = \
-"CMakeFiles/qborrow.dir/src/AST.cpp.o" \
+"CMakeFiles/qborrow.dir/src/main.cpp.o" \
 "CMakeFiles/qborrow.dir/src/Argument.cpp.o" \
 "CMakeFiles/qborrow.dir/src/Parser.cpp.o" \
-"CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o" \
-"CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o" \
-"CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o" \
-"CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o" \
-"CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o" \
-"CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o" \
-"CMakeFiles/qborrow.dir/src/main.cpp.o"
+"CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o" \
+"CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o" \
+"CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o" \
+"CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o" \
+"CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o" \
+"CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o" \
+"CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o" \
+"CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o" \
+"CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o" \
+"CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o"
 
 # External object files for target qborrow
 qborrow_EXTERNAL_OBJECTS =
 
-qborrow: CMakeFiles/qborrow.dir/src/AST.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/main.cpp.o
 qborrow: CMakeFiles/qborrow.dir/src/Argument.cpp.o
 qborrow: CMakeFiles/qborrow.dir/src/Parser.cpp.o
-qborrow: CMakeFiles/qborrow.dir/src/QBorrowBaseListener.cpp.o
-qborrow: CMakeFiles/qborrow.dir/src/QBorrowBaseVisitor.cpp.o
-qborrow: CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o
-qborrow: CMakeFiles/qborrow.dir/src/QBorrowListener.cpp.o
-qborrow: CMakeFiles/qborrow.dir/src/QBorrowParser.cpp.o
-qborrow: CMakeFiles/qborrow.dir/src/QBorrowVisitor.cpp.o
-qborrow: CMakeFiles/qborrow.dir/src/main.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/AST/AST_Expr.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/AST/AST_Stmt.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/AST/AST_Register.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/AST/AST_Function.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseListener.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowBaseVisitor.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowLexer.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowListener.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowParser.cpp.o
+qborrow: CMakeFiles/qborrow.dir/src/antlr-gen/QBorrowVisitor.cpp.o
 qborrow: CMakeFiles/qborrow.dir/build.make
 qborrow: CMakeFiles/qborrow.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable qborrow"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable qborrow"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/qborrow.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

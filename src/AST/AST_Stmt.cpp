@@ -1,67 +1,5 @@
 
-#include "AST.h"
-#include <string>
-
-
-
-
-
-// Expr factory methods
-
-std :: shared_ptr<Expr> Expr :: make_variable(const std :: string& name) { 
-    return std :: make_shared<Expr>(Expr{
-        Expr_Type :: ID,
-        Expr_ID{name}
-    });
-}
-
-
-std :: shared_ptr<Expr> Expr :: make_number(int value) {
-    return std :: make_shared<Expr>(Expr{
-        Expr_Type :: NUMBER,
-        Expr_Number{value}
-    });
-}
-
-
-std :: shared_ptr<Expr> Expr :: make_unary_op(Unary_Op op, std :: shared_ptr<Expr> operand) {
-    return std :: make_shared<Expr>(Expr{
-        Expr_Type :: UnaryOp,
-        Expr_Unary_Op{op, std :: move(operand)}
-    });
-}
-
-
-std :: shared_ptr<Expr> Expr :: make_binary_op(Binary_Op op,
-                                                std :: shared_ptr<Expr> left,
-                                                std :: shared_ptr<Expr> right) {
-    return std :: make_shared<Expr>(Expr{
-        Expr_Type :: BinaryOp,
-        Expr_Binary_Op{op, std :: move(left), std :: move(right)}
-    });
-}
-
-
-/*
-    register factory method
-*/
-std :: shared_ptr<Register> Register :: make_register(const std :: string& name, std :: shared_ptr<Expr> size) {
-    return std :: make_shared<Register>(Register{
-        name, 
-        std :: move(size)
-    });
-}
-
-/*
-    function factory method
-*/
-std :: shared_ptr<Function> Function :: make_function(const std :: string& name, 
-                                            const std :: vector<std :: string>& params, 
-                                            const std :: vector<std :: shared_ptr<Register> >& registers,
-                                            const std :: vector<std :: shared_ptr<Stmt> >& body) {
-    return std :: make_shared<Function>(name, params, registers, body);
-}
-
+#include "AST_Stmt.h"
 
 // Stmt factory methods
 
@@ -93,15 +31,20 @@ std :: shared_ptr<Stmt> Stmt :: make_cnot(std :: shared_ptr<Register> control, s
 std :: shared_ptr<Stmt> Stmt :: make_ccnot(std :: shared_ptr<Register> control1, 
                                               std :: shared_ptr<Register> control2, 
                                               std :: shared_ptr<Register> target) { 
-        return std :: make_shared<Stmt>(Stmt_Type::CCNOT, std :: move(control1), std :: move(control2), std :: move(target));
+        return std :: make_shared<Stmt>(Stmt_Type :: CCNOT, std :: move(control1), std :: move(control2), std :: move(target));
 }
 std :: shared_ptr<Stmt> Stmt :: make_for(const std :: string& id, 
                                             std :: shared_ptr<Expr> start, 
                                             std :: shared_ptr<Expr> end, 
                                             std :: vector<std :: shared_ptr<Stmt>> body) {
-        return std :: make_shared<Stmt>(Stmt_Type::FOR, id, std :: move(start), std :: move(end), std :: move(body));
+        return std :: make_shared<Stmt>(Stmt_Type :: FOR, id, std :: move(start), std :: move(end), std :: move(body));
 }
 
+std :: shared_ptr<Stmt> Stmt :: make_call(const std :: string& function_name, 
+                                             const std :: vector<std :: shared_ptr<Expr> >& args,
+                                             const std :: vector<std :: shared_ptr<Register> >& regs) {
+        return std :: make_shared<Stmt>(Stmt_Type :: CALL, function_name, args, regs);
+}
 
 
 
@@ -110,59 +53,14 @@ Stmt :: Stmt_Type Stmt :: get_type() const {
 }
 
 
+
 /*
-        pretty print expressions
+    pretty print statements
 */
+
 #define RED "\033[35m"
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
-
-void Expr :: print_expr(std :: ostream& os) const {
-        switch (type_) {
-            case Expr_Type :: ID:
-                os << std :: get<Expr_ID>(expr_).id_;
-                break;
-            case Expr_Type :: NUMBER:
-                os << std :: get<Expr_Number>(expr_).number_;
-                break;
-            case Expr_Type :: UnaryOp: {
-                const auto& unary = std :: get<Expr_Unary_Op>(expr_);
-
-                switch (unary.op_) {
-                    case Unary_Op :: NEGATE: os << "-"; break;
-                }
-
-                os << "(";
-                unary.operand_ -> print_expr(os);
-                os << ")";
-                break;
-            }
-            case Expr_Type :: BinaryOp: {
-                const auto& binary = std :: get<Expr_Binary_Op>(expr_);
-
-                os << "(";
-                binary.left_ -> print_expr(os);
-
-                switch (binary.op_) {
-                    case Binary_Op :: ADD: os << RED << "+" << RESET; break;
-                    case Binary_Op :: MUL: os << RED << "*" << RESET; break;
-                    case Binary_Op :: SUB: os << RED << "-" << RESET; break;
-                }
-                binary.right_ -> print_expr(os);
-                os << ")";
-                break;
-            }
-        }
-    }
-
-void Register :: print_register(std :: ostream& os) const {
-    os << name_;
-    if (size_ != nullptr) {
-        os << "["; 
-        size_ -> print_expr(os);
-        os << "]";
-    }
-}
 
 void Stmt :: print_stmt(std :: ostream& os, int layer) const {
     for (int i = 0; i < layer; ++i) 
@@ -241,31 +139,25 @@ void Stmt :: print_stmt(std :: ostream& os, int layer) const {
             os << std :: endl << "}";
             break;
         }
-    }
-}
-
-
-void Function :: print_function(std :: ostream& os) const {
-    os << BLUE << "function " << RESET << name_ << "(";
-    for (size_t i = 0; i < params_.size(); i++) {
-        os << params_[i];
-        if (i < params_.size() - 1) {
-            os << ", ";
+        case Stmt_Type :: CALL : {
+            const auto& call_stmt = std :: get<Stmt_Call>(stmt_);
+            os << BLUE << "call " << RESET << call_stmt.function_name_ << "(";
+            for (size_t i = 0; i < call_stmt.args_.size(); ++i) {
+                call_stmt.args_[i] -> print_expr(os);
+                if (i < call_stmt.args_.size() - 1) {
+                    os << ", ";
+                }
+            }
+            os << ") [";
+            for (size_t i = 0; i < call_stmt.regs_.size(); ++i) {
+                call_stmt.regs_[i] -> print_register(os);
+                if (i < call_stmt.regs_.size() - 1) {
+                    os << ", ";
+                }
+            }
+            os << "]";
+            os << ";";
+            break;
         }
     }
-    os << ") [";
-
-    for (const auto& reg : registers_) {
-        reg -> print_register(os);
-        os << ",  ";
-    }
-
-    os << "] {";
-
-    for (const auto& stmt : body_) {
-        os << std :: endl;
-        stmt -> print_stmt(os, 1);
-    }
-
-    os << std :: endl << "}";
 }

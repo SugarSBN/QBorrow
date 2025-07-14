@@ -1,4 +1,4 @@
-// AST 节点结构
+
 #pragma once 
 #include <string>
 #include <vector>
@@ -6,106 +6,8 @@
 #include <memory>
 #include <variant>
 
-struct Expr {
-
-    /*
-        expression types
-        ID: variable name
-        NUMBER: integer number
-        UnaryOp: unary operator, e.g., -x
-        BinaryOp: binary operator, e.g., x + y
-    */
-    enum class Expr_Type {
-        ID,
-        NUMBER,
-        UnaryOp,
-        BinaryOp
-    };
-
-    /*
-        operator types
-    */
-    enum class Unary_Op {
-        NEGATE
-    };
-
-    enum class Binary_Op {
-        ADD,
-        MUL,
-        SUB
-    };
-
-
-    /*
-        specific expressions
-    */
-    struct Expr_ID {
-        std :: string id_;
-    };
-
-    struct Expr_Number {
-        int number_;  
-    };
-
-    struct Expr_Unary_Op {
-        Unary_Op op_;
-        std :: shared_ptr<Expr> operand_;
-    };
-
-    struct Expr_Binary_Op {
-        Binary_Op op_;
-        std :: shared_ptr<Expr> left_;
-        std :: shared_ptr<Expr> right_;
-    };
-
-
-    /*
-        an expression is a type + variant.
-    */
-    Expr_Type type_;
-
-    std :: variant<
-        Expr_ID,
-        Expr_Number,
-        Expr_Unary_Op,
-        Expr_Binary_Op
-    > expr_;
-
-
-    
-    /*
-        factory methods for creating pointers to expressions
-    */ 
-    static std :: shared_ptr<Expr> make_variable(const std :: string& name);
-    static std :: shared_ptr<Expr> make_number(int value);
-    static std :: shared_ptr<Expr> make_unary_op(Unary_Op op, std :: shared_ptr<Expr> operand);
-    static std :: shared_ptr<Expr> make_binary_op(Binary_Op op,
-                                                std :: shared_ptr<Expr> left,
-                                                std :: shared_ptr<Expr> right);
-
-
-    /*        
-        pretty print expressions
-    */
-    void print_expr(std :: ostream& os = std :: cout) const;
-};
-
-
-
-struct Register {
-    std :: string name_;
-    std :: shared_ptr<Expr> size_;
-
-    static std :: shared_ptr<Register> make_register(const std :: string& name, std :: shared_ptr<Expr> size);
-
-    void print_register(std :: ostream& os = std :: cout) const;
-};
-
-
-
-
-
-
+#include "AST_Expr.h"
+#include "AST_Register.h"
 
 class Stmt {
     
@@ -122,6 +24,7 @@ public:
         CNOT, 
         CCNOT,
         FOR,
+        CALL
     };
 
 
@@ -167,6 +70,12 @@ public:
         std :: vector<std :: shared_ptr<Stmt> > body_;
     };
 
+    struct Stmt_Call {
+        std :: string function_name_;
+        std :: vector<std :: shared_ptr<Expr> > args_;
+        std :: vector<std :: shared_ptr<Register> > regs_;
+    };
+
 
     /*
         constructors
@@ -200,6 +109,10 @@ public:
     explicit Stmt (Stmt_Type t, const std :: string& id, std :: shared_ptr<Expr> start, std :: shared_ptr<Expr> end, std :: vector<std :: shared_ptr<Stmt>> body)
         : stmt_(Stmt_For{id, start, end, std::move(body)}), type_(t) {}
 
+    explicit Stmt (Stmt_Type t, const std :: string& function_name, 
+                   const std :: vector<std :: shared_ptr<Expr> >& args,
+                   const std :: vector<std :: shared_ptr<Register> >& regs)
+        : stmt_(Stmt_Call{function_name, args, regs}), type_(t) {}
 
     /*
         factory methods for creating pointers to statements
@@ -217,7 +130,11 @@ public:
                                             std :: shared_ptr<Expr> start, 
                                             std :: shared_ptr<Expr> end, 
                                             std :: vector<std :: shared_ptr<Stmt>> body);
+    static std :: shared_ptr<Stmt> make_call(const std :: string& function_name, 
+                                             const std :: vector<std :: shared_ptr<Expr> >& args,
+                                             const std :: vector<std :: shared_ptr<Register> >& regs);
 
+                                        
     /*
         interfaces to obtain the statement type and its content
     */ 
@@ -229,7 +146,8 @@ public:
         Stmt_X,
         Stmt_CNOT,
         Stmt_CCNOT,
-        Stmt_For
+        Stmt_For,
+        Stmt_Call
     > get_stmt() const;
 
     Stmt_Type get_type() const;
@@ -252,7 +170,8 @@ private:
         Stmt_X,
         Stmt_CNOT,
         Stmt_CCNOT,
-        Stmt_For
+        Stmt_For,
+        Stmt_Call
     > stmt_;
 
     Stmt_Type type_;
@@ -262,23 +181,4 @@ private:
 
 
 
-struct Function {
-    std :: string name_;
-    std :: vector<std :: string> params_;
-    std :: vector<std :: shared_ptr<Register> > registers_;
-    std :: vector<std :: shared_ptr<Stmt> > body_;
 
-    Function(const std :: string& name, 
-             const std :: vector<std :: string>& params, 
-             const std :: vector<std :: shared_ptr<Register> >& registers,
-             const std :: vector<std :: shared_ptr<Stmt> >& body)
-        : name_(name), params_(params), registers_(registers), body_(body) {}
-    
-    static std :: shared_ptr<Function> make_function(const std :: string& name, 
-                                            const std :: vector<std :: string>& params, 
-                                            const std :: vector<std :: shared_ptr<Register> >& registers,
-                                            const std :: vector<std :: shared_ptr<Stmt> >& body);
-
-    void print_function(std :: ostream& os = std :: cout) const;
-
-};

@@ -2,6 +2,7 @@ function CCCNOT () [q1, q2, q3, q4] {
     alloc anc;
     CCNOT[q1, q2, anc];
     CCNOT[q3, anc, q4];
+    release anc;
 }
 
 

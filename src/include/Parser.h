@@ -4,7 +4,7 @@
 #include <exception> // for std::exception_ptr
 #include "antlr4-runtime.h"
 
-#include "AST.h"
+#include "./AST/AST.h"
 #include "QBorrowLexer.h"
 #include "QBorrowParser.h"
 #include "QBorrowBaseListener.h"

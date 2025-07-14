@@ -13,6 +13,7 @@ statement
     | 'CNOT' '[' reg ',' reg ']' ';'
     | 'CCNOT' '[' reg ',' reg ',' reg ']' ';'
     | 'for' ID '=' expr 'to' expr '{' statement* '}'
+    | 'call' ID '(' (ID (',' ID)*)?  ')' '[' (reg (',' reg)*)?  ']' ';'
     ;
 
 function
