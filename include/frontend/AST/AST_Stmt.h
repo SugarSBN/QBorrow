@@ -80,6 +80,19 @@ public:
     /*
         constructors
     */
+    explicit Stmt (Stmt_Type t, std :: variant<
+        Stmt_Let,
+        Stmt_Borrow,
+        Stmt_Alloc,
+        Stmt_Rel,
+        Stmt_X,
+        Stmt_CNOT,
+        Stmt_CCNOT,
+        Stmt_For,
+        Stmt_Call
+    > stmt)
+        : stmt_(std::move(stmt)), type_(t) {}
+        
     explicit Stmt (Stmt_Type t, const std :: string& name, std :: shared_ptr<Expr> expr)
         : stmt_(Stmt_Let{name, expr}), type_(t) {}
     
@@ -117,6 +130,18 @@ public:
     /*
         factory methods for creating pointers to statements
     */ 
+    static std :: shared_ptr<Stmt> make_stmt(Stmt_Type type, 
+                                              std :: variant<
+                                                  Stmt_Let,
+                                                  Stmt_Borrow,
+                                                  Stmt_Alloc,
+                                                  Stmt_Rel,
+                                                  Stmt_X,
+                                                  Stmt_CNOT,
+                                                  Stmt_CCNOT,
+                                                  Stmt_For,
+                                                  Stmt_Call
+                                              > stmt);
     static std :: shared_ptr<Stmt> make_let(const std :: string& name, std :: shared_ptr<Expr> expr);
     static std :: shared_ptr<Stmt> make_borrow(std :: shared_ptr<Register> reg);
     static std :: shared_ptr<Stmt> make_alloc(std :: shared_ptr<Register> reg);
@@ -133,7 +158,8 @@ public:
     static std :: shared_ptr<Stmt> make_call(const std :: string& function_name, 
                                              const std :: vector<std :: shared_ptr<Expr> >& args,
                                              const std :: vector<std :: shared_ptr<Register> >& regs);
-
+    
+    std :: shared_ptr<Stmt> substitute(const std :: string& name, std :: shared_ptr<Expr> value) const;
                                         
     /*
         interfaces to obtain the statement type and its content
@@ -151,6 +177,7 @@ public:
     > get_stmt() const;
 
     Stmt_Type get_type() const;
+
 
     /*
         pretty print statements

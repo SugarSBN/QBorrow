@@ -45,6 +45,9 @@ bool Argument_Parser :: parse_argument(int argc, char* argv[]){
     while (idx < argc) {
         if (std :: string(argv[idx]) == "--pretty-print") {
             need_print_ = true;
+        } else 
+        if (std :: string(argv[idx]) == "--no-print-let") {
+            need_print_remove_let_ = false;
         } else {
             error_output_ << RED << "[QBorrow Error] Unknown argument: " << argv[idx] << RESET << std :: endl;
             return false;
@@ -64,6 +67,10 @@ bool Argument_Parser :: get_need_print() const {
     return need_print_;
 }
 
+
+bool Argument_Parser :: get_need_print_remove_let() const {
+    return need_print_remove_let_;
+}
 
 
 

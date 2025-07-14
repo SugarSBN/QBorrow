@@ -3,23 +3,31 @@
 #include <fstream>  
 #include "Argument.h"
 #include "Parser.h" 
+#include "Preprocessor.h"
 #include "QBorrowParser.h" 
+
+#define RED "\033[35m"
+#define BLUE "\033[34m"
+#define RESET "\033[0m"
 
 int main(int argc, char* argv[]) {
 
     std :: string contents;
     Argument_Parser argument_parser(std :: cerr); 
 
-    if (argument_parser.parse_argument(argc, argv) == false) 
+    if (argument_parser.parse_argument(argc, argv) == false) {
+        std :: cerr << RED << "Argument parsing failed." << std :: endl;
         return 1;
+    }
 
-    // std :: cout << argument_parser.get_parse_result() << std :: endl;
 
     Parser parser(std :: cerr);
 
-    if (parser.parse_string(argument_parser.get_parse_result()) == true){
-        /* */
+    if (parser.parse_string(argument_parser.get_parse_result()) == false) {
+        std :: cerr << RED << "Parsing failed." << std :: endl;
+        return 1;
     }
+
     std :: vector<std :: shared_ptr<Stmt> > statements = parser.get_statements();
     std :: vector<std :: shared_ptr<Function> > functions = parser.get_functions();
 
@@ -34,6 +42,16 @@ int main(int argc, char* argv[]) {
             std :: cout << std :: endl;
         }
     }
+
+    
+    Preprocessor preprocessor(std :: cout, std :: cerr);
+
+    if (preprocessor.preprocess(functions, statements, 
+                                argument_parser.get_need_print_remove_let()) == false) {
+        std :: cerr << "Preprocessing failed." << std :: endl;
+        return 1;
+    }
+    
 
     return 0;
 }

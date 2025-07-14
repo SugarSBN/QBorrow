@@ -9,4 +9,6 @@ struct Register {
     static std :: shared_ptr<Register> make_register(const std :: string& name, std :: shared_ptr<Expr> size);
 
     void print_register(std :: ostream& os = std :: cout) const;
+
+    std :: shared_ptr<Register> substitute(const std :: string& name, std :: shared_ptr<Expr> value) const;
 };

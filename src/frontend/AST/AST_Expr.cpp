@@ -80,3 +80,33 @@ void Expr :: print_expr(std :: ostream& os) const {
         }
     }
 }
+
+
+
+std :: shared_ptr<Expr> Expr :: substitute(const std :: string& name, std :: shared_ptr<Expr> value) const {
+    switch (type_) {
+        case Expr_Type :: ID: {
+            const auto& id_expr = std :: get<Expr_ID>(expr_);
+
+            if (id_expr.id_ == name) {
+                return value;
+            }
+
+            return make_variable(id_expr.id_);
+        }
+        case Expr_Type :: NUMBER: {
+            const auto& number_expr = std :: get<Expr_Number>(expr_);
+            return make_number(number_expr.number_);
+        }
+        case Expr_Type :: UnaryOp: {
+            const auto& unary_expr = std :: get<Expr_Unary_Op>(expr_);
+            return make_unary_op(unary_expr.op_, unary_expr.operand_ -> substitute(name, value));
+        }
+        case Expr_Type :: BinaryOp: {
+            const auto& binary_expr = std :: get<Expr_Binary_Op>(expr_);
+            return make_binary_op(binary_expr.op_,
+                                  binary_expr.left_ -> substitute(name, value),
+                                  binary_expr.right_ -> substitute(name, value));
+        }
+    }
+}

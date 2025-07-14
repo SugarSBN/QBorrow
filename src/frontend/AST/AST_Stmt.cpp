@@ -3,6 +3,21 @@
 
 // Stmt factory methods
 
+std :: shared_ptr<Stmt> Stmt :: make_stmt(Stmt_Type type, 
+                                              std :: variant<
+                                                  Stmt_Let,
+                                                  Stmt_Borrow,
+                                                  Stmt_Alloc,
+                                                  Stmt_Rel,
+                                                  Stmt_X,
+                                                  Stmt_CNOT,
+                                                  Stmt_CCNOT,
+                                                  Stmt_For,
+                                                  Stmt_Call
+                                              > stmt) {
+    return std :: make_shared<Stmt>(type, std :: move(stmt));
+}
+
 std :: shared_ptr<Stmt> Stmt :: make_let(const std :: string& name, std :: shared_ptr<Expr> expr){
         return std :: make_shared<Stmt>(Stmt_Type :: LET, name, std :: move(expr));
 }
@@ -47,10 +62,68 @@ std :: shared_ptr<Stmt> Stmt :: make_call(const std :: string& function_name,
 }
 
 
+std :: shared_ptr<Stmt> Stmt :: substitute(const std :: string& name, std :: shared_ptr<Expr> value) const {
+    switch (type_) {
+        case Stmt_Type :: LET: {
+            const auto& let_stmt = std :: get<Stmt_Let>(stmt_);
+            return Stmt :: make_let(let_stmt.id_, let_stmt.expr_ ? let_stmt.expr_ -> substitute(name, value) : nullptr);
+        }
+        case Stmt_Type :: BORROW: {
+            const auto& borrow_stmt = std :: get<Stmt_Borrow>(stmt_);
+            return Stmt :: make_borrow(borrow_stmt.register_ -> substitute(name, value));
+        }
+        case Stmt_Type :: ALLOC: {
+            const auto& alloc_stmt = std :: get<Stmt_Alloc>(stmt_);
+            return Stmt :: make_alloc(alloc_stmt.register_ -> substitute(name, value));
+        }
+        case Stmt_Type :: X: {
+            const auto& x_stmt = std :: get<Stmt_X>(stmt_);
+            return Stmt :: make_x(x_stmt.target_ -> substitute(name, value));
+        }
+        case Stmt_Type :: CNOT: {
+            const auto& cnot_stmt = std :: get<Stmt_CNOT>(stmt_);
+            return Stmt :: make_cnot(cnot_stmt.control_ -> substitute(name, value), cnot_stmt.target_ -> substitute(name, value));
+        }
+        case Stmt_Type :: CCNOT: {
+            const auto& ccnot_stmt = std :: get<Stmt_CCNOT>(stmt_);
+            return Stmt :: make_ccnot(ccnot_stmt.control1_ -> substitute(name, value), 
+                                      ccnot_stmt.control2_ -> substitute(name, value), 
+                                      ccnot_stmt.target_ -> substitute(name, value));
+        }
+        case Stmt_Type :: FOR: {
+            const auto& for_stmt = std :: get<Stmt_For>(stmt_);
+            std :: vector<std :: shared_ptr<Stmt> > new_body;
+            new_body.clear();
+            for (const auto& body_stmt : for_stmt.body_) {
+                new_body.push_back(body_stmt->substitute(name, value));
+            }
+            return Stmt :: make_for(for_stmt.id_, for_stmt.start_ -> substitute(name, value), 
+                                  for_stmt.end_ -> substitute(name, value), std :: move(new_body));
+        }
+        default:
+            return make_stmt(type_, stmt_);
+    }
+}
+
 
 Stmt :: Stmt_Type Stmt :: get_type() const {
     return type_;
 }
+
+std :: variant<
+        Stmt :: Stmt_Let,
+        Stmt :: Stmt_Borrow,
+        Stmt :: Stmt_Alloc,
+        Stmt :: Stmt_Rel,
+        Stmt :: Stmt_X,
+        Stmt :: Stmt_CNOT,
+        Stmt :: Stmt_CCNOT,
+        Stmt :: Stmt_For,
+        Stmt :: Stmt_Call
+    > Stmt :: get_stmt() const{
+    return stmt_;
+}
+
 
 
 
@@ -76,7 +149,7 @@ void Stmt :: print_stmt(std :: ostream& os, int layer) const {
         }
         case Stmt_Type :: BORROW : {
             const auto& borrow_stmt = std :: get<Stmt_Borrow>(stmt_);
-            os << BLUE << "borrow " << RESET << borrow_stmt.register_ -> name_;
+            os << BLUE << "borrow " << RESET;
             borrow_stmt.register_ -> print_register(os);
             os << ";";
             break;

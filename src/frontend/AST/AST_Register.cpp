@@ -28,3 +28,7 @@ void Register :: print_register(std :: ostream& os) const {
         os << "]";
     }
 }
+
+std :: shared_ptr<Register> Register :: substitute(const std :: string& name, std :: shared_ptr<Expr> value) const {
+    return Register::make_register(name_, size_ ? size_ -> substitute(name, value) : nullptr);
+}

@@ -171,9 +171,10 @@ add_compile_options(-Wall -Wextra -O2)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    
+
     src/frontend/Argument.cpp
     src/frontend/Parser.cpp
+    src/frontend/Preprocessor.cpp
 
     src/frontend/AST/AST_Expr.cpp
     src/frontend/AST/AST_Stmt.cpp

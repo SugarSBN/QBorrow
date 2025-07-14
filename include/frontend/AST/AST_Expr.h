@@ -88,4 +88,10 @@ struct Expr {
         pretty print expressions
     */
     void print_expr(std :: ostream& os = std :: cout) const;
+
+    /*
+        Substitution
+    */
+    std :: shared_ptr<Expr> substitute(const std :: string& name, std :: shared_ptr<Expr> value) const;
+
 };
