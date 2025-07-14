@@ -1,2 +1,3 @@
-let n = 10; // number of qubit
-borrow q[n + 1];
+let n = (3+4)*12; // number of qubit
+let m = 4;
+let q3 = 123+456;

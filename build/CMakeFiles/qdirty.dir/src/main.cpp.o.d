@@ -1,5 +1,5 @@
 CMakeFiles/qdirty.dir/src/main.cpp.o: \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/main.cpp \
+  /Users/subonan/subonan_THU/QDirty/src/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assertion_handler \
@@ -976,8 +976,8 @@ CMakeFiles/qdirty.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/Argument.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/Parser.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/Argument.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/Parser.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-runtime.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/any \
@@ -1171,8 +1171,8 @@ CMakeFiles/qdirty.dir/src/main.cpp.o: \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathTokenElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardAnywhereElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardElement.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/AST.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyLexer.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyParser.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyBaseListener.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyListener.h
+  /Users/subonan/subonan_THU/QDirty/src/include/AST.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyLexer.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyParser.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyBaseListener.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyListener.h

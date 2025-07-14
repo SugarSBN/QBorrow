@@ -37,7 +37,6 @@ Parser :: Parser(std :: ostream& err_output)
 
 bool Parser :: parse_string(const std :: string& input_string) {
 
-    parse_tree_root_ = nullptr; 
     antlr4 :: ANTLRInputStream input(input_string);
     QDirtyLexer lexer(&input);
 
@@ -72,44 +71,51 @@ bool Parser :: parse_string(const std :: string& input_string) {
         error_output_ << RED 
                       << "[QDirty Error] Parse failed: " << ex.what() 
                       << RESET << std :: endl;
-        parse_tree_root_ = nullptr;
         return false;
     }
 
     return true;
 }
 
-std :: shared_ptr<Stmt> Parser :: get_parse_tree() const {
-    return parse_tree_root_;
+std :: vector<std :: shared_ptr<Stmt> > Parser :: get_statements() const{
+    return statements_;
 }
-
 
 
 void Parser :: build_parse_tree(antlr4 :: tree :: ParseTree* tree) {
 
-    parse_tree_root_ = nullptr;
+    statements_.clear();
     if (tree == nullptr) return;
 
-    auto* programCtx = dynamic_cast<QDirtyParser :: ProgramContext*>(tree);
+    auto* program_ctx = dynamic_cast<QDirtyParser :: ProgramContext*>(tree);
+    if (!program_ctx || program_ctx -> statement().empty()) {
+        throw std::runtime_error("Empty or invalid program.");
+    }
 
-    if (programCtx -> statement().empty()) 
-        throw std :: runtime_error("No statements found.");
+    visit_statements(program_ctx -> statement());
+}
 
-    parse_tree_root_ = std :: make_shared<Stmt>(visit_statement(programCtx -> statement(0)));
+void Parser :: visit_statements(const std::vector<QDirtyParser::StatementContext*>& stmts){
+
+    for (auto* s : stmts) {
+
+        statements_.push_back(visit_statement(s));
+        
+    }
+
+    return;
 }
 
 
 
-
-
-Stmt Parser :: visit_statement(QDirtyParser :: StatementContext* ctx) {
+std :: shared_ptr<Stmt> Parser :: visit_statement(QDirtyParser :: StatementContext* ctx) {
 
     if (ctx -> getStart() -> getText() == "let") {
         
         std :: string id = ctx -> ID() -> getText();
         auto expr = visit_expr(ctx -> expr());
 
-        return Stmt(Stmt :: Stmt_Type :: LET, id, expr);
+        return Stmt :: make_let(id, expr);
 
     } else if (ctx->getStart()->getText() == "borrow") {
 
@@ -126,7 +132,7 @@ Stmt Parser :: visit_statement(QDirtyParser :: StatementContext* ctx) {
 
 
 
-std::shared_ptr<Expr> Parser :: visit_expr(QDirtyParser :: ExprContext* ctx) {
+std :: shared_ptr<Expr> Parser :: visit_expr(QDirtyParser :: ExprContext* ctx) {
     // binary operatior
     if (ctx -> expr() != nullptr && ctx -> term() != nullptr) {
 

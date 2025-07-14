@@ -41,7 +41,10 @@ public:
 
     bool parse_string(const std :: string& input_string);
 
-    std :: shared_ptr<Stmt> get_parse_tree() const;
+    /*
+        get the parsed statements
+    */
+    std :: vector<std :: shared_ptr<Stmt> > get_statements() const;
 
 private:
     void build_parse_tree(antlr4 :: tree :: ParseTree* tree);
@@ -50,10 +53,16 @@ private:
 
     Custom_Error_Listener custom_error_listener_;
 
-    std :: shared_ptr<Stmt> parse_tree_root_;
+    std :: vector<std :: shared_ptr<Stmt> > statements_;
 
-    Stmt visit_statement(QDirtyParser :: StatementContext* ctx);
 
+    /* 
+        Visitors, in particular, visit_statements() store results in statements_
+    */
+    void visit_statements(const std :: vector<QDirtyParser :: StatementContext*>& stmts);
+
+    std :: shared_ptr<Stmt> visit_statement(QDirtyParser :: StatementContext* ctx);
+    
     std :: shared_ptr<Expr> visit_expr(QDirtyParser :: ExprContext* ctx);
     std :: shared_ptr<Expr> visit_term(QDirtyParser :: TermContext* ctx);
     std :: shared_ptr<Expr> visit_factor(QDirtyParser :: FactorContext* ctx);

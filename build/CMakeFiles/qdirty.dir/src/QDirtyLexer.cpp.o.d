@@ -1,6 +1,6 @@
 CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o: \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyLexer.cpp \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyLexer.h \
+  /Users/subonan/subonan_THU/QDirty/src/QDirtyLexer.cpp \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyLexer.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-runtime.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/algorithm \

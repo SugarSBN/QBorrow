@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/antlr-playground/dirty
+CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QDirty
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/antlr-playground/dirty/build
+CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QDirty/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/qdirty.dir/depend.make
@@ -70,144 +70,144 @@ include CMakeFiles/qdirty.dir/progress.make
 include CMakeFiles/qdirty.dir/flags.make
 
 CMakeFiles/qdirty.dir/src/AST.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/AST.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/AST.cpp
+CMakeFiles/qdirty.dir/src/AST.cpp.o: /Users/subonan/subonan_THU/QDirty/src/AST.cpp
 CMakeFiles/qdirty.dir/src/AST.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/qdirty.dir/src/AST.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/AST.cpp.o -MF CMakeFiles/qdirty.dir/src/AST.cpp.o.d -o CMakeFiles/qdirty.dir/src/AST.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/AST.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/qdirty.dir/src/AST.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/AST.cpp.o -MF CMakeFiles/qdirty.dir/src/AST.cpp.o.d -o CMakeFiles/qdirty.dir/src/AST.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/AST.cpp
 
 CMakeFiles/qdirty.dir/src/AST.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/AST.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/AST.cpp > CMakeFiles/qdirty.dir/src/AST.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/AST.cpp > CMakeFiles/qdirty.dir/src/AST.cpp.i
 
 CMakeFiles/qdirty.dir/src/AST.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/AST.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/AST.cpp -o CMakeFiles/qdirty.dir/src/AST.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/AST.cpp -o CMakeFiles/qdirty.dir/src/AST.cpp.s
 
 CMakeFiles/qdirty.dir/src/Argument.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/Argument.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/Argument.cpp
+CMakeFiles/qdirty.dir/src/Argument.cpp.o: /Users/subonan/subonan_THU/QDirty/src/Argument.cpp
 CMakeFiles/qdirty.dir/src/Argument.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/qdirty.dir/src/Argument.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/Argument.cpp.o -MF CMakeFiles/qdirty.dir/src/Argument.cpp.o.d -o CMakeFiles/qdirty.dir/src/Argument.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/Argument.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/qdirty.dir/src/Argument.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/Argument.cpp.o -MF CMakeFiles/qdirty.dir/src/Argument.cpp.o.d -o CMakeFiles/qdirty.dir/src/Argument.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/Argument.cpp
 
 CMakeFiles/qdirty.dir/src/Argument.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/Argument.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/Argument.cpp > CMakeFiles/qdirty.dir/src/Argument.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/Argument.cpp > CMakeFiles/qdirty.dir/src/Argument.cpp.i
 
 CMakeFiles/qdirty.dir/src/Argument.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/Argument.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/Argument.cpp -o CMakeFiles/qdirty.dir/src/Argument.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/Argument.cpp -o CMakeFiles/qdirty.dir/src/Argument.cpp.s
 
 CMakeFiles/qdirty.dir/src/Parser.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/Parser.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/Parser.cpp
+CMakeFiles/qdirty.dir/src/Parser.cpp.o: /Users/subonan/subonan_THU/QDirty/src/Parser.cpp
 CMakeFiles/qdirty.dir/src/Parser.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/qdirty.dir/src/Parser.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/Parser.cpp.o -MF CMakeFiles/qdirty.dir/src/Parser.cpp.o.d -o CMakeFiles/qdirty.dir/src/Parser.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/qdirty.dir/src/Parser.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/Parser.cpp.o -MF CMakeFiles/qdirty.dir/src/Parser.cpp.o.d -o CMakeFiles/qdirty.dir/src/Parser.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/Parser.cpp
 
 CMakeFiles/qdirty.dir/src/Parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/Parser.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/Parser.cpp > CMakeFiles/qdirty.dir/src/Parser.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/Parser.cpp > CMakeFiles/qdirty.dir/src/Parser.cpp.i
 
 CMakeFiles/qdirty.dir/src/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/Parser.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/Parser.cpp -o CMakeFiles/qdirty.dir/src/Parser.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/Parser.cpp -o CMakeFiles/qdirty.dir/src/Parser.cpp.s
 
 CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyBaseListener.cpp
+CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o: /Users/subonan/subonan_THU/QDirty/src/QDirtyBaseListener.cpp
 CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyBaseListener.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/QDirtyBaseListener.cpp
 
 CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyBaseListener.cpp > CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/QDirtyBaseListener.cpp > CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.i
 
 CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyBaseListener.cpp -o CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/QDirtyBaseListener.cpp -o CMakeFiles/qdirty.dir/src/QDirtyBaseListener.cpp.s
 
 CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyBaseVisitor.cpp
+CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o: /Users/subonan/subonan_THU/QDirty/src/QDirtyBaseVisitor.cpp
 CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyBaseVisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/QDirtyBaseVisitor.cpp
 
 CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyBaseVisitor.cpp > CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/QDirtyBaseVisitor.cpp > CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.i
 
 CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyBaseVisitor.cpp -o CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/QDirtyBaseVisitor.cpp -o CMakeFiles/qdirty.dir/src/QDirtyBaseVisitor.cpp.s
 
 CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyLexer.cpp
+CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o: /Users/subonan/subonan_THU/QDirty/src/QDirtyLexer.cpp
 CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyLexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/QDirtyLexer.cpp
 
 CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyLexer.cpp > CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/QDirtyLexer.cpp > CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.i
 
 CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyLexer.cpp -o CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/QDirtyLexer.cpp -o CMakeFiles/qdirty.dir/src/QDirtyLexer.cpp.s
 
 CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyListener.cpp
+CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o: /Users/subonan/subonan_THU/QDirty/src/QDirtyListener.cpp
 CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyListener.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/QDirtyListener.cpp
 
 CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyListener.cpp > CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/QDirtyListener.cpp > CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.i
 
 CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyListener.cpp -o CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/QDirtyListener.cpp -o CMakeFiles/qdirty.dir/src/QDirtyListener.cpp.s
 
 CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyParser.cpp
+CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o: /Users/subonan/subonan_THU/QDirty/src/QDirtyParser.cpp
 CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/QDirtyParser.cpp
 
 CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyParser.cpp > CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/QDirtyParser.cpp > CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.i
 
 CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyParser.cpp -o CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/QDirtyParser.cpp -o CMakeFiles/qdirty.dir/src/QDirtyParser.cpp.s
 
 CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyVisitor.cpp
+CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o: /Users/subonan/subonan_THU/QDirty/src/QDirtyVisitor.cpp
 CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyVisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o -MF CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o.d -o CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/QDirtyVisitor.cpp
 
 CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyVisitor.cpp > CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/QDirtyVisitor.cpp > CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.i
 
 CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/QDirtyVisitor.cpp -o CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/QDirtyVisitor.cpp -o CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.s
 
 CMakeFiles/qdirty.dir/src/main.cpp.o: CMakeFiles/qdirty.dir/flags.make
-CMakeFiles/qdirty.dir/src/main.cpp.o: /Users/subonan/subonan_THU/antlr-playground/dirty/src/main.cpp
+CMakeFiles/qdirty.dir/src/main.cpp.o: /Users/subonan/subonan_THU/QDirty/src/main.cpp
 CMakeFiles/qdirty.dir/src/main.cpp.o: CMakeFiles/qdirty.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/qdirty.dir/src/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/main.cpp.o -MF CMakeFiles/qdirty.dir/src/main.cpp.o.d -o CMakeFiles/qdirty.dir/src/main.cpp.o -c /Users/subonan/subonan_THU/antlr-playground/dirty/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/qdirty.dir/src/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/qdirty.dir/src/main.cpp.o -MF CMakeFiles/qdirty.dir/src/main.cpp.o.d -o CMakeFiles/qdirty.dir/src/main.cpp.o -c /Users/subonan/subonan_THU/QDirty/src/main.cpp
 
 CMakeFiles/qdirty.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/qdirty.dir/src/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/antlr-playground/dirty/src/main.cpp > CMakeFiles/qdirty.dir/src/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/subonan/subonan_THU/QDirty/src/main.cpp > CMakeFiles/qdirty.dir/src/main.cpp.i
 
 CMakeFiles/qdirty.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/qdirty.dir/src/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/antlr-playground/dirty/src/main.cpp -o CMakeFiles/qdirty.dir/src/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/subonan/subonan_THU/QDirty/src/main.cpp -o CMakeFiles/qdirty.dir/src/main.cpp.s
 
 # Object files for target qdirty
 qdirty_OBJECTS = \
@@ -237,7 +237,7 @@ qdirty: CMakeFiles/qdirty.dir/src/QDirtyVisitor.cpp.o
 qdirty: CMakeFiles/qdirty.dir/src/main.cpp.o
 qdirty: CMakeFiles/qdirty.dir/build.make
 qdirty: CMakeFiles/qdirty.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable qdirty"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable qdirty"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/qdirty.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -249,6 +249,6 @@ CMakeFiles/qdirty.dir/clean:
 .PHONY : CMakeFiles/qdirty.dir/clean
 
 CMakeFiles/qdirty.dir/depend:
-	cd /Users/subonan/subonan_THU/antlr-playground/dirty/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/subonan/subonan_THU/antlr-playground/dirty /Users/subonan/subonan_THU/antlr-playground/dirty /Users/subonan/subonan_THU/antlr-playground/dirty/build /Users/subonan/subonan_THU/antlr-playground/dirty/build /Users/subonan/subonan_THU/antlr-playground/dirty/build/CMakeFiles/qdirty.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/subonan/subonan_THU/QDirty/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/subonan/subonan_THU/QDirty /Users/subonan/subonan_THU/QDirty /Users/subonan/subonan_THU/QDirty/build /Users/subonan/subonan_THU/QDirty/build /Users/subonan/subonan_THU/QDirty/build/CMakeFiles/qdirty.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/qdirty.dir/depend
 

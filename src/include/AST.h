@@ -75,61 +75,14 @@ struct Expr {
 
     
     // factory methods for creating pointers to expressions
-    static std :: shared_ptr<Expr> make_variable(const std :: string& name) {
-        return std :: make_shared<Expr>(Expr_Type :: ID, name);
-    }
-
-    static std :: shared_ptr<Expr> make_number(int value) {
-        return std :: make_shared<Expr>(Expr_Type :: NUMBER, value);
-    }
-
-    static std :: shared_ptr<Expr> make_unary_op(Unary_Op op, std :: shared_ptr<Expr> operand) {
-        return std :: make_shared<Expr>(Expr_Type :: UnaryOp, op, std :: move(operand));
-    }
-
+    static std :: shared_ptr<Expr> make_variable(const std :: string& name);
+    static std :: shared_ptr<Expr> make_number(int value);
+    static std :: shared_ptr<Expr> make_unary_op(Unary_Op op, std :: shared_ptr<Expr> operand);
     static std :: shared_ptr<Expr> make_binary_op(Binary_Op op,
                                                 std :: shared_ptr<Expr> left,
-                                                std :: shared_ptr<Expr> right) {
-        return std :: make_shared<Expr>(Expr_Type :: BinaryOp, op, std :: move(left), std :: move(right));
-    }
+                                                std :: shared_ptr<Expr> right);
 
-    static void print_expr(const Expr& expr, std :: ostream& os = std :: cout) {
-        switch (expr.type_) {
-            case Expr_Type :: ID:
-                os << std :: get<Expr_ID>(expr.expr_).id;
-                break;
-            case Expr_Type :: NUMBER:
-                os << std :: get<Expr_Number>(expr.expr_).number;
-                break;
-            case Expr_Type :: UnaryOp: {
-                const auto& unary = std :: get<Expr_Unary_Op>(expr.expr_);
-
-                switch (unary.op) {
-                    case Unary_Op :: NEGATE: os << "-"; break;
-                }
-
-                os << "(";
-                print_expr(*unary.operand, os);
-                os << ")";
-                break;
-            }
-            case Expr_Type :: BinaryOp: {
-                const auto& binary = std :: get<Expr_Binary_Op>(expr.expr_);
-
-                os << "(";
-                print_expr(*binary.left, os);
-
-                switch (binary.op) {
-                    case Binary_Op :: ADD: os << "+"; break;
-                    case Binary_Op :: MUL: os << "*"; break;
-                    case Binary_Op :: SUB: os << "-"; break;
-                }
-                print_expr(*binary.right, os);
-                os << ")";
-                break;
-            }
-        }
-    }
+    static void print_expr(const Expr& expr, std :: ostream& os = std :: cout); 
 };
 
 
@@ -143,7 +96,7 @@ class Stmt {
     
 public:
     enum class Stmt_Type {
-        LET, 
+        LET,
         // BORROW, 
         // ALLOC, 
         // X, 
@@ -158,8 +111,12 @@ public:
     };
 
     // constructor for let
-    explicit Stmt (Stmt_Type t, const std :: string& name, std :: shared_ptr<Expr> expr);
+    explicit Stmt (Stmt_Type t, const std :: string& name, std :: shared_ptr<Expr> expr)
+        : stmt_(Stmt_Let{name, *expr}), type_(t) {}
     
+        
+    // factory methods for creating pointers to statements
+    static std :: shared_ptr<Stmt> make_let(const std :: string& name, std :: shared_ptr<Expr> expr);
     
 
     // interfaces to obtain the statement type and its content
@@ -170,23 +127,7 @@ public:
 
     Stmt get_type() const;
 
-    void print_stmt(std :: ostream& os = std :: cout) const {
-        switch (type_) {
-            case Stmt_Type :: LET :  
-                const auto& let_stmt = std :: get<Stmt_Let>(stmt_);
-                os << "let " << let_stmt.id_ << " = ";
-                Expr :: print_expr(let_stmt.expr_, os);
-                os << ";";
-                break;
-            
-            // case Stmt_Type :: BORROW: 
-            //     // handle borrow statement
-            //     break;
-            // case Stmt_Type :: ALLOC: 
-            //     // handle alloc statement
-            //     break;
-        }
-    }
+    void print_stmt(std :: ostream& os = std :: cout) const;
 
 private:
     std :: variant<

@@ -1,6 +1,6 @@
 CMakeFiles/qdirty.dir/src/Argument.cpp.o: \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/Argument.cpp \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/Argument.h \
+  /Users/subonan/subonan_THU/QDirty/src/Argument.cpp \
+  /Users/subonan/subonan_THU/QDirty/src/include/Argument.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assertion_handler \

@@ -1,6 +1,6 @@
 CMakeFiles/qdirty.dir/src/Parser.cpp.o: \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/Parser.cpp \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/Parser.h \
+  /Users/subonan/subonan_THU/QDirty/src/Parser.cpp \
+  /Users/subonan/subonan_THU/QDirty/src/include/Parser.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/exception \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assertion_handler \
@@ -1170,8 +1170,8 @@ CMakeFiles/qdirty.dir/src/Parser.cpp.o: \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathTokenElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardAnywhereElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardElement.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/AST.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyLexer.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyParser.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyBaseListener.h \
-  /Users/subonan/subonan_THU/antlr-playground/dirty/src/include/QDirtyListener.h
+  /Users/subonan/subonan_THU/QDirty/src/include/AST.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyLexer.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyParser.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyBaseListener.h \
+  /Users/subonan/subonan_THU/QDirty/src/include/QDirtyListener.h
