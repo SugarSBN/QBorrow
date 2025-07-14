@@ -142,7 +142,7 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QBorrowParser :: StatementCont
 
     if (ctx -> getStart() -> getText() == "let") {
         
-        std :: string id = ctx -> ID(0) -> getText();
+        std :: string id = ctx -> ID() -> getText();
         auto expr = visit_expr(ctx -> expr(0));
 
         return Stmt :: make_let(id, expr);
@@ -157,7 +157,7 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QBorrowParser :: StatementCont
 
     } else if (ctx -> getStart() -> getText() == "release") {
 
-        std :: string id = ctx -> ID(0) -> getText();
+        std :: string id = ctx -> ID() -> getText();
         return Stmt :: make_rel(id);
 
     } else if (ctx -> getStart() -> getText() == "X") {
@@ -176,7 +176,7 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QBorrowParser :: StatementCont
 
     } else if (ctx -> getStart() -> getText() == "for") {
 
-        std :: string id = ctx -> ID(0) -> getText();
+        std :: string id = ctx -> ID() -> getText();
         auto start = visit_expr(ctx -> expr(0));
         auto end = visit_expr(ctx -> expr(1));
         std :: vector<std :: shared_ptr<Stmt> > body = visit_statements(ctx -> statement());
@@ -185,7 +185,7 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QBorrowParser :: StatementCont
 
     } else if (ctx -> getStart() -> getText() == "call") {
 
-        std :: string function_name = ctx -> ID(0) -> getText();
+        std :: string function_name = ctx -> ID() -> getText();
         std :: vector<std :: shared_ptr<Expr> > args;
         for (auto* arg : ctx -> expr()) {
             args.push_back(visit_expr(arg));

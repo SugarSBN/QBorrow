@@ -6,14 +6,30 @@ std :: vector<std :: shared_ptr<Stmt> > Preprocessor :: get_statements() const {
 }
 
 
-bool Preprocessor :: preprocess(std :: vector<std :: shared_ptr<Function> > declarations, 
+bool Preprocessor :: preprocess(std :: vector<std :: shared_ptr<Function> > functions, 
                                 std :: vector<std :: shared_ptr<Stmt> > statements,
                                 bool need_print_remove_let) {
+
+    /* 
+        remove LET statements
+    */                                
+    std :: vector<std :: shared_ptr<Function> > functions_remove_let;
+    functions_remove_let.clear();
     
-    statements_ = remove_let(statements);
+    for (const auto& func : functions) {
+        functions_remove_let.push_back(
+            Function::make_function(func -> name_, func -> params_, func -> registers_, remove_let(func -> body_))
+        );
+    }
+
+    std :: vector<std :: shared_ptr<Stmt> > statements_remove_let = remove_let(statements);
 
     if (need_print_remove_let) {
         debug_output_ << "---After Removing LET statements:---" << std :: endl;
+        for (const auto& func : functions_remove_let) {
+            func -> print_function(debug_output_);
+            debug_output_ << std :: endl;
+        }
         for (const auto& stmt : statements_) {
             stmt -> print_stmt(debug_output_);
             debug_output_ << std :: endl;

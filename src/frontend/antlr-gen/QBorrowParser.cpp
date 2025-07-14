@@ -96,11 +96,11 @@ void qborrowParserInitialize() {
   	0,0,67,68,5,24,0,0,68,69,5,2,0,0,69,70,3,8,4,0,70,71,5,14,0,0,71,72,3,
   	8,4,0,72,76,5,15,0,0,73,75,3,2,1,0,74,73,1,0,0,0,75,78,1,0,0,0,76,74,
   	1,0,0,0,76,77,1,0,0,0,77,79,1,0,0,0,78,76,1,0,0,0,79,80,5,16,0,0,80,109,
-  	1,0,0,0,81,82,5,17,0,0,82,83,5,24,0,0,83,92,5,18,0,0,84,89,5,24,0,0,85,
-  	86,5,11,0,0,86,88,5,24,0,0,87,85,1,0,0,0,88,91,1,0,0,0,89,87,1,0,0,0,
-  	89,90,1,0,0,0,90,93,1,0,0,0,91,89,1,0,0,0,92,84,1,0,0,0,92,93,1,0,0,0,
-  	93,94,1,0,0,0,94,95,5,19,0,0,95,104,5,8,0,0,96,101,3,6,3,0,97,98,5,11,
-  	0,0,98,100,3,6,3,0,99,97,1,0,0,0,100,103,1,0,0,0,101,99,1,0,0,0,101,102,
+  	1,0,0,0,81,82,5,17,0,0,82,83,5,24,0,0,83,92,5,18,0,0,84,89,3,8,4,0,85,
+  	86,5,11,0,0,86,88,3,8,4,0,87,85,1,0,0,0,88,91,1,0,0,0,89,87,1,0,0,0,89,
+  	90,1,0,0,0,90,93,1,0,0,0,91,89,1,0,0,0,92,84,1,0,0,0,92,93,1,0,0,0,93,
+  	94,1,0,0,0,94,95,5,19,0,0,95,104,5,8,0,0,96,101,3,6,3,0,97,98,5,11,0,
+  	0,98,100,3,6,3,0,99,97,1,0,0,0,100,103,1,0,0,0,101,99,1,0,0,0,101,102,
   	1,0,0,0,102,105,1,0,0,0,103,101,1,0,0,0,104,96,1,0,0,0,104,105,1,0,0,
   	0,105,106,1,0,0,0,106,107,5,9,0,0,107,109,5,3,0,0,108,25,1,0,0,0,108,
   	31,1,0,0,0,108,35,1,0,0,0,108,39,1,0,0,0,108,42,1,0,0,0,108,48,1,0,0,
@@ -275,12 +275,8 @@ QBorrowParser::StatementContext::StatementContext(ParserRuleContext *parent, siz
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<tree::TerminalNode *> QBorrowParser::StatementContext::ID() {
-  return getTokens(QBorrowParser::ID);
-}
-
-tree::TerminalNode* QBorrowParser::StatementContext::ID(size_t i) {
-  return getToken(QBorrowParser::ID, i);
+tree::TerminalNode* QBorrowParser::StatementContext::ID() {
+  return getToken(QBorrowParser::ID, 0);
 }
 
 std::vector<QBorrowParser::ExprContext *> QBorrowParser::StatementContext::expr() {
@@ -497,9 +493,10 @@ QBorrowParser::StatementContext* QBorrowParser::statement() {
         _errHandler->sync(this);
 
         _la = _input->LA(1);
-        if (_la == QBorrowParser::ID) {
+        if ((((_la & ~ 0x3fULL) == 0) &&
+          ((1ULL << _la) & 56885248) != 0)) {
           setState(84);
-          match(QBorrowParser::ID);
+          expr(0);
           setState(89);
           _errHandler->sync(this);
           _la = _input->LA(1);
@@ -507,7 +504,7 @@ QBorrowParser::StatementContext* QBorrowParser::statement() {
             setState(85);
             match(QBorrowParser::T__10);
             setState(86);
-            match(QBorrowParser::ID);
+            expr(0);
             setState(91);
             _errHandler->sync(this);
             _la = _input->LA(1);

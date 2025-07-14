@@ -15,7 +15,7 @@ public:
 
     std :: vector<std :: shared_ptr<Stmt> > get_statements() const;
 
-    bool preprocess(std :: vector<std :: shared_ptr<Function> > declarations, 
+    bool preprocess(std :: vector<std :: shared_ptr<Function> > functions,
                     std :: vector<std :: shared_ptr<Stmt> > statements,
                     bool need_print_remove_let = true);
 
@@ -27,6 +27,7 @@ private:
     std :: ostream& error_output_;
 
     std :: vector<std :: shared_ptr<Stmt> > statements_;
+    std :: vector<std :: shared_ptr<Function> > functions_;
 
     std :: vector<std :: shared_ptr<Stmt> > remove_let(std :: vector<std :: shared_ptr<Stmt> > statements);
 };

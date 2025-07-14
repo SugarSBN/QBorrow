@@ -100,6 +100,20 @@ std :: shared_ptr<Stmt> Stmt :: substitute(const std :: string& name, std :: sha
             return Stmt :: make_for(for_stmt.id_, for_stmt.start_ -> substitute(name, value), 
                                   for_stmt.end_ -> substitute(name, value), std :: move(new_body));
         }
+        case Stmt_Type :: CALL: {
+            const auto& call_stmt = std :: get<Stmt_Call>(stmt_);
+            std :: vector<std :: shared_ptr<Expr> > new_args;
+            new_args.clear();
+            for (const auto& arg : call_stmt.args_) {
+                new_args.push_back(arg -> substitute(name, value));
+            }
+            std :: vector<std :: shared_ptr<Register> > new_regs;
+            new_regs.clear();
+            for (const auto& reg : call_stmt.regs_) {
+                new_regs.push_back(reg -> substitute(name, value));
+            }
+            return Stmt :: make_call(call_stmt.function_name_, std :: move(new_args), std :: move(new_regs));
+        }
         default:
             return make_stmt(type_, stmt_);
     }
