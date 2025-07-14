@@ -171,7 +171,7 @@ public:
        Stmt_Borrow
     > get_stmt() const;
 
-    Stmt get_type() const;
+    Stmt_Type get_type() const;
 
     /*
         pretty print statements

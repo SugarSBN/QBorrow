@@ -4,7 +4,6 @@
 #include <exception> // for std::exception_ptr
 #include "antlr4-runtime.h"
 
-// 根据你提供的语法生成的头文件
 #include "AST.h"
 #include "QBorrowLexer.h"
 #include "QBorrowParser.h"

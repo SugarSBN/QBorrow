@@ -47,6 +47,9 @@ std :: shared_ptr<Stmt> Stmt :: make_borrow(const std :: string& name, bool is_r
 
 
 
+Stmt :: Stmt_Type Stmt :: get_type() const {
+    return type_;
+}
 
 
 /*
