@@ -10,7 +10,7 @@ Argument_Parser :: Argument_Parser(std :: ostream & error_stream) : error_output
 void Argument_Parser :: message_absence_input_file(){
     error_output_ << RED << "[QBorrow Error] Input: no input file." << std :: endl;
     error_output_ << RESET << "[QBorrow Usage:] qborrow <input_file_path>";
-    error_output_ << RESET << "   Example: qborrow ../example/eg1.qdt" << std :: endl;
+    error_output_ << RESET << "   Example: qborrow ../example/eg1.qbr" << std :: endl;
 }
 
 void Argument_Parser :: message_file_open_error(const std :: string& file_path){
