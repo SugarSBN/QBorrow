@@ -1,6 +1,6 @@
 CMakeFiles/qborrow.dir/src/AST.cpp.o: \
-  /Users/subonan/subonan_THU/QDirty/src/AST.cpp \
-  /Users/subonan/subonan_THU/QDirty/src/include/AST.h \
+  /Users/subonan/subonan_THU/QBorrow/src/AST.cpp \
+  /Users/subonan/subonan_THU/QBorrow/src/include/AST.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/comp.h \

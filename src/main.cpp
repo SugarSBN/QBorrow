@@ -1,12 +1,12 @@
-#include <iostream> // 用于输入输出，例如 std :: cout 和 std :: cerr
-#include <string>   // 用于使用 std :: string 处理文件路径
-#include <fstream>  // 用于文件操作，例如 std :: ifstream
+#include <iostream> 
+#include <string>   
+#include <fstream>  
 #include "Argument.h"
 #include "Parser.h" 
 #include "QBorrowParser.h" 
 
 int main(int argc, char* argv[]) {
-    // 1. 检查参数数量
+
     std :: string contents;
     Argument_Parser argument_parser(std :: cerr); 
 

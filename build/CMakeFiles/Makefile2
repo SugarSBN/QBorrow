@@ -54,10 +54,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QDirty
+CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QDirty/build
+CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/qborrow.dir/clean
 CMakeFiles/qborrow.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/subonan/subonan_THU/QDirty/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target qborrow"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target qborrow"
 .PHONY : CMakeFiles/qborrow.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/qborrow.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QDirty/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/qborrow.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QDirty/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles 0
 .PHONY : CMakeFiles/qborrow.dir/rule
 
 # Convenience name for target.

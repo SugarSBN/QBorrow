@@ -1,6 +1,6 @@
 CMakeFiles/qborrow.dir/src/QBorrowLexer.cpp.o: \
-  /Users/subonan/subonan_THU/QDirty/src/QBorrowLexer.cpp \
-  /Users/subonan/subonan_THU/QDirty/src/include/QBorrowLexer.h \
+  /Users/subonan/subonan_THU/QBorrow/src/QBorrowLexer.cpp \
+  /Users/subonan/subonan_THU/QBorrow/src/include/QBorrowLexer.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-runtime.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/algorithm \

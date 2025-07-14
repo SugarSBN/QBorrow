@@ -1,6 +1,6 @@
 CMakeFiles/qborrow.dir/src/Parser.cpp.o: \
-  /Users/subonan/subonan_THU/QDirty/src/Parser.cpp \
-  /Users/subonan/subonan_THU/QDirty/src/include/Parser.h \
+  /Users/subonan/subonan_THU/QBorrow/src/Parser.cpp \
+  /Users/subonan/subonan_THU/QBorrow/src/include/Parser.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/exception \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assertion_handler \
@@ -1170,8 +1170,8 @@ CMakeFiles/qborrow.dir/src/Parser.cpp.o: \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathTokenElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardAnywhereElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardElement.h \
-  /Users/subonan/subonan_THU/QDirty/src/include/AST.h \
-  /Users/subonan/subonan_THU/QDirty/src/include/QBorrowLexer.h \
-  /Users/subonan/subonan_THU/QDirty/src/include/QBorrowParser.h \
-  /Users/subonan/subonan_THU/QDirty/src/include/QBorrowBaseListener.h \
-  /Users/subonan/subonan_THU/QDirty/src/include/QBorrowListener.h
+  /Users/subonan/subonan_THU/QBorrow/src/include/AST.h \
+  /Users/subonan/subonan_THU/QBorrow/src/include/QBorrowLexer.h \
+  /Users/subonan/subonan_THU/QBorrow/src/include/QBorrowParser.h \
+  /Users/subonan/subonan_THU/QBorrow/src/include/QBorrowBaseListener.h \
+  /Users/subonan/subonan_THU/QBorrow/src/include/QBorrowListener.h
