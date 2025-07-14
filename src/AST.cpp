@@ -52,6 +52,15 @@ std :: shared_ptr<Register> Register :: make_register(const std :: string& name,
     });
 }
 
+/*
+    function factory method
+*/
+std :: shared_ptr<Function> Function :: make_function(const std :: string& name, 
+                                            const std :: vector<std :: string>& params, 
+                                            const std :: vector<std :: shared_ptr<Register> >& registers,
+                                            const std :: vector<std :: shared_ptr<Stmt> >& body) {
+    return std :: make_shared<Function>(name, params, registers, body);
+}
 
 
 // Stmt factory methods
@@ -67,6 +76,11 @@ std :: shared_ptr<Stmt> Stmt :: make_borrow(std :: shared_ptr<Register> reg) {
 std :: shared_ptr<Stmt> Stmt :: make_alloc(std :: shared_ptr<Register> reg) {
         return std :: make_shared<Stmt>(Stmt_Type :: ALLOC, std :: move(reg));
 }
+
+std :: shared_ptr<Stmt> Stmt :: make_rel(const std :: string& id) {
+        return std :: make_shared<Stmt>(Stmt_Type :: REL, id);
+}
+
 
 std :: shared_ptr<Stmt> Stmt :: make_x(std :: shared_ptr<Register> target) {
         return std :: make_shared<Stmt>(Stmt_Type :: X, std :: move(target));
@@ -176,6 +190,11 @@ void Stmt :: print_stmt(std :: ostream& os, int layer) const {
             os << ";";
             break;
         }
+        case Stmt_Type :: REL : {
+            const auto& rel_stmt = std :: get<Stmt_Rel>(stmt_);
+            os << BLUE << "release " << RESET << rel_stmt.id_ << ";";
+            break;
+        }
         case Stmt_Type :: X : {
             const auto& x_stmt = std :: get<Stmt_X>(stmt_);
             os << BLUE << "X" << RESET;
@@ -223,4 +242,30 @@ void Stmt :: print_stmt(std :: ostream& os, int layer) const {
             break;
         }
     }
+}
+
+
+void Function :: print_function(std :: ostream& os) const {
+    os << BLUE << "function " << RESET << name_ << "(";
+    for (size_t i = 0; i < params_.size(); i++) {
+        os << params_[i];
+        if (i < params_.size() - 1) {
+            os << ", ";
+        }
+    }
+    os << ") [";
+
+    for (const auto& reg : registers_) {
+        reg -> print_register(os);
+        os << ",  ";
+    }
+
+    os << "] {";
+
+    for (const auto& stmt : body_) {
+        os << std :: endl;
+        stmt -> print_stmt(os, 1);
+    }
+
+    os << std :: endl << "}";
 }

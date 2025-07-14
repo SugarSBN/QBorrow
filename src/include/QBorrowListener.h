@@ -20,6 +20,9 @@ public:
   virtual void enterStatement(QBorrowParser::StatementContext *ctx) = 0;
   virtual void exitStatement(QBorrowParser::StatementContext *ctx) = 0;
 
+  virtual void enterFunction(QBorrowParser::FunctionContext *ctx) = 0;
+  virtual void exitFunction(QBorrowParser::FunctionContext *ctx) = 0;
+
   virtual void enterReg(QBorrowParser::RegContext *ctx) = 0;
   virtual void exitReg(QBorrowParser::RegContext *ctx) = 0;
 

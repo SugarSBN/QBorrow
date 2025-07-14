@@ -76,10 +76,15 @@ std :: vector<std :: shared_ptr<Stmt> > Parser :: get_statements() const{
     return statements_;
 }
 
+std :: vector<std :: shared_ptr<Function> > Parser :: get_functions() const {
+    return functions_;
+}
 
 void Parser :: build_parse_tree(antlr4 :: tree :: ParseTree* tree) {
 
     statements_.clear();
+    functions_.clear();
+
     if (tree == nullptr) return;
 
     auto* program_ctx = dynamic_cast<QBorrowParser :: ProgramContext*>(tree);
@@ -87,7 +92,37 @@ void Parser :: build_parse_tree(antlr4 :: tree :: ParseTree* tree) {
         throw std::runtime_error("Empty or invalid program.");
     }
 
+    functions_ = visit_functions(program_ctx -> function());
     statements_ = visit_statements(program_ctx -> statement());
+}
+
+std :: vector<std :: shared_ptr<Function> > Parser :: visit_functions(const std::vector<QBorrowParser::FunctionContext*>& funcs) {
+    std :: vector<std :: shared_ptr<Function> > results;
+    results.clear();
+
+    for (auto* f : funcs) {
+        std :: string name = f -> ID(0) -> getText();
+        std :: vector<std :: string> params;
+        params.clear();
+
+        if (f -> ID().size() > 1) {
+            for (size_t i = 1; i < f -> ID().size(); i++) {
+                params.push_back(f -> ID(i) -> getText());
+            }
+        }
+
+        std :: vector<std :: shared_ptr<Register> > registers;
+        registers.clear();
+
+        for (auto* reg : f -> reg()) {
+            registers.push_back(visit_register(reg));
+        }
+
+        std :: vector<std :: shared_ptr<Stmt> > body = visit_statements(f -> statement());
+
+        results.push_back(Function::make_function(name, params, registers, body));
+    }
+    return results;
 }
 
 std :: vector<std :: shared_ptr<Stmt> > Parser :: visit_statements(const std::vector<QBorrowParser::StatementContext*>& stmts){
@@ -121,6 +156,11 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QBorrowParser :: StatementCont
 
         return Stmt :: make_alloc(visit_register(ctx -> reg(0)));
 
+    } else if (ctx -> getStart() -> getText() == "release") {
+
+        std :: string id = ctx -> ID() -> getText();
+        return Stmt :: make_rel(id);
+
     } else if (ctx -> getStart() -> getText() == "X") {
 
         return Stmt :: make_x(visit_register(ctx -> reg(0)));
@@ -142,7 +182,7 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QBorrowParser :: StatementCont
         auto end = visit_expr(ctx -> expr(1));
         std :: vector<std :: shared_ptr<Stmt> > body = visit_statements(ctx -> statement());
 
-        return Stmt :: make_for(id, start, end, std :: move(body));
+        return Stmt :: make_for(id, start, end, body);
 
     }
 

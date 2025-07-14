@@ -1,3 +1,10 @@
+function CCCNOT () [q1, q2, q3, q4] {
+    alloc anc;
+    CCNOT[q1, q2, anc];
+    CCNOT[q3, anc, q4];
+}
+
+
 let n = (3+4)*12; // number of qubit
 
 let m = 4;
@@ -15,6 +22,7 @@ alloc q123[1*2-n3];
 
 alloc q;
 
+release q;
 
 X[q];
 

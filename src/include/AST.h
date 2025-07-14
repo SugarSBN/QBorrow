@@ -117,10 +117,11 @@ public:
         LET,
         BORROW, 
         ALLOC,
+        REL,
         X, 
         CNOT, 
         CCNOT,
-        FOR
+        FOR,
     };
 
 
@@ -138,6 +139,10 @@ public:
 
     struct Stmt_Alloc {
         std :: shared_ptr<Register> register_;
+    };
+
+    struct Stmt_Rel {
+        std :: string id_;
     };
 
     struct Stmt_X {
@@ -162,12 +167,16 @@ public:
         std :: vector<std :: shared_ptr<Stmt> > body_;
     };
 
+
     /*
         constructors
     */
     explicit Stmt (Stmt_Type t, const std :: string& name, std :: shared_ptr<Expr> expr)
         : stmt_(Stmt_Let{name, expr}), type_(t) {}
     
+    explicit Stmt (Stmt_Type t, const std :: string& name)
+        : stmt_(Stmt_Rel{name}), type_(t) {}
+
     explicit Stmt (Stmt_Type t, std :: shared_ptr<Register> reg)
         : type_(t) {
             switch (t) {
@@ -198,6 +207,7 @@ public:
     static std :: shared_ptr<Stmt> make_let(const std :: string& name, std :: shared_ptr<Expr> expr);
     static std :: shared_ptr<Stmt> make_borrow(std :: shared_ptr<Register> reg);
     static std :: shared_ptr<Stmt> make_alloc(std :: shared_ptr<Register> reg);
+    static std :: shared_ptr<Stmt> make_rel(const std :: string& id);
     static std :: shared_ptr<Stmt> make_x(std :: shared_ptr<Register> target);
     static std :: shared_ptr<Stmt> make_cnot(std :: shared_ptr<Register> control, std :: shared_ptr<Register> target);
     static std :: shared_ptr<Stmt> make_ccnot(std :: shared_ptr<Register> control1, 
@@ -215,6 +225,7 @@ public:
         Stmt_Let,
         Stmt_Borrow,
         Stmt_Alloc,
+        Stmt_Rel,
         Stmt_X,
         Stmt_CNOT,
         Stmt_CCNOT,
@@ -237,6 +248,7 @@ private:
         Stmt_Let,
         Stmt_Borrow,
         Stmt_Alloc,
+        Stmt_Rel,
         Stmt_X,
         Stmt_CNOT,
         Stmt_CCNOT,
@@ -244,5 +256,29 @@ private:
     > stmt_;
 
     Stmt_Type type_;
+
+};
+
+
+
+
+struct Function {
+    std :: string name_;
+    std :: vector<std :: string> params_;
+    std :: vector<std :: shared_ptr<Register> > registers_;
+    std :: vector<std :: shared_ptr<Stmt> > body_;
+
+    Function(const std :: string& name, 
+             const std :: vector<std :: string>& params, 
+             const std :: vector<std :: shared_ptr<Register> >& registers,
+             const std :: vector<std :: shared_ptr<Stmt> >& body)
+        : name_(name), params_(params), registers_(registers), body_(body) {}
+    
+    static std :: shared_ptr<Function> make_function(const std :: string& name, 
+                                            const std :: vector<std :: string>& params, 
+                                            const std :: vector<std :: shared_ptr<Register> >& registers,
+                                            const std :: vector<std :: shared_ptr<Stmt> >& body);
+
+    void print_function(std :: ostream& os = std :: cout) const;
 
 };

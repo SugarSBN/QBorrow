@@ -52,9 +52,10 @@ public:
     bool parse_string(const std :: string& input_string);
 
     /*
-        get the parsed statements
+        get the parsed functions and statements
     */
     std :: vector<std :: shared_ptr<Stmt> > get_statements() const;
+    std :: vector<std :: shared_ptr<Function> > get_functions() const;
 
 private:
 
@@ -71,11 +72,14 @@ private:
         parse results
     */
     std :: vector<std :: shared_ptr<Stmt> > statements_;
+    std :: vector<std :: shared_ptr<Function> > functions_;
 
 
     /* 
         Visitors
     */
+    std :: vector<std :: shared_ptr<Function> > visit_functions(const std :: vector<QBorrowParser :: FunctionContext*>& funcs);
+
     std :: vector<std :: shared_ptr<Stmt> > visit_statements(const std :: vector<QBorrowParser :: StatementContext*>& stmts);
     
     std :: shared_ptr<Stmt> visit_statement(QBorrowParser :: StatementContext* ctx);

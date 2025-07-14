@@ -22,6 +22,9 @@ public:
   virtual void enterStatement(QBorrowParser::StatementContext * /*ctx*/) override { }
   virtual void exitStatement(QBorrowParser::StatementContext * /*ctx*/) override { }
 
+  virtual void enterFunction(QBorrowParser::FunctionContext * /*ctx*/) override { }
+  virtual void exitFunction(QBorrowParser::FunctionContext * /*ctx*/) override { }
+
   virtual void enterReg(QBorrowParser::RegContext * /*ctx*/) override { }
   virtual void exitReg(QBorrowParser::RegContext * /*ctx*/) override { }
 

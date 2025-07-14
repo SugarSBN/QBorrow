@@ -21,8 +21,12 @@ int main(int argc, char* argv[]) {
         /* */
     }
     std :: vector<std :: shared_ptr<Stmt> > statements = parser.get_statements();
+    std :: vector<std :: shared_ptr<Function> > functions = parser.get_functions();
 
-    // std :: cout << "Parsed statements:" << std :: endl;
+    for (const auto& func : functions) {
+        func -> print_function(); 
+        std :: cout << std :: endl;
+    }
 
     for (const auto& stmt : statements) {
         stmt -> print_stmt(); 
