@@ -40,22 +40,22 @@ struct Expr {
         specific expressions
     */
     struct Expr_ID {
-        std :: string id;
+        std :: string id_;
     };
 
     struct Expr_Number {
-        int number;  
+        int number_;  
     };
 
     struct Expr_Unary_Op {
-        Unary_Op op;
-        std :: shared_ptr<Expr> operand;
+        Unary_Op op_;
+        std :: shared_ptr<Expr> operand_;
     };
 
     struct Expr_Binary_Op {
-        Binary_Op op;
-        std :: shared_ptr<Expr> left;
-        std :: shared_ptr<Expr> right;
+        Binary_Op op_;
+        std :: shared_ptr<Expr> left_;
+        std :: shared_ptr<Expr> right_;
     };
 
 
@@ -72,24 +72,6 @@ struct Expr {
     > expr_;
 
 
-
-    /*
-        constructors
-    */
-    Expr(Expr_Type t, const std :: string& name)
-        : type_(t), expr_(Expr_ID{name}) {}
-
-    Expr(Expr_Type t, int value)
-        : type_(t), expr_(Expr_Number{value}) {}
-
-    Expr(Expr_Type t, Unary_Op op, std :: shared_ptr<Expr> operand)
-        : type_(t), expr_(Expr_Unary_Op{op, std :: move(operand)}) {}
-
-    Expr(Expr_Type t, Binary_Op op,
-         std :: shared_ptr<Expr> left,
-         std :: shared_ptr<Expr> right)
-        : type_(t), expr_(Expr_Binary_Op{op, std :: move(left), std :: move(right)}) {}
-
     
     /*
         factory methods for creating pointers to expressions
@@ -105,9 +87,19 @@ struct Expr {
     /*        
         pretty print expressions
     */
-    static void print_expr(const Expr& expr, std :: ostream& os = std :: cout); 
+    void print_expr(std :: ostream& os = std :: cout) const;
 };
 
+
+
+struct Register {
+    std :: string name_;
+    std :: shared_ptr<Expr> size_;
+
+    static std :: shared_ptr<Register> make_register(const std :: string& name, std :: shared_ptr<Expr> size);
+
+    void print_register(std :: ostream& os = std :: cout) const;
+};
 
 
 
@@ -124,10 +116,11 @@ public:
     enum class Stmt_Type {
         LET,
         BORROW, 
-        // ALLOC, 
-        // X, 
-        // CNOT, 
-        // CCNOT
+        ALLOC,
+        X, 
+        CNOT, 
+        CCNOT,
+        FOR
     };
 
 
@@ -140,11 +133,34 @@ public:
     };
 
     struct Stmt_Borrow {
-        std :: string id_;
-        bool is_register_;
-        std :: shared_ptr<Expr> expr_;
+        std :: shared_ptr<Register> register_;
     };
 
+    struct Stmt_Alloc {
+        std :: shared_ptr<Register> register_;
+    };
+
+    struct Stmt_X {
+        std :: shared_ptr<Register> target_;
+    };
+
+    struct Stmt_CNOT {
+        std :: shared_ptr<Register> control_;
+        std :: shared_ptr<Register> target_;
+    };
+
+    struct Stmt_CCNOT {
+        std :: shared_ptr<Register> control1_;
+        std :: shared_ptr<Register> control2_;
+        std :: shared_ptr<Register> target_;
+    };
+
+    struct Stmt_For {
+        std :: string id_;
+        std :: shared_ptr<Expr> start_;
+        std :: shared_ptr<Expr> end_;
+        std :: vector<std :: shared_ptr<Stmt> > body_;
+    };
 
     /*
         constructors
@@ -152,23 +168,57 @@ public:
     explicit Stmt (Stmt_Type t, const std :: string& name, std :: shared_ptr<Expr> expr)
         : stmt_(Stmt_Let{name, expr}), type_(t) {}
     
-    explicit Stmt (Stmt_Type t, const std :: string& name, bool is_register, std :: shared_ptr<Expr> expr)
-        : stmt_(Stmt_Borrow{name, is_register, expr}), type_(t) {}
+    explicit Stmt (Stmt_Type t, std :: shared_ptr<Register> reg)
+        : type_(t) {
+            switch (t) {
+
+            case Stmt_Type :: BORROW:  stmt_ = Stmt_Borrow{reg}; break; 
+            case Stmt_Type :: ALLOC:   stmt_ = Stmt_Alloc{reg}; break; 
+            case Stmt_Type :: X:       stmt_ = Stmt_X{reg}; break;
+
+            default:
+                throw std::runtime_error("Unsupported statement type for this constructor.");
+           
+        }
+    }
+
+    explicit Stmt (Stmt_Type t, std :: shared_ptr<Register> control, std :: shared_ptr<Register> target)
+        : stmt_(Stmt_CNOT{control, target}), type_(t) {}
+    
+    explicit Stmt (Stmt_Type t, std :: shared_ptr<Register> control1, std :: shared_ptr<Register> control2, std :: shared_ptr<Register> target)
+        : stmt_(Stmt_CCNOT{control1, control2, target}), type_(t) {}
+
+    explicit Stmt (Stmt_Type t, const std :: string& id, std :: shared_ptr<Expr> start, std :: shared_ptr<Expr> end, std :: vector<std :: shared_ptr<Stmt>> body)
+        : stmt_(Stmt_For{id, start, end, std::move(body)}), type_(t) {}
 
 
     /*
         factory methods for creating pointers to statements
     */ 
     static std :: shared_ptr<Stmt> make_let(const std :: string& name, std :: shared_ptr<Expr> expr);
-    static std :: shared_ptr<Stmt> make_borrow(const std :: string& name, bool is_register, std :: shared_ptr<Expr> expr);
-    
+    static std :: shared_ptr<Stmt> make_borrow(std :: shared_ptr<Register> reg);
+    static std :: shared_ptr<Stmt> make_alloc(std :: shared_ptr<Register> reg);
+    static std :: shared_ptr<Stmt> make_x(std :: shared_ptr<Register> target);
+    static std :: shared_ptr<Stmt> make_cnot(std :: shared_ptr<Register> control, std :: shared_ptr<Register> target);
+    static std :: shared_ptr<Stmt> make_ccnot(std :: shared_ptr<Register> control1, 
+                                              std :: shared_ptr<Register> control2, 
+                                              std :: shared_ptr<Register> target);
+    static std :: shared_ptr<Stmt> make_for(const std :: string& id, 
+                                            std :: shared_ptr<Expr> start, 
+                                            std :: shared_ptr<Expr> end, 
+                                            std :: vector<std :: shared_ptr<Stmt>> body);
 
     /*
         interfaces to obtain the statement type and its content
     */ 
     std :: variant<
-       Stmt_Let,
-       Stmt_Borrow
+        Stmt_Let,
+        Stmt_Borrow,
+        Stmt_Alloc,
+        Stmt_X,
+        Stmt_CNOT,
+        Stmt_CCNOT,
+        Stmt_For
     > get_stmt() const;
 
     Stmt_Type get_type() const;
@@ -176,7 +226,7 @@ public:
     /*
         pretty print statements
     */
-    void print_stmt(std :: ostream& os = std :: cout) const;
+    void print_stmt(std :: ostream& os = std :: cout, int layer = 0) const;
 
 private:
 
@@ -184,8 +234,13 @@ private:
         a statement is a type + variant.
     */
     std :: variant<
-       Stmt_Let,
-       Stmt_Borrow
+        Stmt_Let,
+        Stmt_Borrow,
+        Stmt_Alloc,
+        Stmt_X,
+        Stmt_CNOT,
+        Stmt_CCNOT,
+        Stmt_For
     > stmt_;
 
     Stmt_Type type_;

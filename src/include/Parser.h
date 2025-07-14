@@ -74,11 +74,13 @@ private:
 
 
     /* 
-        Visitors, in particular, visit_statements() store results in statements_
+        Visitors
     */
-    void visit_statements(const std :: vector<QBorrowParser :: StatementContext*>& stmts);
+    std :: vector<std :: shared_ptr<Stmt> > visit_statements(const std :: vector<QBorrowParser :: StatementContext*>& stmts);
     
     std :: shared_ptr<Stmt> visit_statement(QBorrowParser :: StatementContext* ctx);
+
+    std :: shared_ptr<Register> visit_register(QBorrowParser :: RegContext* ctx);
 
     std :: shared_ptr<Expr> visit_expr(QBorrowParser :: ExprContext* ctx);
     std :: shared_ptr<Expr> visit_term(QBorrowParser :: TermContext* ctx);

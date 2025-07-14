@@ -51,6 +51,20 @@
         "unordered_map": "cpp",
         "variant": "cpp",
         "vector": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "any": "cpp",
+        "charconv": "cpp",
+        "cinttypes": "cpp",
+        "condition_variable": "cpp",
+        "csignal": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "queue": "cpp",
+        "regex": "cpp",
+        "shared_mutex": "cpp",
+        "stack": "cpp",
+        "unordered_set": "cpp"
     }
 }

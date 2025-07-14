@@ -6,10 +6,19 @@ program : statement+ ;
 
 statement 
     : 'let' ID '=' expr ';'
-    | 'borrow' ID ';'
-    | 'borrow' ID '[' expr ']' ';'
+    | 'borrow' reg ';'
+    | 'alloc' reg ';'
+    | 'X' '[' reg ']' ';'
+    | 'CNOT' '[' reg ',' reg ']' ';'
+    | 'CCNOT' '[' reg ',' reg ',' reg ']' ';'
+    | 'for' ID '=' expr 'to' expr '{' statement+ '}'
     ;
 
+
+reg
+    : ID '[' expr ']'
+    | ID 
+    ;
 
 // arithmetic expressions
 expr 

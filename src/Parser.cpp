@@ -87,18 +87,19 @@ void Parser :: build_parse_tree(antlr4 :: tree :: ParseTree* tree) {
         throw std::runtime_error("Empty or invalid program.");
     }
 
-    visit_statements(program_ctx -> statement());
+    statements_ = visit_statements(program_ctx -> statement());
 }
 
-void Parser :: visit_statements(const std::vector<QBorrowParser::StatementContext*>& stmts){
+std :: vector<std :: shared_ptr<Stmt> > Parser :: visit_statements(const std::vector<QBorrowParser::StatementContext*>& stmts){
+    std :: vector<std :: shared_ptr<Stmt> > results;
+    results.clear();
 
     for (auto* s : stmts) {
 
-        statements_.push_back(visit_statement(s));
+        results.push_back(visit_statement(s));
         
     }
-
-    return;
+    return results;
 }
 
 
@@ -108,39 +109,57 @@ std :: shared_ptr<Stmt> Parser :: visit_statement(QBorrowParser :: StatementCont
     if (ctx -> getStart() -> getText() == "let") {
         
         std :: string id = ctx -> ID() -> getText();
-        auto expr = visit_expr(ctx -> expr());
+        auto expr = visit_expr(ctx -> expr(0));
 
         return Stmt :: make_let(id, expr);
 
     } else if (ctx -> getStart() -> getText() == "borrow") {
 
-        std :: string id = ctx -> ID() -> getText();
-
-
-        if (ctx -> expr() == nullptr) {
-
-            return Stmt :: make_borrow(id, false, nullptr);
-
-        } else {
-
-
-            return Stmt :: make_borrow(id, true, visit_expr(ctx -> expr()));
-
-
-        }
+       return Stmt :: make_borrow(visit_register(ctx -> reg(0)));
 
     } else if (ctx->getStart()->getText() == "alloc") {
 
-        // return visit_borrow_alloc(ctx, /*is_alloc=*/true);
+        return Stmt :: make_alloc(visit_register(ctx -> reg(0)));
+
+    } else if (ctx -> getStart() -> getText() == "X") {
+
+        return Stmt :: make_x(visit_register(ctx -> reg(0)));
+
+    } else if (ctx -> getStart() -> getText() == "CNOT") {
+
+        return Stmt :: make_cnot(visit_register(ctx -> reg(0)), visit_register(ctx -> reg(1)));
+
+    } else if (ctx -> getStart() -> getText() == "CCNOT") {
+
+        return Stmt :: make_ccnot(visit_register(ctx -> reg(0)), 
+                                  visit_register(ctx -> reg(1)), 
+                                  visit_register(ctx -> reg(2)));
+
+    } else if (ctx -> getStart() -> getText() == "for") {
+
+        std :: string id = ctx -> ID() -> getText();
+        auto start = visit_expr(ctx -> expr(0));
+        auto end = visit_expr(ctx -> expr(1));
+        std :: vector<std :: shared_ptr<Stmt> > body = visit_statements(ctx -> statement());
+
+        return Stmt :: make_for(id, start, end, std :: move(body));
 
     }
+
     throw std::runtime_error("Unknown statement type");
 }
 
 
+std :: shared_ptr<Register> Parser :: visit_register(QBorrowParser :: RegContext* ctx) {
+    return Register :: make_register(ctx -> ID() -> getText(), visit_expr(ctx -> expr()));
+}
+
 
 
 std :: shared_ptr<Expr> Parser :: visit_expr(QBorrowParser :: ExprContext* ctx) {
+    
+    if (ctx == nullptr) return nullptr;
+    
     // binary operatior
     if (ctx -> expr() != nullptr && ctx -> term() != nullptr) {
 

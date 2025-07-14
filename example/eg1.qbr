@@ -8,3 +8,29 @@ borrow q[1*2+m];
 borrow q123[1*2-n3];
 
 borrow q;
+
+alloc q[1*2+m];
+
+alloc q123[1*2-n3];
+
+alloc q;
+
+
+X[q];
+
+X[q[3*4]];
+
+CNOT[q[1], q[3+4]];
+
+CCNOT[q[4], q[10], q[19238]];
+
+
+for i = 1 + n to 3 * 2 {
+    X[q];
+
+    X[q[3*4]];
+
+    CNOT[q[1], q[3+4]];
+
+    CCNOT[q[4], q[10], q[19238]];
+}

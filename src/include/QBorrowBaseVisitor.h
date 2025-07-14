@@ -23,6 +23,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual std::any visitReg(QBorrowParser::RegContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual std::any visitExpr(QBorrowParser::ExprContext *ctx) override {
     return visitChildren(ctx);
   }

@@ -20,7 +20,10 @@ int main(int argc, char* argv[]) {
     if (parser.parse_string(argument_parser.get_parse_result()) == true){
         /* */
     }
-     std :: vector<std :: shared_ptr<Stmt> > statements = parser.get_statements();
+    std :: vector<std :: shared_ptr<Stmt> > statements = parser.get_statements();
+
+    // std :: cout << "Parsed statements:" << std :: endl;
+
     for (const auto& stmt : statements) {
         stmt -> print_stmt(); 
         std :: cout << std :: endl;
