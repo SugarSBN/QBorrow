@@ -17,6 +17,7 @@ public:
     std::vector<std::shared_ptr<Register> > get_registers() const;
     std::vector<std::shared_ptr<Stmt> > get_body() const;
     
+    void set_body(const std::vector<std::shared_ptr<Stmt> >& body);
     void print_function(std::ostream& os = std::cout) const;
 
 private:

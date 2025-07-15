@@ -77,7 +77,7 @@ bool Parser::parse_string(const std::string& input_string) {
     return true;
 }
 
-std::shared_ptr<Program> Parser::get_program() {
+std::shared_ptr<Program> Parser::get_program() const {
     return program_;
 }
 

@@ -25,6 +25,12 @@ public:
     std::vector<std::shared_ptr<Function> > get_functions() const;
     std::vector<std::shared_ptr<Stmt> > get_statements() const;
 
+    /*
+        returns true if a LET statement is eliminated,
+        false if no LET statement is found
+    */
+    bool eliminate_let_statements();
+    bool eliminate_for_statements();
 
 private:
     /*

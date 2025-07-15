@@ -260,8 +260,9 @@ void Stmt::print_stmt(std::ostream& os, const int& layer) const {
                 os << std::endl;
                 body_stmt -> print_stmt(os, layer + 1);
             }
-            
-            os << std::endl << "}";
+            os << std::endl;
+            for (int i = 0; i < layer; ++i) os << "  ";
+            os << "}";
             break;
         }
         case Stmt_Type::CALL : {

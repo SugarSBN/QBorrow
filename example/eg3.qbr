@@ -1,5 +1,18 @@
 
+function test() [] {
+    let n = 10;
+    alloc q[n];
+    for i = 1 to n {
+        borrow q[i];
+    }
+}
 
-for i = 1 to 4 {
-    alloc q[i];
+
+let n = 3;
+let n = n + 1;
+let n = n * 2;
+for i = 1 to n {
+    for i = 1 to i {
+        alloc q[i];
+    }
 }

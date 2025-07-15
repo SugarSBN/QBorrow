@@ -6,7 +6,7 @@
 #include "Preprocessor.h"
 #include "QBorrowParser.h" 
 
-#define RED "\033[35m"
+#define RED "\033[1;31m"
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
 
@@ -30,20 +30,17 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    const auto& program = parser -> get_program();
-    
+    auto program = parser -> get_program();
+
     if (argument_parser -> get_need_print()) {
         program -> print_program(std::cout);
     }
 
-    
-    // const auto& preprocessor = Preprocessor::make_preprocessor(std::cout, std::cerr);
+    const auto& preprocessor = Preprocessor::make_preprocessor(std::cout, std::cerr, 
+                                                    argument_parser -> get_need_print_remove_let(), 
+                                                    argument_parser -> get_need_print_remove_for()); 
 
-    // if (preprocessor -> preprocess(functions, statements, 
-    //                                argument_parser -> get_need_print_remove_let()) == false) {
-    //     std::cerr << "Preprocessing failed." << std::endl;
-    //     return 1;
-    // }
+    preprocessor -> preprocess(program);
     
 
     return 0;

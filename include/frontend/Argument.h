@@ -25,6 +25,7 @@ public:
     std::string get_parse_result() const;
     bool get_need_print() const;
     bool get_need_print_remove_let() const;
+    bool get_need_print_remove_for() const;
 
 private:
     
@@ -44,6 +45,7 @@ private:
 
     bool need_print_ = false;
     bool need_print_remove_let_ = true;
+    bool need_print_remove_for_ = true;
 
     
 };

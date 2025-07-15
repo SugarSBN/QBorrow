@@ -21,6 +21,10 @@ std::shared_ptr<Function> Function::make_function(const std::string& name,
     return std::make_shared<Function>(Function(name, params, registers, body));
 }
 
+void Function::set_body(const std::vector<std::shared_ptr<Stmt> >& body) {
+    body_ = body;
+}
+
 std::string Function::get_name() const {
     return name_;
 }

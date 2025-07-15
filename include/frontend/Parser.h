@@ -53,7 +53,7 @@ public:
     /*
         get the parsed functions and statements
     */
-    std::shared_ptr<Program> get_program();
+    std::shared_ptr<Program> get_program() const;
 
 private:
 
