@@ -1,7 +1,7 @@
 CMakeFiles/qborrow.dir/src/frontend/Preprocessor.cpp.o: \
   /Users/subonan/subonan_THU/QBorrow/src/frontend/Preprocessor.cpp \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/Preprocessor.h \
-  /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Program.h \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Expr.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__algorithm/max.h \

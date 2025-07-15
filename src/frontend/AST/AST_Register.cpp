@@ -3,13 +3,16 @@
 
 
 /*
+    Constructors
+*/
+Register::Register(const std::string& name, const std::shared_ptr<Expr>& size)
+    : name_(name), size_(size) {}
+
+/*
     register factory method
 */
-std :: shared_ptr<Register> Register :: make_register(const std :: string& name, std :: shared_ptr<Expr> size) {
-    return std :: make_shared<Register>(Register{
-        name, 
-        std :: move(size)
-    });
+std::shared_ptr<Register> Register::make_register(const std::string& name, const std::shared_ptr<Expr>& size) {
+    return std::make_shared<Register>(Register(name, size));
 }
 
 /*
@@ -20,7 +23,7 @@ std :: shared_ptr<Register> Register :: make_register(const std :: string& name,
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
 
-void Register :: print_register(std :: ostream& os) const {
+void Register::print_register(std::ostream& os) const {
     os << name_;
     if (size_ != nullptr) {
         os << "["; 
@@ -29,6 +32,15 @@ void Register :: print_register(std :: ostream& os) const {
     }
 }
 
-std :: shared_ptr<Register> Register :: substitute(const std :: string& name, std :: shared_ptr<Expr> value) const {
+std::shared_ptr<Register> Register::substitute(const std::string& name, const std::shared_ptr<Expr>& value) const {
     return Register::make_register(name_, size_ ? size_ -> substitute(name, value) : nullptr);
+}
+
+
+
+std::string Register::get_name() const {
+    return name_;
+}
+std::shared_ptr<Expr> Register::get_size() const {
+    return size_;
 }

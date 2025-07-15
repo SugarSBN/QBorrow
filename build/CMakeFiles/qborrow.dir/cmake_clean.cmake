@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/qborrow.dir/src/frontend/Parser.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/Preprocessor.cpp.o"
   "CMakeFiles/qborrow.dir/src/frontend/Preprocessor.cpp.o.d"
+  "CMakeFiles/qborrow.dir/src/frontend/Program.cpp.o"
+  "CMakeFiles/qborrow.dir/src/frontend/Program.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseListener.cpp.o"
   "CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseListener.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseVisitor.cpp.o"

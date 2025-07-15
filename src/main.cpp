@@ -12,45 +12,38 @@
 
 int main(int argc, char* argv[]) {
 
-    std :: string contents;
-    Argument_Parser argument_parser(std :: cerr); 
+    std::string contents;
 
-    if (argument_parser.parse_argument(argc, argv) == false) {
-        std :: cerr << RED << "Argument parsing failed." << std :: endl;
+    const auto& argument_parser = Argument_Parser::make_argument_parser(std::cerr); 
+
+    if (argument_parser -> parse_argument(argc, argv) == false) {
+        std::cerr << RED << "[Argument parsing failed]" << RESET << std::endl;
+        return 1;
+    }
+    
+
+
+    const auto& parser = Parser::make_parser(std::cerr);
+
+    if (parser -> parse_string(argument_parser -> get_parse_result()) == false) {
+        std::cerr << RED << "[Parsing failed]" << RESET << std::endl;
         return 1;
     }
 
-
-    Parser parser(std :: cerr);
-
-    if (parser.parse_string(argument_parser.get_parse_result()) == false) {
-        std :: cerr << RED << "Parsing failed." << std :: endl;
-        return 1;
-    }
-
-    std :: vector<std :: shared_ptr<Stmt> > statements = parser.get_statements();
-    std :: vector<std :: shared_ptr<Function> > functions = parser.get_functions();
-
-    if (argument_parser.get_need_print()) {
-        for (const auto& func : functions) {
-            func -> print_function(); 
-            std :: cout << std :: endl;
-        }
-
-        for (const auto& stmt : statements) {
-            stmt -> print_stmt(); 
-            std :: cout << std :: endl;
-        }
+    const auto& program = parser -> get_program();
+    
+    if (argument_parser -> get_need_print()) {
+        program -> print_program(std::cout);
     }
 
     
-    Preprocessor preprocessor(std :: cout, std :: cerr);
+    // const auto& preprocessor = Preprocessor::make_preprocessor(std::cout, std::cerr);
 
-    if (preprocessor.preprocess(functions, statements, 
-                                argument_parser.get_need_print_remove_let()) == false) {
-        std :: cerr << "Preprocessing failed." << std :: endl;
-        return 1;
-    }
+    // if (preprocessor -> preprocess(functions, statements, 
+    //                                argument_parser -> get_need_print_remove_let()) == false) {
+    //     std::cerr << "Preprocessing failed." << std::endl;
+    //     return 1;
+    // }
     
 
     return 0;

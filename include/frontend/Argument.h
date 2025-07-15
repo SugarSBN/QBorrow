@@ -9,9 +9,9 @@ class Argument_Parser{
 public:
     
     /*
-        constructor, taking an error output stream
+        factory method
     */
-    explicit Argument_Parser(std :: ostream & error_stream);
+    static std::shared_ptr<Argument_Parser> make_argument_parser(std::ostream & error_stream);
 
     /*
         parse the command line arguments
@@ -22,30 +22,28 @@ public:
     /*
         interface to get the result of parsing arguments
     */
-    std :: string get_parse_result() const;
+    std::string get_parse_result() const;
     bool get_need_print() const;
     bool get_need_print_remove_let() const;
 
 private:
-
+    
+    /*
+        constructor, taking an error output stream
+    */
+    explicit Argument_Parser(std::ostream & error_stream);
     /*
         stream for error output
     */ 
-    std :: ostream & error_output_;
+    std::ostream & error_output_;
 
     /*
         the result of parsing arguments
     */ 
-    std :: string parse_result_;
+    std::string parse_result_;
 
     bool need_print_ = false;
     bool need_print_remove_let_ = true;
 
     
-    /*
-        error messages when parsing arguments
-    */
-    void message_absence_input_file();
-    void message_file_open_error(const std :: string& file_path);
-
 };

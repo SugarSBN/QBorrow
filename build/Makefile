@@ -297,6 +297,30 @@ src/frontend/Preprocessor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Preprocessor.cpp.s
 .PHONY : src/frontend/Preprocessor.cpp.s
 
+src/frontend/Program.o: src/frontend/Program.cpp.o
+.PHONY : src/frontend/Program.o
+
+# target to build an object file
+src/frontend/Program.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Program.cpp.o
+.PHONY : src/frontend/Program.cpp.o
+
+src/frontend/Program.i: src/frontend/Program.cpp.i
+.PHONY : src/frontend/Program.i
+
+# target to preprocess a source file
+src/frontend/Program.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Program.cpp.i
+.PHONY : src/frontend/Program.cpp.i
+
+src/frontend/Program.s: src/frontend/Program.cpp.s
+.PHONY : src/frontend/Program.s
+
+# target to generate assembly for a file
+src/frontend/Program.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Program.cpp.s
+.PHONY : src/frontend/Program.cpp.s
+
 src/frontend/antlr-gen/QBorrowBaseListener.o: src/frontend/antlr-gen/QBorrowBaseListener.cpp.o
 .PHONY : src/frontend/antlr-gen/QBorrowBaseListener.o
 
@@ -495,6 +519,9 @@ help:
 	@echo "... src/frontend/Preprocessor.o"
 	@echo "... src/frontend/Preprocessor.i"
 	@echo "... src/frontend/Preprocessor.s"
+	@echo "... src/frontend/Program.o"
+	@echo "... src/frontend/Program.i"
+	@echo "... src/frontend/Program.s"
 	@echo "... src/frontend/antlr-gen/QBorrowBaseListener.o"
 	@echo "... src/frontend/antlr-gen/QBorrowBaseListener.i"
 	@echo "... src/frontend/antlr-gen/QBorrowBaseListener.s"

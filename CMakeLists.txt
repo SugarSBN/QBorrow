@@ -175,6 +175,7 @@ add_executable(${PROJECT_NAME}
     src/frontend/Argument.cpp
     src/frontend/Parser.cpp
     src/frontend/Preprocessor.cpp
+    src/frontend/Program.cpp
 
     src/frontend/AST/AST_Expr.cpp
     src/frontend/AST/AST_Stmt.cpp
