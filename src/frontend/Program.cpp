@@ -1,5 +1,7 @@
 
 #include "Program.h"
+#include <map>
+
 
 std::shared_ptr<Program> Program::make_program(const std::vector<std::shared_ptr<Stmt> >& statements) {
     return std::make_shared<Program>(Program(statements));
@@ -118,7 +120,7 @@ void Program::evaluate() {
 }
 
 
-bool Program::rename_borrow_alloc() {
+bool Program::rename_borrow_alloc(int layer) {
     size_t i = 0;
     for (; i < statements_.size(); i++) {
             if (statements_[i]->get_type() == Stmt::Stmt_Type::BORROW &&
@@ -133,25 +135,32 @@ bool Program::rename_borrow_alloc() {
     if (i == statements_.size()) {
         return false; // no BORROW or ALLOC statement found
     }
-
-    std::string name = std::get<Stmt::Stmt_Borrow>(statements_[i] -> get_stmt()).register_ -> get_name();
-    int layer = 0;
+    std::string name = statements_[i]->get_type() == Stmt::Stmt_Type::BORROW ?
+    std::get<Stmt::Stmt_Borrow>(statements_[i] -> get_stmt()).register_ -> get_name() :
+    std::get<Stmt::Stmt_Alloc>(statements_[i] -> get_stmt()).register_ -> get_name();
+    
+    int cnt = 0;
     size_t j = i + 1;
 
     for (;j < statements_.size(); j++) {
 
-        if ((statements_[j]->get_type() == Stmt::Stmt_Type::BORROW || 
-             statements_[j]->get_type() == Stmt::Stmt_Type::ALLOC)) {
+        if (statements_[j] -> get_type() == Stmt::Stmt_Type::BORROW) {
             
             if (std::get<Stmt::Stmt_Borrow>(statements_[j] -> get_stmt()).register_ -> get_name() == name)
-                layer++;
+                cnt++;
+
+        }
+        if (statements_[j] -> get_type() == Stmt::Stmt_Type::ALLOC) {
+            
+            if (std::get<Stmt::Stmt_Alloc>(statements_[j] -> get_stmt()).register_ -> get_name() == name)
+                cnt++;
 
         }
         if (statements_[j]->get_type() == Stmt::Stmt_Type::REL &&
             std::get<Stmt::Stmt_Rel>(statements_[j] -> get_stmt()).id_ == name) {
 
-            if (layer == 0) break;
-            layer--;
+            if (cnt == 0) break;
+            cnt--;
 
         }
     }
@@ -161,22 +170,20 @@ bool Program::rename_borrow_alloc() {
         std::vector<std::shared_ptr<Stmt> >(statements_.begin() + i + 1, statements_.begin() + j)
     );
 
-    if (sub_program -> rename_borrow_alloc())  {
-
+    if (sub_program -> rename_borrow_alloc(layer + 1))  {
         for (size_t k = i + 1; k < j; k++) {
             statements_[k] = sub_program -> statements_[k - i - 1];
         }
-        name_idx += sub_program -> name_idx;
         return true;
-
     }
 
-    statements_[i] = statements_[i] -> substitute_reg(name, "__q" + std::to_string(++name_idx));
-    statements_[j] = statements_[j] -> substitute_reg(name, "__q" + std::to_string(name_idx));
+    statements_[i] = statements_[i] -> substitute_reg(name, "_q" + std::to_string(layer) + "_");
+    if (j < statements_.size())
+        statements_[j] = statements_[j] -> substitute_reg(name, "_q" + std::to_string(layer) + "_");
     
     for (size_t k = i + 1; k < j; k++) {
 
-        statements_[k] = statements_[k] -> substitute_reg(name, "__q" + std::to_string(name_idx));
+        statements_[k] = statements_[k] -> substitute_reg(name, "_q" + std::to_string(layer) + "_");
     
     }
 
@@ -184,63 +191,175 @@ bool Program::rename_borrow_alloc() {
 }
 
 
-bool Program::free_name_check() const {
+void Program::check_free_name() const {
     for (const auto& stmt : statements_) {
-        switch (stmt->get_type()) {
-            case Stmt::Stmt_Type::BORROW: {
-                if (std::get<Stmt::Stmt_Borrow>(stmt -> get_stmt()).register_ -> get_name()[0] != '_') {
-                    return false; // found a register name that does not start with '_'
+        try{
+            switch (stmt->get_type()) {
+                case Stmt::Stmt_Type::BORROW: {
+                    if (std::get<Stmt::Stmt_Borrow>(stmt -> get_stmt()).register_ -> get_name()[0] != '_') {
+                        throw std::runtime_error(""); // found a register name that does not start with '_'
+                    }
+                    break;
                 }
-                break;
+                case Stmt::Stmt_Type::ALLOC: {
+                    if (std::get<Stmt::Stmt_Alloc>(stmt -> get_stmt()).register_ -> get_name()[0] != '_') {
+                        throw std::runtime_error(""); // found a register name that does not start with '_'
+                    }
+                    break;
+                }
+                case Stmt::Stmt_Type::REL: {
+                    if (std::get<Stmt::Stmt_Rel>(stmt -> get_stmt()).id_[0] != '_') {
+                        throw std::runtime_error(""); // found a relation id that does not start with '_'
+                    }
+                    break;
+                }
+                case Stmt::Stmt_Type::X: {
+                    if (std::get<Stmt::Stmt_X>(stmt->get_stmt()).target_ -> get_name()[0] != '_') {
+                        throw std::runtime_error(""); // found a target register name that does not start with '_'
+                    }
+                    break;
+                }
+                case Stmt::Stmt_Type::CNOT: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& cnot_stmt = std::get<Stmt::Stmt_CNOT>(tmp);
+                    if (cnot_stmt.control_ -> get_name()[0] != '_' ||
+                        cnot_stmt.target_ -> get_name()[0] != '_') {
+                        throw std::runtime_error(""); // found a control or target register name that does not start with '_'
+                    }
+                    break;
+                }   
+                case Stmt::Stmt_Type::CCNOT: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& ccnot_stmt = std::get<Stmt::Stmt_CCNOT>(tmp);
+                    if (ccnot_stmt.control1_ -> get_name()[0] != '_' ||
+                        ccnot_stmt.control2_ -> get_name()[0] != '_' ||
+                        ccnot_stmt.target_ -> get_name()[0] != '_') {
+                        throw std::runtime_error(""); // found a control or target register name that does not start with '_'
+                    }
+                    break;
+                }
+                case Stmt::Stmt_Type::FOR: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& for_stmt = std::get<Stmt::Stmt_For>(tmp);
+                    make_program(for_stmt.body_) -> check_free_name();
+                    break;
+                }
+                default: 
+                    break; // other statement types do not have register names to check
             }
-            case Stmt::Stmt_Type::ALLOC: {
-                if (std::get<Stmt::Stmt_Alloc>(stmt -> get_stmt()).register_ -> get_name()[0] != '_') {
-                    return false; // found a register name that does not start with '_'
-                }
-                break;
-            }
-            case Stmt::Stmt_Type::REL: {
-                if (std::get<Stmt::Stmt_Rel>(stmt -> get_stmt()).id_[0] != '_') {
-                    return false; // found a relation id that does not start with '_'
-                }
-                break;
-            }
-            case Stmt::Stmt_Type::X: {
-                if (std::get<Stmt::Stmt_X>(stmt->get_stmt()).target_ -> get_name()[0] != '_') {
-                    return false; // found a target register name that does not start with '_'
-                }
-                break;
-            }
-            case Stmt::Stmt_Type::CNOT: {
-                const auto& tmp = stmt -> get_stmt();
-                const auto& cnot_stmt = std::get<Stmt::Stmt_CNOT>(tmp);
-                if (cnot_stmt.control_ -> get_name()[0] != '_' ||
-                    cnot_stmt.target_ -> get_name()[0] != '_') {
-                    return false; // found a control or target register name that does not start with '_'
-                }
-                break;
-            }   
-            case Stmt::Stmt_Type::CCNOT: {
-                const auto& tmp = stmt -> get_stmt();
-                const auto& ccnot_stmt = std::get<Stmt::Stmt_CCNOT>(tmp);
-                if (ccnot_stmt.control1_ -> get_name()[0] != '_' ||
-                    ccnot_stmt.control2_ -> get_name()[0] != '_' ||
-                    ccnot_stmt.target_ -> get_name()[0] != '_') {
-                    return false; // found a control or target register name that does not start with '_'
-                }
-                break;
-            }
-            case Stmt::Stmt_Type::FOR: {
-                const auto& tmp = stmt -> get_stmt();
-                const auto& for_stmt = std::get<Stmt::Stmt_For>(tmp);
-                if (!make_program(for_stmt.body_) -> free_name_check()) {
-                    return false; // check body statements recursively
-                }
-                break;
-            }
-            default: 
-                break; // other statement types do not have register names to check
+        }
+        catch (const std::runtime_error&) {
+            throw std::runtime_error("Line " + std::to_string(stmt->get_lineno()) + ": register not allocated or borrowed.");
         }
     }
-    return true; // all registers have names starting with '_'
+}
+
+
+void Program::check_out_range() const {
+
+    std::map<std::string, int> range;
+
+    for (const auto& stmt : statements_) {
+        try {
+            switch (stmt -> get_type()) {
+                case Stmt::Stmt_Type::BORROW: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& reg = std::get<Stmt::Stmt_Borrow>(tmp).register_;
+                    range[reg -> get_name()] = reg -> get_size() -> evaluate();
+                    break;
+                }
+                case Stmt::Stmt_Type::ALLOC: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& reg = std::get<Stmt::Stmt_Alloc>(tmp).register_;
+                    range[reg -> get_name()] = reg -> get_size() -> evaluate();
+                    break;
+                }
+                case Stmt::Stmt_Type::X: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& reg = std::get<Stmt::Stmt_X>(tmp).target_;
+                    if (range[reg -> get_name()] < reg -> get_size() -> evaluate()) {
+                        throw std::runtime_error(""); // register not found in range map
+                    }
+                    if (reg -> get_size() -> evaluate() <= 0) {
+                        throw std::runtime_error(""); // register size is not positive
+                    }
+                    break;
+                }
+                case Stmt::Stmt_Type::CNOT: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& cnot_stmt = std::get<Stmt::Stmt_CNOT>(tmp);
+                    if (range[cnot_stmt.control_ -> get_name()] < cnot_stmt.control_ -> get_size() -> evaluate() ||
+                        range[cnot_stmt.target_ -> get_name()] < cnot_stmt.target_ -> get_size() -> evaluate()) {
+                        throw std::runtime_error(""); // control or target register not found in range map
+                    }
+                    if (cnot_stmt.control_ -> get_size() -> evaluate() <= 0 ||
+                        cnot_stmt.target_ -> get_size() -> evaluate() <= 0) {
+                        throw std::runtime_error(""); // control or target register size is not positive
+                    }
+                    break;
+                }
+                case Stmt::Stmt_Type::CCNOT: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& ccnot_stmt = std::get<Stmt::Stmt_CCNOT>(tmp);
+                    if (range[ccnot_stmt.control1_ -> get_name()] < ccnot_stmt.control1_ -> get_size() -> evaluate() ||
+                        range[ccnot_stmt.control2_ -> get_name()] < ccnot_stmt.control2_ -> get_size() -> evaluate() ||
+                        range[ccnot_stmt.target_ -> get_name()] < ccnot_stmt.target_ -> get_size() -> evaluate()) {
+                        throw std::runtime_error(""); // control or target register not found in range map
+                    }
+                    if (ccnot_stmt.control1_ -> get_size() -> evaluate() <= 0 ||
+                        ccnot_stmt.control2_ -> get_size() -> evaluate() <= 0 ||
+                        ccnot_stmt.target_ -> get_size() -> evaluate() <= 0) {
+                        throw std::runtime_error(""); // control or target register size is not positive
+                    }
+                    break;
+                }
+                case Stmt::Stmt_Type::REL: {
+                    range[std::get<Stmt::Stmt_Rel>(stmt -> get_stmt()).id_] = 0; 
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+        catch (const std::exception& ex) {
+            throw std::runtime_error("Line " + std::to_string(stmt->get_lineno()) + ": register out of range.");
+        }
+    }
+}
+
+
+void Program::check_disjoint() const {
+    for (const auto& stmt : statements_) {
+        try {
+            switch (stmt -> get_type()) {
+                case Stmt::Stmt_Type::CNOT: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& cnot_stmt = std::get<Stmt::Stmt_CNOT>(tmp);
+                    if (cnot_stmt.control_ -> get_name() == cnot_stmt.target_ -> get_name() &&
+                        cnot_stmt.control_ -> get_size() -> evaluate() == cnot_stmt.target_ -> get_size() -> evaluate()) {
+                        throw std::runtime_error(""); // control and target registers are not disjoint
+                    }
+                    break;
+                }
+                case Stmt::Stmt_Type::CCNOT: {
+                    const auto& tmp = stmt -> get_stmt();
+                    const auto& ccnot_stmt = std::get<Stmt::Stmt_CCNOT>(tmp);
+                    if ((ccnot_stmt.control1_ -> get_name() == ccnot_stmt.control2_ -> get_name() &&
+                         ccnot_stmt.control1_ -> get_size() -> evaluate() == ccnot_stmt.control2_ -> get_size() -> evaluate()) ||
+                        (ccnot_stmt.control1_ -> get_name() == ccnot_stmt.target_ -> get_name() &&
+                         ccnot_stmt.control1_ -> get_size() -> evaluate() == ccnot_stmt.target_ -> get_size() -> evaluate()) ||
+                        (ccnot_stmt.control2_ -> get_name() == ccnot_stmt.target_ -> get_name() &&
+                         ccnot_stmt.control2_ -> get_size() -> evaluate() == ccnot_stmt.target_ -> get_size() -> evaluate())) {
+                        throw std::runtime_error(""); // control and target registers are not disjoint
+                    }
+                    break;
+                }
+                default:
+                    break; // other statement types do not have register names to check
+            }
+        }
+        catch (const std::runtime_error&) {
+            throw std::runtime_error("Line " + std::to_string(stmt->get_lineno()) + ": register are not disjoint.");
+        }
+    }
 }

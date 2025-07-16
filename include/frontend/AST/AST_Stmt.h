@@ -74,19 +74,23 @@ public:
     /*
         factory methods for creating pointers to statements
     */ 
-    static std::shared_ptr<Stmt> make_let     (const std::string& name, const std::shared_ptr<Expr>& expr);
-    static std::shared_ptr<Stmt> make_borrow  (const std::shared_ptr<Register>& reg);
-    static std::shared_ptr<Stmt> make_alloc   (const std::shared_ptr<Register>& reg);
-    static std::shared_ptr<Stmt> make_rel     (const std::string& id);
-    static std::shared_ptr<Stmt> make_x       (const std::shared_ptr<Register>& target);
-    static std::shared_ptr<Stmt> make_cnot    (const std::shared_ptr<Register>& control, const std::shared_ptr<Register>& target);
+    static std::shared_ptr<Stmt> make_let     (const std::string& name, const std::shared_ptr<Expr>& expr, const int& lineno);
+    static std::shared_ptr<Stmt> make_borrow  (const std::shared_ptr<Register>& reg, const int& lineno);
+    static std::shared_ptr<Stmt> make_alloc   (const std::shared_ptr<Register>& reg, const int& lineno);
+    static std::shared_ptr<Stmt> make_rel     (const std::string& id, const int& lineno);
+    static std::shared_ptr<Stmt> make_x       (const std::shared_ptr<Register>& target, const int& lineno);
+    static std::shared_ptr<Stmt> make_cnot    (const std::shared_ptr<Register>& control, 
+                                               const std::shared_ptr<Register>& target, 
+                                               const int& lineno);
     static std::shared_ptr<Stmt> make_ccnot   (const std::shared_ptr<Register>& control1, 
                                                const std::shared_ptr<Register>& control2, 
-                                               const std::shared_ptr<Register>& target);
+                                               const std::shared_ptr<Register>& target,
+                                               const int& lineno);
     static std::shared_ptr<Stmt> make_for     (const std::string& id, 
                                                const std::shared_ptr<Expr>& start, 
                                                const std::shared_ptr<Expr>& end, 
-                                               const std::vector<std::shared_ptr<Stmt> >& body);
+                                               const std::vector<std::shared_ptr<Stmt> >& body,
+                                               const int& lineno);
     
 
 
@@ -112,8 +116,8 @@ public:
         Stmt_CCNOT,
         Stmt_For
     > get_stmt() const;
-
     Stmt_Type get_type() const;
+    int get_lineno() const;
 
 
     /*
@@ -126,19 +130,21 @@ private:
 /*
         constructors
     */        
-    explicit Stmt (Stmt_Type t, const std::string& name, const std::shared_ptr<Expr>& expr);
-    explicit Stmt (Stmt_Type t, const std::string& name);
-    explicit Stmt (Stmt_Type t, const std::shared_ptr<Register>& reg);
-    explicit Stmt (Stmt_Type t, const std::shared_ptr<Register>& control, const std::shared_ptr<Register>& target);
+    explicit Stmt (Stmt_Type t, const std::string& name, const std::shared_ptr<Expr>& expr, const int& lineno);
+    explicit Stmt (Stmt_Type t, const std::string& name, const int& lineno);
+    explicit Stmt (Stmt_Type t, const std::shared_ptr<Register>& reg, const int& lineno);
+    explicit Stmt (Stmt_Type t, const std::shared_ptr<Register>& control, const std::shared_ptr<Register>& target, const int& lineno);
     explicit Stmt (Stmt_Type t, 
                    const std::shared_ptr<Register>& control1, 
                    const std::shared_ptr<Register>& control2, 
-                   const std::shared_ptr<Register>& target);
+                   const std::shared_ptr<Register>& target,
+                   const int& lineno);
     explicit Stmt (Stmt_Type t, 
                    const std::string& id, 
                    const std::shared_ptr<Expr>& start, 
                    const std::shared_ptr<Expr>& end, 
-                   const std::vector<std::shared_ptr<Stmt> >& body);
+                   const std::vector<std::shared_ptr<Stmt> >& body,
+                   const int& lineno);
 
    
 
@@ -158,6 +164,7 @@ private:
 
     Stmt_Type type_;
 
+    int lineno_;
 };
 
 

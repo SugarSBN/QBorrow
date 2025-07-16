@@ -43,8 +43,7 @@ int main(int argc, char* argv[]) {
         Preprocessing
     */
     const auto& preprocessor = Preprocessor::make_preprocessor(std::cout, std::cerr, 
-                                                    argument_parser -> get_need_print_remove_let(), 
-                                                    argument_parser -> get_need_print_remove_for()); 
+                                                    argument_parser -> get_need_print_preprocess()); 
 
     preprocessor -> preprocess(program);
     

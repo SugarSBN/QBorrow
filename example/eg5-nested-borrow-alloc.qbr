@@ -1,0 +1,13 @@
+borrow q;
+    X[q];
+borrow q[2];
+    X[q[1]];
+release q;
+    X[q];
+
+alloc q;
+    X[q];
+borrow q;
+    X[q];
+release q;
+    X[q];

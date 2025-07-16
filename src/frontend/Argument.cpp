@@ -52,11 +52,8 @@ bool Argument_Parser::parse_argument(int argc, char* argv[]){
             if (std::string(argv[idx]) == "--pretty-print") {
                 need_print_ = true;
             } else 
-            if (std::string(argv[idx]) == "--no-print-let") {
-                need_print_remove_let_ = false;
-            } else 
-            if (std::string(argv[idx]) == "--no-print-for") {
-                need_print_remove_for_ = false;
+            if (std::string(argv[idx]) == "--no-print-preprocess") {
+                need_print_preprocess_ = false;
             } else {
                 throw std::runtime_error("Unknown argument: " + std::string(argv[idx]));
             }
@@ -81,14 +78,9 @@ bool Argument_Parser::get_need_print() const {
 }
 
 
-bool Argument_Parser::get_need_print_remove_let() const {
-    return need_print_remove_let_;
+bool Argument_Parser::get_need_print_preprocess() const {
+    return need_print_preprocess_;
 }
-
-bool Argument_Parser::get_need_print_remove_for() const {
-    return need_print_remove_for_;
-}
-
 
 
 

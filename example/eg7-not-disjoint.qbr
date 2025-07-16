@@ -1,0 +1,3 @@
+alloc q;
+alloc q1;
+CCNOT[q, q1, q1];

@@ -13,8 +13,7 @@ public:
     */
     static std::shared_ptr<Preprocessor> make_preprocessor(std::ostream& debug_output, 
                                                            std::ostream& error_output,
-                                                           bool need_print_remove_let,
-                                                           bool need_print_remove_for);
+                                                           bool need_print = true);
 
     /*
         preprocess the program, removing LET and FOR statements
@@ -28,8 +27,7 @@ private:
     */
     explicit Preprocessor(std::ostream& debug_output, 
                           std::ostream& error_output,
-                          bool need_print_remove_let,
-                          bool need_print_remove_for);
+                          bool need_print = true);
     /*
         stream for output
     */ 
@@ -37,6 +35,5 @@ private:
     std::ostream& error_output_;
 
     
-    bool need_print_remove_let_;
-    bool need_print_remove_for_;
+    bool need_print_;
 };

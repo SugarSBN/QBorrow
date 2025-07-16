@@ -108,39 +108,40 @@ std::vector<std::shared_ptr<Stmt> > Parser::visit_statements(const std::vector<Q
 
 std::shared_ptr<Stmt> Parser::visit_statement(QBorrowParser::StatementContext* ctx) {
 
+    int lineno = ctx -> start -> getLine();
     if (ctx -> getStart() -> getText() == "let") {
         
         std::string id = ctx -> ID() -> getText();
         auto expr = visit_expr(ctx -> expr(0));
 
-        return Stmt::make_let(id, expr);
+        return Stmt::make_let(id, expr, lineno);
 
     } else if (ctx -> getStart() -> getText() == "borrow") {
 
-       return Stmt::make_borrow(visit_register(ctx -> reg(0)));
+       return Stmt::make_borrow(visit_register(ctx -> reg(0)), lineno);
 
     } else if (ctx->getStart()->getText() == "alloc") {
 
-        return Stmt::make_alloc(visit_register(ctx -> reg(0)));
+        return Stmt::make_alloc(visit_register(ctx -> reg(0)), lineno);
 
     } else if (ctx -> getStart() -> getText() == "release") {
 
-        std::string id = ctx -> ID() -> getText();
-        return Stmt::make_rel(id);
+        return Stmt::make_rel(ctx -> ID() -> getText(), lineno);
 
     } else if (ctx -> getStart() -> getText() == "X") {
 
-        return Stmt::make_x(visit_register(ctx -> reg(0)));
+        return Stmt::make_x(visit_register(ctx -> reg(0)), lineno);
 
     } else if (ctx -> getStart() -> getText() == "CNOT") {
 
-        return Stmt::make_cnot(visit_register(ctx -> reg(0)), visit_register(ctx -> reg(1)));
+        return Stmt::make_cnot(visit_register(ctx -> reg(0)), visit_register(ctx -> reg(1)), lineno);
 
     } else if (ctx -> getStart() -> getText() == "CCNOT") {
 
         return Stmt::make_ccnot(visit_register(ctx -> reg(0)), 
-                                  visit_register(ctx -> reg(1)), 
-                                  visit_register(ctx -> reg(2)));
+                                visit_register(ctx -> reg(1)), 
+                                visit_register(ctx -> reg(2)),
+                                lineno);
 
     } else if (ctx -> getStart() -> getText() == "for") {
 
@@ -149,16 +150,19 @@ std::shared_ptr<Stmt> Parser::visit_statement(QBorrowParser::StatementContext* c
         auto end = visit_expr(ctx -> expr(1));
         std::vector<std::shared_ptr<Stmt> > body = visit_statements(ctx -> statement());
 
-        return Stmt::make_for(id, start, end, body);
+        return Stmt::make_for(id, start, end, body, lineno);
 
     }
 
-    throw std::runtime_error("Unknown statement type");
+    throw std::runtime_error("Line " + std::to_string(lineno) + "Unknown statement type");
 }
 
 
 std::shared_ptr<Register> Parser::visit_register(QBorrowParser::RegContext* ctx) {
-    return Register::make_register(ctx -> ID() -> getText(), visit_expr(ctx -> expr()));
+    return 
+    ctx -> expr() == nullptr ? 
+    Register::make_register(ctx -> ID() -> getText(), Expr::make_number(1)) :
+    Register::make_register(ctx -> ID() -> getText(), visit_expr(ctx -> expr()));
 }
 
 
@@ -231,5 +235,4 @@ std::shared_ptr<Expr> Parser::visit_factor(QBorrowParser::FactorContext* ctx) {
         return visit_expr(ctx -> expr());
 
     }
-    throw std::runtime_error("Invalid factor");
 }

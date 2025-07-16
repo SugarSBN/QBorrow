@@ -28,14 +28,19 @@ public:
     */
     bool eliminate_let_statements();
     bool eliminate_for_statements();
-    bool rename_borrow_alloc();
+    bool rename_borrow_alloc(int layer = 0);
     /*
         evaluate all expressions in the program
         throw an error if an expression cannot be evaluated
     */
     void evaluate();
-    bool free_name_check() const;
-
+    /*
+        well-formed checking
+    */
+    void check_free_name() const;
+    void check_out_range() const;
+    void check_disjoint() const;
+    
 private:
     /*
         constructor
@@ -44,7 +49,5 @@ private:
 
 
     std::vector<std::shared_ptr<Stmt> > statements_;
-
-    int name_idx = 0;
     
 };
