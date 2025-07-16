@@ -153,30 +153,6 @@ src/frontend/AST/AST_Expr.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.s
 .PHONY : src/frontend/AST/AST_Expr.cpp.s
 
-src/frontend/AST/AST_Function.o: src/frontend/AST/AST_Function.cpp.o
-.PHONY : src/frontend/AST/AST_Function.o
-
-# target to build an object file
-src/frontend/AST/AST_Function.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.o
-.PHONY : src/frontend/AST/AST_Function.cpp.o
-
-src/frontend/AST/AST_Function.i: src/frontend/AST/AST_Function.cpp.i
-.PHONY : src/frontend/AST/AST_Function.i
-
-# target to preprocess a source file
-src/frontend/AST/AST_Function.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.i
-.PHONY : src/frontend/AST/AST_Function.cpp.i
-
-src/frontend/AST/AST_Function.s: src/frontend/AST/AST_Function.cpp.s
-.PHONY : src/frontend/AST/AST_Function.s
-
-# target to generate assembly for a file
-src/frontend/AST/AST_Function.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.s
-.PHONY : src/frontend/AST/AST_Function.cpp.s
-
 src/frontend/AST/AST_Register.o: src/frontend/AST/AST_Register.cpp.o
 .PHONY : src/frontend/AST/AST_Register.o
 
@@ -501,9 +477,6 @@ help:
 	@echo "... src/frontend/AST/AST_Expr.o"
 	@echo "... src/frontend/AST/AST_Expr.i"
 	@echo "... src/frontend/AST/AST_Expr.s"
-	@echo "... src/frontend/AST/AST_Function.o"
-	@echo "... src/frontend/AST/AST_Function.i"
-	@echo "... src/frontend/AST/AST_Function.s"
 	@echo "... src/frontend/AST/AST_Register.o"
 	@echo "... src/frontend/AST/AST_Register.i"
 	@echo "... src/frontend/AST/AST_Register.s"

@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o.d"
-  "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.o"
-  "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.o"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Stmt.cpp.o"

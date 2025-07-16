@@ -23,8 +23,6 @@ public:
 
     virtual std::any visitStatement(QBorrowParser::StatementContext *context) = 0;
 
-    virtual std::any visitFunction(QBorrowParser::FunctionContext *context) = 0;
-
     virtual std::any visitReg(QBorrowParser::RegContext *context) = 0;
 
     virtual std::any visitExpr(QBorrowParser::ExprContext *context) = 0;

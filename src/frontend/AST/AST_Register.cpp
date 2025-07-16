@@ -36,11 +36,21 @@ std::shared_ptr<Register> Register::substitute(const std::string& name, const st
     return Register::make_register(name_, size_ ? size_ -> substitute(name, value) : nullptr);
 }
 
-
+std::shared_ptr<Register> Register::evaluate() const {
+    if (size_ == nullptr) {
+        return Register::make_register(name_, nullptr);
+    }
+    return Register::make_register(name_, Expr::make_number(size_ -> evaluate()));
+}
 
 std::string Register::get_name() const {
     return name_;
 }
+
+void Register::set_name(const std::string& name) {
+    name_ = name;
+}
+
 std::shared_ptr<Expr> Register::get_size() const {
     return size_;
 }

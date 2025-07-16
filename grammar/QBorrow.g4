@@ -1,6 +1,6 @@
 grammar QBorrow;
 
-program : function* statement+ ;
+program : statement+ EOF;
 
 
 
@@ -13,11 +13,6 @@ statement
     | 'CNOT' '[' reg ',' reg ']' ';'
     | 'CCNOT' '[' reg ',' reg ',' reg ']' ';'
     | 'for' ID '=' expr 'to' expr '{' statement* '}'
-    | 'call' ID '(' (expr (',' expr)*)?  ')' '[' (reg (',' reg)*)?  ']' ';'
-    ;
-
-function
-    : 'function' ID '(' (ID (',' ID)*)?  ')' '[' (reg (',' reg)*)?  ']' '{' statement* '}'
     ;
 
 reg

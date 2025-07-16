@@ -1,28 +1,18 @@
 
 #include "Program.h"
 
-std::shared_ptr<Program> Program::make_program(const std::vector<std::shared_ptr<Function> >& functions,
-                                               const std::vector<std::shared_ptr<Stmt> >& statements) {
-    return std::make_shared<Program>(Program(functions, statements));
+std::shared_ptr<Program> Program::make_program(const std::vector<std::shared_ptr<Stmt> >& statements) {
+    return std::make_shared<Program>(Program(statements));
 }
 
-Program::Program(const std::vector<std::shared_ptr<Function> >& functions,
-                 const std::vector<std::shared_ptr<Stmt> >& statements)
-    : functions_(functions), statements_(statements) {}
+Program::Program(const std::vector<std::shared_ptr<Stmt> >& statements)
+    : statements_(statements) {}
 
 void Program::print_program(std::ostream& os) const {
-    for (const auto& func : functions_) {
-        func->print_function(os);
-        os << std::endl;
-    }
     for (const auto& stmt : statements_) {
         stmt->print_stmt(os);
         os << std::endl;
     }
-}
-
-std::vector<std::shared_ptr<Function> > Program::get_functions() const {
-    return functions_;
 }
 
 std::vector<std::shared_ptr<Stmt> > Program::get_statements() const {
@@ -30,15 +20,6 @@ std::vector<std::shared_ptr<Stmt> > Program::get_statements() const {
 }
 
 bool Program::eliminate_let_statements() {
-
-    for (const auto& func : functions_) {
-        const auto& body_program = make_program(std::vector<std::shared_ptr<Function> >(), func -> get_body());
-        if (body_program -> eliminate_let_statements()) {
-            func -> set_body(body_program -> get_statements());
-            return true;
-        }
-    }
-
     std::vector<std::shared_ptr<Stmt> > new_statements;
 
     size_t i = 0;
@@ -90,15 +71,6 @@ bool Program::eliminate_let_statements() {
 
 
 bool Program::eliminate_for_statements() {
-
-    for (const auto& func : functions_) {
-        const auto& body_program = make_program(std::vector<std::shared_ptr<Function> >(), func -> get_body());
-        if (body_program -> eliminate_for_statements()) {
-            func -> set_body(body_program -> get_statements());
-            return true;
-        }
-    }
-
     std::vector<std::shared_ptr<Stmt> > new_statements;
 
     size_t i = 0;
@@ -132,4 +104,143 @@ bool Program::eliminate_for_statements() {
     statements_ = new_statements;
 
     return true;
+}
+
+
+void Program::evaluate() {
+    std::vector<std::shared_ptr<Stmt> > evaluated_statements;
+
+    for (const auto& stmt : statements_) {
+        evaluated_statements.push_back(stmt -> evaluate());
+    }
+
+    statements_ = evaluated_statements;
+}
+
+
+bool Program::rename_borrow_alloc() {
+    size_t i = 0;
+    for (; i < statements_.size(); i++) {
+            if (statements_[i]->get_type() == Stmt::Stmt_Type::BORROW &&
+                std::get<Stmt::Stmt_Borrow>(statements_[i] -> get_stmt()).register_ -> get_name()[0] != '_')
+                break;
+            if (statements_[i]->get_type() == Stmt::Stmt_Type::ALLOC &&
+                std::get<Stmt::Stmt_Alloc>(statements_[i] -> get_stmt()).register_ -> get_name()[0] != '_') {
+                break;
+        }
+    }
+
+    if (i == statements_.size()) {
+        return false; // no BORROW or ALLOC statement found
+    }
+
+    std::string name = std::get<Stmt::Stmt_Borrow>(statements_[i] -> get_stmt()).register_ -> get_name();
+    int layer = 0;
+    size_t j = i + 1;
+
+    for (;j < statements_.size(); j++) {
+
+        if ((statements_[j]->get_type() == Stmt::Stmt_Type::BORROW || 
+             statements_[j]->get_type() == Stmt::Stmt_Type::ALLOC)) {
+            
+            if (std::get<Stmt::Stmt_Borrow>(statements_[j] -> get_stmt()).register_ -> get_name() == name)
+                layer++;
+
+        }
+        if (statements_[j]->get_type() == Stmt::Stmt_Type::REL &&
+            std::get<Stmt::Stmt_Rel>(statements_[j] -> get_stmt()).id_ == name) {
+
+            if (layer == 0) break;
+            layer--;
+
+        }
+    }
+
+
+    const auto& sub_program = make_program(
+        std::vector<std::shared_ptr<Stmt> >(statements_.begin() + i + 1, statements_.begin() + j)
+    );
+
+    if (sub_program -> rename_borrow_alloc())  {
+
+        for (size_t k = i + 1; k < j; k++) {
+            statements_[k] = sub_program -> statements_[k - i - 1];
+        }
+        name_idx += sub_program -> name_idx;
+        return true;
+
+    }
+
+    statements_[i] = statements_[i] -> substitute_reg(name, "__q" + std::to_string(++name_idx));
+    statements_[j] = statements_[j] -> substitute_reg(name, "__q" + std::to_string(name_idx));
+    
+    for (size_t k = i + 1; k < j; k++) {
+
+        statements_[k] = statements_[k] -> substitute_reg(name, "__q" + std::to_string(name_idx));
+    
+    }
+
+    return true;
+}
+
+
+bool Program::free_name_check() const {
+    for (const auto& stmt : statements_) {
+        switch (stmt->get_type()) {
+            case Stmt::Stmt_Type::BORROW: {
+                if (std::get<Stmt::Stmt_Borrow>(stmt -> get_stmt()).register_ -> get_name()[0] != '_') {
+                    return false; // found a register name that does not start with '_'
+                }
+                break;
+            }
+            case Stmt::Stmt_Type::ALLOC: {
+                if (std::get<Stmt::Stmt_Alloc>(stmt -> get_stmt()).register_ -> get_name()[0] != '_') {
+                    return false; // found a register name that does not start with '_'
+                }
+                break;
+            }
+            case Stmt::Stmt_Type::REL: {
+                if (std::get<Stmt::Stmt_Rel>(stmt -> get_stmt()).id_[0] != '_') {
+                    return false; // found a relation id that does not start with '_'
+                }
+                break;
+            }
+            case Stmt::Stmt_Type::X: {
+                if (std::get<Stmt::Stmt_X>(stmt->get_stmt()).target_ -> get_name()[0] != '_') {
+                    return false; // found a target register name that does not start with '_'
+                }
+                break;
+            }
+            case Stmt::Stmt_Type::CNOT: {
+                const auto& tmp = stmt -> get_stmt();
+                const auto& cnot_stmt = std::get<Stmt::Stmt_CNOT>(tmp);
+                if (cnot_stmt.control_ -> get_name()[0] != '_' ||
+                    cnot_stmt.target_ -> get_name()[0] != '_') {
+                    return false; // found a control or target register name that does not start with '_'
+                }
+                break;
+            }   
+            case Stmt::Stmt_Type::CCNOT: {
+                const auto& tmp = stmt -> get_stmt();
+                const auto& ccnot_stmt = std::get<Stmt::Stmt_CCNOT>(tmp);
+                if (ccnot_stmt.control1_ -> get_name()[0] != '_' ||
+                    ccnot_stmt.control2_ -> get_name()[0] != '_' ||
+                    ccnot_stmt.target_ -> get_name()[0] != '_') {
+                    return false; // found a control or target register name that does not start with '_'
+                }
+                break;
+            }
+            case Stmt::Stmt_Type::FOR: {
+                const auto& tmp = stmt -> get_stmt();
+                const auto& for_stmt = std::get<Stmt::Stmt_For>(tmp);
+                if (!make_program(for_stmt.body_) -> free_name_check()) {
+                    return false; // check body statements recursively
+                }
+                break;
+            }
+            default: 
+                break; // other statement types do not have register names to check
+        }
+    }
+    return true; // all registers have names starting with '_'
 }

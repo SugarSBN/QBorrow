@@ -33,6 +33,17 @@ void Preprocessor::preprocess(std::shared_ptr<Program>& program) {
             debug_output_ << "---After Removing FOR statements:---" << std::endl;
             program -> print_program(debug_output_);
         }
+
+        program -> evaluate();
+
+        while(program -> rename_borrow_alloc());
+
+        if (!program -> free_name_check()) {
+            throw std::runtime_error("some referenced registers are not allocated or borrowed.");
+        }
+
+        program -> print_program(debug_output_);
+
     }
     catch (const std::exception& ex) {
         error_output_ << RED << "[Preprocessing failed] " << ex.what() << RESET << std::endl;

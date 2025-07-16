@@ -959,5 +959,4 @@ CMakeFiles/qborrow.dir/src/frontend/Program.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/unistd.h \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Register.h \
-  /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Function.h \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Stmt.h

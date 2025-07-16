@@ -1,0 +1,14 @@
+borrow q[1];
+
+borrow q[1];
+
+release q;
+
+release q;
+
+release q;
+
+
+borrow q[1];
+
+release q;

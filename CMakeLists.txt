@@ -180,7 +180,6 @@ add_executable(${PROJECT_NAME}
     src/frontend/AST/AST_Expr.cpp
     src/frontend/AST/AST_Stmt.cpp
     src/frontend/AST/AST_Register.cpp
-    src/frontend/AST/AST_Function.cpp
 
     src/frontend/antlr-gen/QBorrowBaseListener.cpp
     src/frontend/antlr-gen/QBorrowBaseVisitor.cpp

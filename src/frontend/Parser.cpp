@@ -90,41 +90,11 @@ void Parser::build_parse_tree(antlr4::tree::ParseTree* tree) {
         throw std::runtime_error("Empty or invalid program.");
     }
 
-    program_ = Program::make_program(visit_functions(program_ctx -> function()), visit_statements(program_ctx -> statement()));
-}
-
-std::vector<std::shared_ptr<Function> > Parser::visit_functions(const std::vector<QBorrowParser::FunctionContext*>& funcs) {
-    std::vector<std::shared_ptr<Function> > results;
-    results.clear();
-
-    for (auto* f : funcs) {
-        std::string name = f -> ID(0) -> getText();
-        std::vector<std::string> params;
-        params.clear();
-
-        if (f -> ID().size() > 1) {
-            for (size_t i = 1; i < f -> ID().size(); i++) {
-                params.push_back(f -> ID(i) -> getText());
-            }
-        }
-
-        std::vector<std::shared_ptr<Register> > registers;
-        registers.clear();
-
-        for (auto* reg : f -> reg()) {
-            registers.push_back(visit_register(reg));
-        }
-
-        std::vector<std::shared_ptr<Stmt> > body = visit_statements(f -> statement());
-
-        results.push_back(Function::make_function(name, params, registers, body));
-    }
-    return results;
+    program_ = Program::make_program(visit_statements(program_ctx -> statement()));
 }
 
 std::vector<std::shared_ptr<Stmt> > Parser::visit_statements(const std::vector<QBorrowParser::StatementContext*>& stmts){
     std::vector<std::shared_ptr<Stmt> > results;
-    results.clear();
 
     for (auto* s : stmts) {
 
@@ -181,20 +151,6 @@ std::shared_ptr<Stmt> Parser::visit_statement(QBorrowParser::StatementContext* c
 
         return Stmt::make_for(id, start, end, body);
 
-    } else if (ctx -> getStart() -> getText() == "call") {
-
-        std::string function_name = ctx -> ID() -> getText();
-        std::vector<std::shared_ptr<Expr> > args;
-        for (auto* arg : ctx -> expr()) {
-            args.push_back(visit_expr(arg));
-        }
-
-        std::vector<std::shared_ptr<Register> > regs;
-        for (auto* reg : ctx -> reg()) {
-            regs.push_back(visit_register(reg));
-        }
-
-        return Stmt::make_call(function_name, args, regs);
     }
 
     throw std::runtime_error("Unknown statement type");

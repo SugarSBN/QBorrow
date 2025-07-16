@@ -12,8 +12,9 @@
 
 int main(int argc, char* argv[]) {
 
-    std::string contents;
-
+    /*
+        Argument parsing
+    */
     const auto& argument_parser = Argument_Parser::make_argument_parser(std::cerr); 
 
     if (argument_parser -> parse_argument(argc, argv) == false) {
@@ -22,7 +23,9 @@ int main(int argc, char* argv[]) {
     }
     
 
-
+    /*
+        Program parsing
+    */
     const auto& parser = Parser::make_parser(std::cerr);
 
     if (parser -> parse_string(argument_parser -> get_parse_result()) == false) {
@@ -36,6 +39,9 @@ int main(int argc, char* argv[]) {
         program -> print_program(std::cout);
     }
 
+    /*
+        Preprocessing
+    */
     const auto& preprocessor = Preprocessor::make_preprocessor(std::cout, std::cerr, 
                                                     argument_parser -> get_need_print_remove_let(), 
                                                     argument_parser -> get_need_print_remove_for()); 

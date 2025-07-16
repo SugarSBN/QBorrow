@@ -80,7 +80,6 @@ private:
     /* 
         Visitors
     */
-    std::vector<std::shared_ptr<Function> > visit_functions(const std::vector<QBorrowParser::FunctionContext*>& funcs);
 
     std::vector<std::shared_ptr<Stmt> > visit_statements(const std::vector<QBorrowParser::StatementContext*>& stmts);
     

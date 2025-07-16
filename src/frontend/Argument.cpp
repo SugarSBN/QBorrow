@@ -22,6 +22,16 @@ bool Argument_Parser::parse_argument(int argc, char* argv[]){
         
         }
 
+        if (std::string(argv[1]) == "--help") {
+            std::cout << "Usage: qborrow [input_file] [options]\n"
+                      << "Options:\n"
+                      << "  --pretty-print       Print the parsed program in a human-readable format.\n"
+                      << "  --no-print-let       Do not print the result after eliminating LET statements.\n"
+                      << "  --no-print-for       Do not print the result after eliminating FOR statements.\n";
+            exit(0);
+        }
+
+
         std::ifstream input_file(argv[1]);
 
         if (!input_file.is_open()) {

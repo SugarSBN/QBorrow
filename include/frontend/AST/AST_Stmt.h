@@ -23,8 +23,7 @@ public:
         X, 
         CNOT, 
         CCNOT,
-        FOR,
-        CALL
+        FOR
     };
 
 
@@ -70,12 +69,6 @@ public:
         std::vector<std::shared_ptr<Stmt> > body_;
     };
 
-    struct Stmt_Call {
-        std::string function_name_;
-        std::vector<std::shared_ptr<Expr> > args_;
-        std::vector<std::shared_ptr<Register> > regs_;
-    };
-
 
 
     /*
@@ -94,9 +87,6 @@ public:
                                                const std::shared_ptr<Expr>& start, 
                                                const std::shared_ptr<Expr>& end, 
                                                const std::vector<std::shared_ptr<Stmt> >& body);
-    static std::shared_ptr<Stmt> make_call    (const std::string& function_name, 
-                                               const std::vector<std::shared_ptr<Expr> >& args,
-                                               const std::vector<std::shared_ptr<Register> >& regs);
     
 
 
@@ -105,7 +95,10 @@ public:
         this is used for variable substitution in the preprocessor
     */
     std::shared_ptr<Stmt> substitute(const std::string& name, const std::shared_ptr<Expr>& value) const;
-                                        
+    std::shared_ptr<Stmt> substitute_reg(const std::string& name, const std::string& value) const;
+
+    std::shared_ptr<Stmt> evaluate() const;
+
     /*
         interfaces to obtain the statement type and its content
     */ 
@@ -117,8 +110,7 @@ public:
         Stmt_X,
         Stmt_CNOT,
         Stmt_CCNOT,
-        Stmt_For,
-        Stmt_Call
+        Stmt_For
     > get_stmt() const;
 
     Stmt_Type get_type() const;
@@ -147,10 +139,6 @@ private:
                    const std::shared_ptr<Expr>& start, 
                    const std::shared_ptr<Expr>& end, 
                    const std::vector<std::shared_ptr<Stmt> >& body);
-    explicit Stmt (Stmt_Type t, 
-                   const std::string& function_name, 
-                   const std::vector<std::shared_ptr<Expr> >& args,
-                   const std::vector<std::shared_ptr<Register> >& regs);
 
    
 
@@ -165,8 +153,7 @@ private:
         Stmt_X,
         Stmt_CNOT,
         Stmt_CCNOT,
-        Stmt_For,
-        Stmt_Call
+        Stmt_For
     > stmt_;
 
     Stmt_Type type_;

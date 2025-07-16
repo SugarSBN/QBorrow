@@ -1173,7 +1173,6 @@ CMakeFiles/qborrow.dir/src/frontend/Parser.cpp.o: \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/Program.h \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Expr.h \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Register.h \
-  /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Function.h \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Stmt.h \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/antlr-gen/QBorrowLexer.h \
   /Users/subonan/subonan_THU/QBorrow/include/frontend/antlr-gen/QBorrowParser.h \

@@ -21,9 +21,13 @@ public:
         substitute the register with a new expression
     */
     std::shared_ptr<Register> substitute(const std::string& name, const std::shared_ptr<Expr>& value) const;
+    std::shared_ptr<Register> evaluate() const;
 
     std::string get_name() const;
     std::shared_ptr<Expr> get_size() const;
+    
+    void set_name(const std::string& name);
+
 
 private:
     /*

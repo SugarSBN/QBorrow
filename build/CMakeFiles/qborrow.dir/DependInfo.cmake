@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/subonan/subonan_THU/QBorrow/src/frontend/AST/AST_Expr.cpp" "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o" "gcc" "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o.d"
-  "/Users/subonan/subonan_THU/QBorrow/src/frontend/AST/AST_Function.cpp" "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.o" "gcc" "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Function.cpp.o.d"
   "/Users/subonan/subonan_THU/QBorrow/src/frontend/AST/AST_Register.cpp" "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.o" "gcc" "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.o.d"
   "/Users/subonan/subonan_THU/QBorrow/src/frontend/AST/AST_Stmt.cpp" "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Stmt.cpp.o" "gcc" "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Stmt.cpp.o.d"
   "/Users/subonan/subonan_THU/QBorrow/src/frontend/Argument.cpp" "CMakeFiles/qborrow.dir/src/frontend/Argument.cpp.o" "gcc" "CMakeFiles/qborrow.dir/src/frontend/Argument.cpp.o.d"

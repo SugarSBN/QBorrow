@@ -39,5 +39,4 @@ private:
     
     bool need_print_remove_let_;
     bool need_print_remove_for_;
-
 };

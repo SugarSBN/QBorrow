@@ -14,14 +14,13 @@ public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
     T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    T__14 = 15, T__15 = 16, T__16 = 17, T__17 = 18, T__18 = 19, T__19 = 20, 
-    ADD = 21, SUB = 22, MUL = 23, ID = 24, NUMBER = 25, WS = 26, LINE_COMMENT = 27, 
-    BLOCK_COMMENT = 28
+    T__14 = 15, T__15 = 16, T__16 = 17, T__17 = 18, ADD = 19, SUB = 20, 
+    MUL = 21, ID = 22, NUMBER = 23, WS = 24, LINE_COMMENT = 25, BLOCK_COMMENT = 26
   };
 
   enum {
-    RuleProgram = 0, RuleStatement = 1, RuleFunction = 2, RuleReg = 3, RuleExpr = 4, 
-    RuleTerm = 5, RuleFactor = 6
+    RuleProgram = 0, RuleStatement = 1, RuleReg = 2, RuleExpr = 3, RuleTerm = 4, 
+    RuleFactor = 5
   };
 
   explicit QBorrowParser(antlr4::TokenStream *input);
@@ -43,7 +42,6 @@ public:
 
   class ProgramContext;
   class StatementContext;
-  class FunctionContext;
   class RegContext;
   class ExprContext;
   class TermContext;
@@ -53,8 +51,7 @@ public:
   public:
     ProgramContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<FunctionContext *> function();
-    FunctionContext* function(size_t i);
+    antlr4::tree::TerminalNode *EOF();
     std::vector<StatementContext *> statement();
     StatementContext* statement(size_t i);
 
@@ -87,26 +84,6 @@ public:
   };
 
   StatementContext* statement();
-
-  class  FunctionContext : public antlr4::ParserRuleContext {
-  public:
-    FunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    std::vector<antlr4::tree::TerminalNode *> ID();
-    antlr4::tree::TerminalNode* ID(size_t i);
-    std::vector<RegContext *> reg();
-    RegContext* reg(size_t i);
-    std::vector<StatementContext *> statement();
-    StatementContext* statement(size_t i);
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-
-    virtual std::any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  FunctionContext* function();
 
   class  RegContext : public antlr4::ParserRuleContext {
   public:
