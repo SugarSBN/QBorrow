@@ -207,3 +207,32 @@ target_link_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${PROJECT_LINK_LIBS}                     
 )
+
+
+
+# Examples
+function(add_example_target example_name)
+    set(TARGET_NAME "${example_name}")
+    set(EXAMPLE_FILE "${CMAKE_SOURCE_DIR}/examples/${example_name}.qbr")
+
+    if (EXISTS "${EXAMPLE_FILE}")
+        add_custom_target(
+            ${TARGET_NAME}
+            COMMAND env DYLD_LIBRARY_PATH="/opt/homebrew/lib" $<TARGET_FILE:${PROJECT_NAME}> ${EXAMPLE_FILE} $(ARGS)
+            DEPENDS ${PROJECT_NAME} 
+            COMMENT "Running ${PROJECT_NAME} with example ${example_name}.qbr"
+            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+        )
+    else()
+        message(WARNING "Example file ${EXAMPLE_FILE} does not exist for target ${TARGET_NAME}.")
+    endif()
+endfunction()
+
+# 示例调用
+add_example_target(eg1-syntax-parse)
+add_example_target(eg2-nested-let)
+add_example_target(eg3-nested-for)
+add_example_target(eg4-nested-borrow)
+add_example_target(eg5-nested-borrow-alloc)
+add_example_target(eg6-out-of-range)
+add_example_target(eg7-not-disjoint)

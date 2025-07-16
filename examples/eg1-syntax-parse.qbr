@@ -35,5 +35,3 @@ for i = 1 + n to 3 * 2 {
 
     CCNOT[q[4], q[10], q[19238]];
 }
-
-call CCCNOT() [q[1], q[2], q[3]];
