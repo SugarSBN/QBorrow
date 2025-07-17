@@ -22,9 +22,9 @@ public:
     /*
         interface to get the result of parsing arguments
     */
-    std::string get_parse_result() const;
-    bool get_need_print() const;
-    bool get_need_print_preprocess() const;
+    const std::string& get_parse_result() const;
+    const bool& get_need_print() const;
+    const bool& get_need_print_preprocess() const;
 
 private:
     

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/qborrow.dir/src/backend/Interpreter.cpp.o"
+  "CMakeFiles/qborrow.dir/src/backend/Interpreter.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.o"
@@ -11,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/qborrow.dir/src/frontend/Parser.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/Preprocessor.cpp.o"
   "CMakeFiles/qborrow.dir/src/frontend/Preprocessor.cpp.o.d"
+  "CMakeFiles/qborrow.dir/src/frontend/Printable.cpp.o"
+  "CMakeFiles/qborrow.dir/src/frontend/Printable.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/Program.cpp.o"
   "CMakeFiles/qborrow.dir/src/frontend/Program.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/antlr-gen/QBorrowBaseListener.cpp.o"

@@ -1,8 +1,8 @@
 let n = 3;
 let n = n + 1;
 let n = n * 2;
-let m = 4;
-for i = 1 to n {
+let m = 4; 
+for i = 1 to 8 {
     for i = 1 to i {
         alloc q[i + m];
     }

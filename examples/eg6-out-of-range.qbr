@@ -2,6 +2,7 @@ let n = 10; // number of qubits
 
 alloc q[n];
 
+
 for i = 1 to n + 1 {
     X[q[i]];
     CNOT[q[i], q[i+1]];

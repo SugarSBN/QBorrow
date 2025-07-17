@@ -46,6 +46,55 @@ Stmt::Stmt (Stmt_Type t,
                 const int& lineno) 
     : stmt_(Stmt_For{id, start, end, body}), type_(t), lineno_(lineno) {}
 
+std::shared_ptr<Stmt> Stmt::clone() const {
+    switch (type_) {
+        case Stmt_Type::LET: {
+            const auto& let_stmt = std::get<Stmt_Let>(stmt_);
+            return make_let(let_stmt.id_, let_stmt.expr_ -> clone(), lineno_);
+        }
+        case Stmt_Type::BORROW: {
+            const auto& borrow_stmt = std::get<Stmt_Borrow>(stmt_);
+            return make_borrow(borrow_stmt.register_ -> clone(), lineno_);
+        }
+        case Stmt_Type::ALLOC: {
+            const auto& alloc_stmt = std::get<Stmt_Alloc>(stmt_);
+            return make_alloc(alloc_stmt.register_ -> clone(), lineno_);
+        }
+        case Stmt_Type::REL: {
+            const auto& rel_stmt = std::get<Stmt_Rel>(stmt_);
+            return make_rel(rel_stmt.id_, lineno_);
+        }
+        case Stmt_Type::X: {
+            const auto& x_stmt = std::get<Stmt_X>(stmt_);
+            return make_x(x_stmt.target_ -> clone(), lineno_);
+        }
+        case Stmt_Type::CNOT: {
+            const auto& cnot_stmt = std::get<Stmt_CNOT>(stmt_);
+            return make_cnot(cnot_stmt.control_ -> clone(), cnot_stmt.target_ -> clone(), lineno_);
+        }
+        case Stmt_Type::CCNOT: {
+            const auto& ccnot_stmt = std::get<Stmt_CCNOT>(stmt_);
+            return make_ccnot(ccnot_stmt.control1_ -> clone(), 
+                              ccnot_stmt.control2_ -> clone(), 
+                              ccnot_stmt.target_ -> clone(),
+                              lineno_);
+        }
+        case Stmt_Type::FOR: {
+            const auto& for_stmt = std::get<Stmt_For>(stmt_);
+            std::vector<std::shared_ptr<Stmt> > new_body;
+            for (const auto& body_stmt : for_stmt.body_) {
+                new_body.push_back(body_stmt -> clone());
+            }
+            return make_for(for_stmt.id_, 
+                            for_stmt.start_ -> clone(), 
+                            for_stmt.end_ -> clone(), 
+                            new_body, 
+                            lineno_);
+        }
+        default:
+            throw std::runtime_error("Invalid Stmt_Type for cloning");
+    }
+}
 
 
 
@@ -92,128 +141,119 @@ std::shared_ptr<Stmt> Stmt::make_for(const std::string& id,
 
 
 
-std::shared_ptr<Stmt> Stmt::substitute(const std::string& name, const std::shared_ptr<Expr>& value) const {
+void Stmt::substitute(const std::string& name, const std::shared_ptr<Expr>& value) {
     switch (type_) {
         case Stmt_Type::LET: {
             const auto& let_stmt = std::get<Stmt_Let>(stmt_);
-            return Stmt::make_let(let_stmt.id_, let_stmt.expr_ ? let_stmt.expr_ -> substitute(name, value) : nullptr, lineno_);
+            let_stmt.expr_ -> substitute(name, value);
+            break;
         }
         case Stmt_Type::BORROW: {
             const auto& borrow_stmt = std::get<Stmt_Borrow>(stmt_);
-            return Stmt::make_borrow(borrow_stmt.register_ -> substitute(name, value), lineno_);
+            borrow_stmt.register_ -> substitute(name, value);
+            break;
         }
         case Stmt_Type::ALLOC: {
             const auto& alloc_stmt = std::get<Stmt_Alloc>(stmt_);
-            return Stmt::make_alloc(alloc_stmt.register_ -> substitute(name, value), lineno_);
+            alloc_stmt.register_ -> substitute(name, value);
+            break;
         }
         case Stmt_Type::X: {
             const auto& x_stmt = std::get<Stmt_X>(stmt_);
-            return Stmt::make_x(x_stmt.target_ -> substitute(name, value), lineno_);
+            x_stmt.target_ -> substitute(name, value);
+            break;
         }
         case Stmt_Type::CNOT: {
             const auto& cnot_stmt = std::get<Stmt_CNOT>(stmt_);
-            return Stmt::make_cnot(cnot_stmt.control_ -> substitute(name, value), cnot_stmt.target_ -> substitute(name, value), lineno_);
+            cnot_stmt.control_ -> substitute(name, value);
+            cnot_stmt.target_ -> substitute(name, value);
+            break;
         }
         case Stmt_Type::CCNOT: {
             const auto& ccnot_stmt = std::get<Stmt_CCNOT>(stmt_);
-            return Stmt::make_ccnot(ccnot_stmt.control1_ -> substitute(name, value), 
-                                    ccnot_stmt.control2_ -> substitute(name, value), 
-                                    ccnot_stmt.target_ -> substitute(name, value),
-                                    lineno_);
+            ccnot_stmt.control1_ -> substitute(name, value);
+            ccnot_stmt.control2_ -> substitute(name, value);
+            ccnot_stmt.target_ -> substitute(name, value);
+            break;
         }
         case Stmt_Type::FOR: {
             const auto& for_stmt = std::get<Stmt_For>(stmt_);
-            std::vector<std::shared_ptr<Stmt> > new_body;
-            new_body.clear();
+            for_stmt.start_ -> substitute(name, value);
+            for_stmt.end_ -> substitute(name, value);
             for (const auto& body_stmt : for_stmt.body_) {
-                new_body.push_back(body_stmt -> substitute(name, value));
+                body_stmt -> substitute(name, value);
             }
-            return Stmt::make_for(for_stmt.id_, for_stmt.start_ -> substitute(name, value), 
-                                  for_stmt.end_ -> substitute(name, value), new_body,
-                                  lineno_);
+            break;
         }
         case Stmt_Type::REL:
-            const auto& rel_stmt = std::get<Stmt_Rel>(stmt_);
-            return Stmt::make_rel(rel_stmt.id_, lineno_);
+            break;
     }
 }
 
-std::shared_ptr<Stmt> Stmt::substitute_reg(const std::string& name, const std::string& value) const {
+void Stmt::substitute_reg(const std::string& name, const std::string& value) {
     try {
         switch (type_) {
-            case Stmt_Type::LET: {
-                const auto& let_stmt = std::get<Stmt_Let>(stmt_);
-                return Stmt::make_let(let_stmt.id_, let_stmt.expr_, lineno_);
-            }
             case Stmt_Type::BORROW: {
                 const auto& borrow_stmt = std::get<Stmt_Borrow>(stmt_);
-                auto new_reg = borrow_stmt.register_ -> evaluate();
                 if (borrow_stmt.register_ -> get_name() == name) {
-                    new_reg -> set_name(value);
+                    borrow_stmt.register_ -> set_name(value);
                 }
-                return Stmt::make_borrow(new_reg, lineno_);
+                break;
             }
             case Stmt_Type::ALLOC: {
                 const auto& alloc_stmt = std::get<Stmt_Alloc>(stmt_);
-                auto new_reg = alloc_stmt.register_ -> evaluate();
                 if (alloc_stmt.register_ -> get_name() == name) {
-                    new_reg -> set_name(value);
+                    alloc_stmt.register_ -> set_name(value);
                 }
-                return Stmt::make_alloc(new_reg, lineno_);
+                break;
             }
             case Stmt_Type::X: {
                 const auto& x_stmt = std::get<Stmt_X>(stmt_);
-                auto new_reg = x_stmt.target_ -> evaluate();
                 if (x_stmt.target_ -> get_name() == name) {
-                    new_reg -> set_name(value); 
+                    x_stmt.target_ -> set_name(value);
                 }
-                return Stmt::make_x(new_reg, lineno_);
+                break;
             }
             case Stmt_Type::CNOT: {
                 const auto& cnot_stmt = std::get<Stmt_CNOT>(stmt_);
-                auto new_control = cnot_stmt.control_ -> evaluate();
-                auto new_target = cnot_stmt.target_ -> evaluate();
                 if (cnot_stmt.control_ -> get_name() == name) {
-                    new_control -> set_name(value);
+                    cnot_stmt.control_ -> set_name(value);
                 }
                 if (cnot_stmt.target_ -> get_name() == name) {
-                    new_target -> set_name(value);
+                    cnot_stmt.target_ -> set_name(value);
                 }
-                return Stmt::make_cnot(new_control, new_target, lineno_);
+                break;
             }
             case Stmt_Type::CCNOT: {
                 const auto& ccnot_stmt = std::get<Stmt_CCNOT>(stmt_);
-                auto new_control1 = ccnot_stmt.control1_ -> evaluate();
-                auto new_control2 = ccnot_stmt.control2_ -> evaluate();
-                auto new_target = ccnot_stmt.target_ -> evaluate();
                 if (ccnot_stmt.control1_ -> get_name() == name) {
-                    new_control1 -> set_name(value);
+                    ccnot_stmt.control1_ -> set_name(value);
                 }
                 if (ccnot_stmt.control2_ -> get_name() == name) {
-                    new_control2 -> set_name(value);
+                    ccnot_stmt.control2_ -> set_name(value);
                 }
                 if (ccnot_stmt.target_ -> get_name() == name) {
-                    new_target -> set_name(value);
+                    ccnot_stmt.target_ -> set_name(value);
                 }
-                return Stmt::make_ccnot(new_control1, new_control2, new_target, lineno_);
+                break;
             }
             case Stmt_Type::FOR: {
                 const auto& for_stmt = std::get<Stmt_For>(stmt_);
-                std::vector<std::shared_ptr<Stmt> > new_body;
+                
                 for (const auto& body_stmt : for_stmt.body_) {
-                    new_body.push_back(body_stmt -> substitute_reg(name, value));
+                    body_stmt -> substitute_reg(name, value);
                 }
-                return Stmt::make_for(for_stmt.id_, for_stmt.start_, 
-                                    for_stmt.end_, new_body, lineno_);
+                break;
             }
             case Stmt_Type::REL: {
-                const auto& rel_stmt = std::get<Stmt_Rel>(stmt_);
+                auto& rel_stmt = std::get<Stmt_Rel>(stmt_);
                 if (rel_stmt.id_ == name) {
-                    return Stmt::make_rel(value, lineno_);
+                    rel_stmt.id_ = value;
                 }
-                return Stmt::make_rel(rel_stmt.id_, lineno_);
+                break;
             }
-
+            default:
+                break;
         }
     }
     catch (const std::exception& ex) {
@@ -221,51 +261,50 @@ std::shared_ptr<Stmt> Stmt::substitute_reg(const std::string& name, const std::s
     }
 }
 
-std::shared_ptr<Stmt> Stmt::evaluate() const {
+void Stmt::evaluate() {
     try{
         switch (type_) {
             case Stmt_Type::LET: {
                 const auto& let_stmt = std::get<Stmt_Let>(stmt_);
-                return Stmt::make_let(let_stmt.id_, let_stmt.expr_ ? Expr::make_number(let_stmt.expr_ -> evaluate()) : nullptr, lineno_);
+                let_stmt.expr_ -> evaluate();
+                break;
             }
             case Stmt_Type::BORROW: {
                 const auto& borrow_stmt = std::get<Stmt_Borrow>(stmt_);
-                return Stmt::make_borrow(borrow_stmt.register_ -> evaluate(), lineno_);
+                borrow_stmt.register_ -> evaluate();
+                break;
             }
             case Stmt_Type::ALLOC: {
                 const auto& alloc_stmt = std::get<Stmt_Alloc>(stmt_);
-                return Stmt::make_alloc(alloc_stmt.register_ -> evaluate(), lineno_);
+                alloc_stmt.register_ -> evaluate();
+                break;
             }
             case Stmt_Type::X: {
                 const auto& x_stmt = std::get<Stmt_X>(stmt_);
-                return Stmt::make_x(x_stmt.target_ -> evaluate(), lineno_);
+                x_stmt.target_ -> evaluate();
+                break;
             }
             case Stmt_Type::CNOT: {
                 const auto& cnot_stmt = std::get<Stmt_CNOT>(stmt_);
-                return Stmt::make_cnot(cnot_stmt.control_ -> evaluate(), cnot_stmt.target_ -> evaluate(), lineno_);
+                cnot_stmt.control_ -> evaluate();
+                cnot_stmt.target_ -> evaluate();
+                break;
             }
             case Stmt_Type::CCNOT: {
                 const auto& ccnot_stmt = std::get<Stmt_CCNOT>(stmt_);
-                return Stmt::make_ccnot(ccnot_stmt.control1_ -> evaluate(), 
-                                        ccnot_stmt.control2_ -> evaluate(), 
-                                        ccnot_stmt.target_ -> evaluate(),
-                                        lineno_);
+                ccnot_stmt.control1_ -> evaluate();
+                ccnot_stmt.control2_ -> evaluate();
+                ccnot_stmt.target_ -> evaluate();
+                break;
             }
             case Stmt_Type::FOR: {
                 const auto& for_stmt = std::get<Stmt_For>(stmt_);
-                std::vector<std::shared_ptr<Stmt> > new_body;
-                for (const auto& body_stmt : for_stmt.body_) {
-                    new_body.push_back(body_stmt -> evaluate());
-                }
-                return Stmt::make_for(for_stmt.id_, 
-                                    Expr::make_number(for_stmt.start_ -> evaluate()), 
-                                    Expr::make_number(for_stmt.end_ -> evaluate()), 
-                                    new_body,
-                                    lineno_);
+                for_stmt.start_ -> evaluate();
+                for_stmt.end_ -> evaluate();
+                break;
             }
             case Stmt_Type::REL: {
-                const auto& rel_stmt = std::get<Stmt_Rel>(stmt_);
-                return Stmt::make_rel(rel_stmt.id_, lineno_);
+                break;
             }
         }
     }
@@ -275,11 +314,11 @@ std::shared_ptr<Stmt> Stmt::evaluate() const {
 }
 
 
-Stmt::Stmt_Type Stmt::get_type() const {
+const Stmt::Stmt_Type& Stmt::get_type() const {
     return type_;
 }
 
-std::variant<
+const std::variant<
         Stmt::Stmt_Let,
         Stmt::Stmt_Borrow,
         Stmt::Stmt_Alloc,
@@ -288,13 +327,14 @@ std::variant<
         Stmt::Stmt_CNOT,
         Stmt::Stmt_CCNOT,
         Stmt::Stmt_For
-    > Stmt::get_stmt() const{
+    >& Stmt::get_stmt() const{
     return stmt_;
 }
 
-int Stmt::get_lineno() const {
+const int& Stmt::get_lineno() const {
     return lineno_;
 }
+
 
 
 
@@ -307,30 +347,29 @@ int Stmt::get_lineno() const {
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
 
+void Stmt::print(std::ostream& os) const {
+    print_stmt(os);
+}
+
 void Stmt::print_stmt(std::ostream& os, const int& layer) const {
     for (int i = 0; i < layer; ++i) 
         os << "  ";
-
+    
     switch (type_) {
         case Stmt_Type::LET : { 
             const auto& let_stmt = std::get<Stmt_Let>(stmt_);
-            os << BLUE << "let " << RESET << let_stmt.id_ << RED << " = " << RESET;
-            let_stmt.expr_ -> print_expr(os);
-            os << ";";
+
+            os << BLUE << "let " << RESET << let_stmt.id_ << RED << " = " << RESET << (*let_stmt.expr_) << ";";
             break;
         }
         case Stmt_Type::BORROW : {
             const auto& borrow_stmt = std::get<Stmt_Borrow>(stmt_);
-            os << BLUE << "borrow " << RESET;
-            borrow_stmt.register_ -> print_register(os);
-            os << ";";
+            os << BLUE << "borrow " << RESET << (*borrow_stmt.register_) << ";";
             break;
         }
         case Stmt_Type::ALLOC : {
             const auto& alloc_stmt = std::get<Stmt_Alloc>(stmt_);
-            os << BLUE << "alloc " << RESET;
-            alloc_stmt.register_ -> print_register(os);
-            os << ";";
+            os << BLUE << "alloc " << RESET << (*alloc_stmt.register_) << ";";
             break;
         }
         case Stmt_Type::REL : {
@@ -340,42 +379,23 @@ void Stmt::print_stmt(std::ostream& os, const int& layer) const {
         }
         case Stmt_Type::X : {
             const auto& x_stmt = std::get<Stmt_X>(stmt_);
-            os << BLUE << "X" << RESET;
-            os << "[";
-            x_stmt.target_ -> print_register(os);
-            os << "];";
+            os << BLUE << "X" << RESET << "[" << (*x_stmt.target_) << "];";
             break;
         }
         case Stmt_Type::CNOT : {
             const auto& cnot_stmt = std::get<Stmt_CNOT>(stmt_);
-            os << BLUE << "CNOT" << RESET;
-            os << "[";
-            cnot_stmt.control_ -> print_register(os);
-            os << ", ";
-            cnot_stmt.target_ -> print_register(os);
-            os << "];";
+            os << BLUE << "CNOT" << RESET << "[" << (*cnot_stmt.control_) << ", " << (*cnot_stmt.target_) << "];";
             break;
         }
         case Stmt_Type::CCNOT : {
             const auto& ccnot_stmt = std::get<Stmt_CCNOT>(stmt_);
-            os << BLUE << "CCNOT" << RESET;
-            os << "[";
-            ccnot_stmt.control1_ -> print_register(os);
-            os << ", ";
-            ccnot_stmt.control2_ -> print_register(os);
-            os << ", ";
-            ccnot_stmt.target_ -> print_register(os);
-            os << "];";
+            os << BLUE << "CCNOT" << RESET << "[" << (*ccnot_stmt.control1_) << ", " << (*ccnot_stmt.control2_) << ", " << (*ccnot_stmt.target_) << "];";
             break;
         }
         case Stmt_Type::FOR : {
             const auto& for_stmt = std::get<Stmt_For>(stmt_);
-            os << BLUE << "for " << RESET << for_stmt.id_ << " = ";
-            for_stmt.start_ -> print_expr(os);
-            os << BLUE << " to " << RESET;
-            for_stmt.end_ -> print_expr(os);
-            os << " {";
-            
+            os << BLUE << "for " << RESET << for_stmt.id_ << " = " << (*for_stmt.start_) << BLUE << " to " << RESET << (*for_stmt.end_) << " {";
+
             for (const auto& body_stmt : for_stmt.body_) {
                 os << std::endl;
                 body_stmt -> print_stmt(os, layer + 1);

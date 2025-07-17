@@ -9,7 +9,7 @@
 #include "AST_Expr.h"
 #include "AST_Register.h"
 
-class Stmt {
+class Stmt final : public Printable, public Substitutable, public Evaluatable {
     
 public:
     /*
@@ -98,15 +98,16 @@ public:
         substitute the statement with a new expression
         this is used for variable substitution in the preprocessor
     */
-    std::shared_ptr<Stmt> substitute(const std::string& name, const std::shared_ptr<Expr>& value) const;
-    std::shared_ptr<Stmt> substitute_reg(const std::string& name, const std::string& value) const;
+    void substitute(const std::string& name, const std::shared_ptr<Expr>& value) override;
+    void evaluate() override;
+    void print(std::ostream& os) const override;
 
-    std::shared_ptr<Stmt> evaluate() const;
-
+    void substitute_reg(const std::string& name, const std::string& value);
+    
     /*
         interfaces to obtain the statement type and its content
     */ 
-    std::variant<
+    const std::variant<
         Stmt_Let,
         Stmt_Borrow,
         Stmt_Alloc,
@@ -115,16 +116,12 @@ public:
         Stmt_CNOT,
         Stmt_CCNOT,
         Stmt_For
-    > get_stmt() const;
-    Stmt_Type get_type() const;
-    int get_lineno() const;
+    >& get_stmt() const;
+    const Stmt_Type& get_type() const;
+    const int& get_lineno() const;
 
-
-    /*
-        pretty print statements
-    */
-    void print_stmt(std::ostream& os = std::cout, const int& layer = 0) const;
- 
+    std::shared_ptr<Stmt> clone() const;
+    
 private:
     
 /*
@@ -146,6 +143,7 @@ private:
                    const std::vector<std::shared_ptr<Stmt> >& body,
                    const int& lineno);
 
+    void print_stmt(std::ostream& os, const int& layer = 0) const;
    
 
     /*

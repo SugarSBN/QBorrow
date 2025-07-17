@@ -6,7 +6,7 @@
 #include "AST_Stmt.h"
 
 
-class Program {
+class Program final : public Printable, public Evaluatable, public Substitutable {
 
 public:
     
@@ -15,12 +15,16 @@ public:
     */
     static std::shared_ptr<Program> make_program(const std::vector<std::shared_ptr<Stmt> >& statements);
 
-    /*
-        pretty print the program
-    */
-    void print_program(std::ostream& os = std::cout) const;
 
-    std::vector<std::shared_ptr<Stmt> > get_statements() const;
+
+
+    void print(std::ostream& os) const override;
+    void substitute(const std::string& name, const std::shared_ptr<Expr>& value) override;
+    void evaluate() override;
+
+
+    const std::vector<std::shared_ptr<Stmt> >& get_statements() const;
+
 
     /*
         returns true if a LET statement is eliminated,
@@ -28,19 +32,15 @@ public:
     */
     bool eliminate_let_statements();
     bool eliminate_for_statements();
-    bool rename_borrow_alloc(int layer = 0);
-    /*
-        evaluate all expressions in the program
-        throw an error if an expression cannot be evaluated
-    */
-    void evaluate();
+    bool rename_borrow_alloc();
+
     /*
         well-formed checking
     */
     void check_free_name() const;
     void check_out_range() const;
     void check_disjoint() const;
-    
+
 private:
     /*
         constructor
@@ -49,5 +49,7 @@ private:
 
 
     std::vector<std::shared_ptr<Stmt> > statements_;
+
+    int name_idx_ = 0;
     
 };

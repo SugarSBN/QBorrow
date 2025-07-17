@@ -77,7 +77,7 @@ bool Parser::parse_string(const std::string& input_string) {
     return true;
 }
 
-std::shared_ptr<Program> Parser::get_program() const {
+const std::shared_ptr<Program>& Parser::get_program() const {
     return program_;
 }
 
@@ -235,4 +235,5 @@ std::shared_ptr<Expr> Parser::visit_factor(QBorrowParser::FactorContext* ctx) {
         return visit_expr(ctx -> expr());
 
     }
+    return nullptr;
 }

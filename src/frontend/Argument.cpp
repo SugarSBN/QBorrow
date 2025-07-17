@@ -68,16 +68,16 @@ bool Argument_Parser::parse_argument(int argc, char* argv[]){
 
 }
 
-std::string Argument_Parser::get_parse_result() const {
+const std::string& Argument_Parser::get_parse_result() const {
     return parse_result_;
 }
 
-bool Argument_Parser::get_need_print() const {
+const bool& Argument_Parser::get_need_print() const {
     return need_print_;
 }
 
 
-bool Argument_Parser::get_need_print_preprocess() const {
+const bool& Argument_Parser::get_need_print_preprocess() const {
     return need_print_preprocess_;
 }
 

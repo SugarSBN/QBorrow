@@ -34,13 +34,13 @@ void Preprocessor::preprocess(std::shared_ptr<Program>& program) {
 
         if (need_print_) {
             debug_output_ << "Preprocessing completed successfully." << std::endl;
-            program -> print_program(debug_output_);
+            debug_output_ << (*program) << std::endl;
         }
     }
     catch (const std::exception& ex) {
         error_output_ << RED << "[Preprocessing failed] " << ex.what() << RESET << std::endl;
         debug_output_ << "Last processed program:" << std::endl;
-        program -> print_program(debug_output_);
+        debug_output_ << (*program) << std::endl;
         return;
     }
 }

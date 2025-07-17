@@ -5,6 +5,7 @@
 #include "Parser.h" 
 #include "Preprocessor.h"
 #include "QBorrowParser.h" 
+#include "Interpreter.h"
 
 #define RED "\033[1;31m"
 #define BLUE "\033[34m"
@@ -36,7 +37,7 @@ int main(int argc, char* argv[]) {
     auto program = parser -> get_program();
 
     if (argument_parser -> get_need_print()) {
-        program -> print_program(std::cout);
+        std::cout << (*program) << std::endl;
     }
 
     /*
@@ -47,6 +48,10 @@ int main(int argc, char* argv[]) {
 
     preprocessor -> preprocess(program);
     
+
+    const auto& interpreter = Interpreter::make_interpreter(program, std::cerr);
+
+    interpreter -> interpret();
 
     return 0;
 }

@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow
+CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow-1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow/build
+CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow-1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles /Users/subonan/subonan_THU/QBorrow/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow-1/build/CMakeFiles /Users/subonan/subonan_THU/QBorrow-1/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow-1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -219,6 +219,43 @@ eg7-not-disjoint: cmake_check_build_system
 eg7-not-disjoint/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg7-not-disjoint.dir/build.make CMakeFiles/eg7-not-disjoint.dir/build
 .PHONY : eg7-not-disjoint/fast
+
+#=============================================================================
+# Target rules for targets named eg8-boolean
+
+# Build rule for target.
+eg8-boolean: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg8-boolean
+.PHONY : eg8-boolean
+
+# fast build rule for target.
+eg8-boolean/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg8-boolean.dir/build.make CMakeFiles/eg8-boolean.dir/build
+.PHONY : eg8-boolean/fast
+
+src/backend/Interpreter.o: src/backend/Interpreter.cpp.o
+.PHONY : src/backend/Interpreter.o
+
+# target to build an object file
+src/backend/Interpreter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/backend/Interpreter.cpp.o
+.PHONY : src/backend/Interpreter.cpp.o
+
+src/backend/Interpreter.i: src/backend/Interpreter.cpp.i
+.PHONY : src/backend/Interpreter.i
+
+# target to preprocess a source file
+src/backend/Interpreter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/backend/Interpreter.cpp.i
+.PHONY : src/backend/Interpreter.cpp.i
+
+src/backend/Interpreter.s: src/backend/Interpreter.cpp.s
+.PHONY : src/backend/Interpreter.s
+
+# target to generate assembly for a file
+src/backend/Interpreter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/backend/Interpreter.cpp.s
+.PHONY : src/backend/Interpreter.cpp.s
 
 src/frontend/AST/AST_Expr.o: src/frontend/AST/AST_Expr.cpp.o
 .PHONY : src/frontend/AST/AST_Expr.o
@@ -363,6 +400,30 @@ src/frontend/Preprocessor.s: src/frontend/Preprocessor.cpp.s
 src/frontend/Preprocessor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Preprocessor.cpp.s
 .PHONY : src/frontend/Preprocessor.cpp.s
+
+src/frontend/Printable.o: src/frontend/Printable.cpp.o
+.PHONY : src/frontend/Printable.o
+
+# target to build an object file
+src/frontend/Printable.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Printable.cpp.o
+.PHONY : src/frontend/Printable.cpp.o
+
+src/frontend/Printable.i: src/frontend/Printable.cpp.i
+.PHONY : src/frontend/Printable.i
+
+# target to preprocess a source file
+src/frontend/Printable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Printable.cpp.i
+.PHONY : src/frontend/Printable.cpp.i
+
+src/frontend/Printable.s: src/frontend/Printable.cpp.s
+.PHONY : src/frontend/Printable.s
+
+# target to generate assembly for a file
+src/frontend/Printable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/src/frontend/Printable.cpp.s
+.PHONY : src/frontend/Printable.cpp.s
 
 src/frontend/Program.o: src/frontend/Program.cpp.o
 .PHONY : src/frontend/Program.o
@@ -571,7 +632,11 @@ help:
 	@echo "... eg5-nested-borrow-alloc"
 	@echo "... eg6-out-of-range"
 	@echo "... eg7-not-disjoint"
+	@echo "... eg8-boolean"
 	@echo "... qborrow"
+	@echo "... src/backend/Interpreter.o"
+	@echo "... src/backend/Interpreter.i"
+	@echo "... src/backend/Interpreter.s"
 	@echo "... src/frontend/AST/AST_Expr.o"
 	@echo "... src/frontend/AST/AST_Expr.i"
 	@echo "... src/frontend/AST/AST_Expr.s"
@@ -590,6 +655,9 @@ help:
 	@echo "... src/frontend/Preprocessor.o"
 	@echo "... src/frontend/Preprocessor.i"
 	@echo "... src/frontend/Preprocessor.s"
+	@echo "... src/frontend/Printable.o"
+	@echo "... src/frontend/Printable.i"
+	@echo "... src/frontend/Printable.s"
 	@echo "... src/frontend/Program.o"
 	@echo "... src/frontend/Program.i"
 	@echo "... src/frontend/Program.s"

@@ -9,5 +9,3 @@ let n = n * 2;
 alloc q[n];
 
 let n = n - 8;
-
-call func (n) [q[n+4], q[n-5]];

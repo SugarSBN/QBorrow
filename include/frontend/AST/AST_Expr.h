@@ -5,8 +5,11 @@
 #include <iostream>
 #include <memory>
 #include <variant>
+#include "Substitutable.h"
+#include "Evaluatable.h"
+#include "Printable.h"
 
-class Expr {
+class Expr final : public Printable, public Substitutable, public Evaluatable {
 
 public:   
     /*
@@ -70,21 +73,18 @@ public:
     static std::shared_ptr<Expr> make_unary_op(const Unary_Op& op, const std::shared_ptr<Expr>& operand);
     static std::shared_ptr<Expr> make_binary_op(const Binary_Op& op, const std::shared_ptr<Expr>& left, const std::shared_ptr<Expr>& right);
 
-    /*        
-        pretty print expressions
-    */
-    void print_expr(std::ostream& os = std::cout) const;
 
     /*
         Substitution
     */
-    std::shared_ptr<Expr> substitute(const std::string& name, const std::shared_ptr<Expr>& value) const;
+    // std::shared_ptr<Expr> substitute(const std::string& name, const std::shared_ptr<Expr>& value) const;
+    void substitute(const std::string& name, const std::shared_ptr<Expr>& value) override;
+    void evaluate() override;
+    void print(std::ostream& os) const override;
 
-    /*
-        evaluate the expression
-        throws an exception if the expression contains a variable
-    */
-    int evaluate() const;
+    const int& get_number() const;
+
+    std::shared_ptr<Expr> clone() const;
 
 private:
 
@@ -95,6 +95,8 @@ private:
     explicit Expr(const Expr_Type& t, const int& number);
     explicit Expr(const Expr_Type& t, const Unary_Op& op, const std::shared_ptr<Expr>& operand);
     explicit Expr(const Expr_Type& t, const Binary_Op& op, const std::shared_ptr<Expr> left, const std::shared_ptr<Expr> right);
+
+
     /*
         an expression is a type + variant.
     */

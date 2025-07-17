@@ -83,11 +83,11 @@ list(APPEND PROJECT_LINK_LIBS "antlr4-runtime")
 ## CVC5 
 
 set(CVC5_DEFAULT_PREFIX_PATH "/usr/local")
-set(CVC5_INCLUDE_DEFAULT "${CVC5_DEFAULT_PREFIX_PATH}/include/cvc5")
+set(CVC5_INCLUDE_DEFAULT "${CVC5_DEFAULT_PREFIX_PATH}/include/")
 set(CVC5_LIB_DEFAULT "${CVC5_DEFAULT_PREFIX_PATH}/lib") 
 
 set(CVC5_FOUND FALSE)
-if(EXISTS "${CVC5_INCLUDE_DEFAULT}/cvc5.h")
+if(EXISTS "${CVC5_INCLUDE_DEFAULT}/cvc5/cvc5.h")
     set(CVC5_INCLUDE_DIRS "${CVC5_INCLUDE_DEFAULT}" CACHE PATH "CVC5 include directory" FORCE)
     set(CVC5_LIB_DIRS "${CVC5_LIB_DEFAULT}" CACHE PATH "CVC5 library directory" FORCE)
     set(CVC5_FOUND TRUE)
@@ -118,7 +118,6 @@ set(ANTLR4_GENERATED_SOURCES_OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/fronten
 
 file(MAKE_DIRECTORY "${ANTLR4_GENERATED_HEADERS_OUTPUT_DIR}")
 file(MAKE_DIRECTORY "${ANTLR4_GENERATED_SOURCES_OUTPUT_DIR}")
-
 
 function(antlr4_generate GRAMMAR_FILE)
     get_filename_component(GRAMMAR_NAME "${GRAMMAR_FILE}" NAME_WE)
@@ -176,6 +175,7 @@ add_executable(${PROJECT_NAME}
     src/frontend/Parser.cpp
     src/frontend/Preprocessor.cpp
     src/frontend/Program.cpp
+    src/frontend/Printable.cpp
 
     src/frontend/AST/AST_Expr.cpp
     src/frontend/AST/AST_Stmt.cpp
@@ -187,12 +187,15 @@ add_executable(${PROJECT_NAME}
     src/frontend/antlr-gen/QBorrowListener.cpp
     src/frontend/antlr-gen/QBorrowParser.cpp
     src/frontend/antlr-gen/QBorrowVisitor.cpp
+
+    src/backend/Interpreter.cpp
 )
 
 # ( -I)
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include/frontend
     ${CMAKE_CURRENT_SOURCE_DIR}/include/frontend/AST
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/backend
 
     ${ANTLR4_GENERATED_HEADERS_OUTPUT_DIR}   
     ${PROJECT_INCLUDE_DIRS}                   
@@ -236,3 +239,4 @@ add_example_target(eg4-nested-borrow)
 add_example_target(eg5-nested-borrow-alloc)
 add_example_target(eg6-out-of-range)
 add_example_target(eg7-not-disjoint)
+add_example_target(eg8-boolean)

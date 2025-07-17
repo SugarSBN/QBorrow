@@ -1,5 +1,6 @@
 borrow q;
     X[q];
+
 borrow q[2];
     X[q[1]];
 release q;
@@ -7,7 +8,9 @@ release q;
 
 alloc q;
     X[q];
+
 borrow q;
     X[q];
 release q;
+
     X[q];
