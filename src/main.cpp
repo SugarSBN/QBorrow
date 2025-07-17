@@ -53,5 +53,8 @@ int main(int argc, char* argv[]) {
 
     interpreter -> interpret();
 
+    interpreter -> verify();
+    std::cout<< BLUE << "[Interpretation completed]" << RESET << std::endl;
+
     return 0;
 }

@@ -1,5 +1,5 @@
 CMakeFiles/qborrow.dir/src/main.cpp.o: \
-  /Users/subonan/subonan_THU/QBorrow-1/src/main.cpp \
+  /Users/subonan/subonan_THU/QBorrow/src/main.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assertion_handler \
@@ -976,8 +976,8 @@ CMakeFiles/qborrow.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/Argument.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/Parser.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Argument.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Parser.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-runtime.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/any \
@@ -1171,19 +1171,19 @@ CMakeFiles/qborrow.dir/src/main.cpp.o: \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathTokenElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardAnywhereElement.h \
   /Users/subonan/local/antlr4/runtime/cpp/include/antlr4-runtime/tree/xpath/XPathWildcardElement.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/Program.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/AST/AST_Expr.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/Substitutable.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/Evaluatable.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/Printable.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/AST/AST_Register.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/AST/AST_Stmt.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/antlr-gen/QBorrowLexer.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/antlr-gen/QBorrowParser.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/antlr-gen/QBorrowBaseListener.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/antlr-gen/QBorrowListener.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/Preprocessor.h \
-  /Users/subonan/subonan_THU/QBorrow-1/include/backend/Interpreter.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Program.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Expr.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Substitutable.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Evaluatable.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Printable.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Register.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/AST/AST_Stmt.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/antlr-gen/QBorrowLexer.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/antlr-gen/QBorrowParser.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/antlr-gen/QBorrowBaseListener.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/antlr-gen/QBorrowListener.h \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Preprocessor.h \
+  /Users/subonan/subonan_THU/QBorrow/include/backend/Interpreter.h \
   /usr/local/include/cvc5/cvc5.h /usr/local/include/cvc5/cvc5_export.h \
   /usr/local/include/cvc5/cvc5_kind.h \
   /usr/local/include/cvc5/cvc5_proof_rule.h \

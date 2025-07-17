@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow-1
+CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow-1/build
+CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow/build
 
 # Utility rule file for eg3-nested-for.
 
@@ -67,8 +67,8 @@ include CMakeFiles/eg3-nested-for.dir/compiler_depend.make
 include CMakeFiles/eg3-nested-for.dir/progress.make
 
 CMakeFiles/eg3-nested-for: qborrow
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/subonan/subonan_THU/QBorrow-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running qborrow with example eg3-nested-for.qbr"
-	env DYLD_LIBRARY_PATH="/opt/homebrew/lib" /Users/subonan/subonan_THU/QBorrow-1/build/qborrow /Users/subonan/subonan_THU/QBorrow-1/examples/eg3-nested-for.qbr $(ARGS)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running qborrow with example eg3-nested-for.qbr"
+	env DYLD_LIBRARY_PATH="/opt/homebrew/lib" /Users/subonan/subonan_THU/QBorrow/build/qborrow /Users/subonan/subonan_THU/QBorrow/examples/eg3-nested-for.qbr $(ARGS)
 
 eg3-nested-for: CMakeFiles/eg3-nested-for
 eg3-nested-for: CMakeFiles/eg3-nested-for.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/eg3-nested-for.dir/clean:
 .PHONY : CMakeFiles/eg3-nested-for.dir/clean
 
 CMakeFiles/eg3-nested-for.dir/depend:
-	cd /Users/subonan/subonan_THU/QBorrow-1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/subonan/subonan_THU/QBorrow-1 /Users/subonan/subonan_THU/QBorrow-1 /Users/subonan/subonan_THU/QBorrow-1/build /Users/subonan/subonan_THU/QBorrow-1/build /Users/subonan/subonan_THU/QBorrow-1/build/CMakeFiles/eg3-nested-for.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/subonan/subonan_THU/QBorrow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/subonan/subonan_THU/QBorrow /Users/subonan/subonan_THU/QBorrow /Users/subonan/subonan_THU/QBorrow/build /Users/subonan/subonan_THU/QBorrow/build /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles/eg3-nested-for.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/eg3-nested-for.dir/depend
 

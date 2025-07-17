@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/Users/subonan/subonan_THU/QBorrow-1/CMakeLists.txt"
+  "/Users/subonan/subonan_THU/QBorrow/CMakeLists.txt"
   "CMakeFiles/3.30.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.30.5/CMakeSystem.cmake"
   "/opt/homebrew/Cellar/cmake/3.30.5/share/cmake/Modules/CMakeCXXInformation.cmake"
@@ -50,5 +50,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/eg5-nested-borrow-alloc.dir/DependInfo.cmake"
   "CMakeFiles/eg6-out-of-range.dir/DependInfo.cmake"
   "CMakeFiles/eg7-not-disjoint.dir/DependInfo.cmake"
-  "CMakeFiles/eg8-boolean.dir/DependInfo.cmake"
+  "CMakeFiles/eg8-three-controlled.dir/DependInfo.cmake"
   )

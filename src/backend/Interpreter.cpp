@@ -7,7 +7,10 @@
 Interpreter::Interpreter(const std::shared_ptr<Program>& program, 
                          std::ostream& error_output) 
     : program_(program),
-      error_output_(error_output) {}
+      error_output_(error_output) {
+    solver_.setOption("produce-models", "true");
+    qubits_.clear();
+}
 
 std::shared_ptr<Interpreter> Interpreter::make_interpreter(const std::shared_ptr<Program>& program, 
                                                            std::ostream& error_output) {
@@ -32,7 +35,7 @@ void Interpreter::interpret() {
                     int size = borrow_stmt.register_ -> get_size() -> get_number();
                     for (int j = 1; j <= size; j++) {
                         const std::string& qubit_name = borrow_stmt.register_ -> get_name() + std::to_string(j) + "_";
-                        current_semantics[qubit_name] = tm_.mkConst(tm_.getBooleanSort(), qubit_name);
+                        current_semantics[qubit_name] = qubits_[qubit_name] = tm_.mkConst(tm_.getBooleanSort(), qubit_name);
                     }
                     break;
                 }
@@ -42,7 +45,7 @@ void Interpreter::interpret() {
                     int size = alloc_stmt.register_ -> get_size() -> get_number();
                     for (int j = 1; j <= size; j++) {
                         const std::string& qubit_name = alloc_stmt.register_ -> get_name() + std::to_string(j) + "_";
-                        current_semantics[qubit_name] = tm_.mkBoolean(false);
+                        current_semantics[qubit_name] = qubits_[qubit_name] = tm_.mkFalse();
                     }
                     break;
                 }
@@ -95,4 +98,24 @@ void Interpreter::interpret() {
     }
         error_output_ << "Interpretation successful." << std::endl;
     
+}
+
+bool Interpreter::verify() {
+
+    std::map<std::string, cvc5::Term> current_semantics = semantics_.back();
+
+    cvc5::Term q1_1 = qubits_.at("_q1_1_");
+    cvc5::Term output = current_semantics.at("_q1_1_");
+
+    cvc5::Term zero_to_zero = tm_.mkTerm(cvc5::Kind::IMPLIES, {q1_1, output});
+
+    solver_.assertFormula(tm_.mkTerm(cvc5::Kind::NOT, {zero_to_zero}));
+
+    cvc5::Result result = solver_.checkSat();
+
+    std::cout << zero_to_zero << std::endl;
+    std::cout << "Result: " << result << std::endl;
+
+
+    return true;
 }

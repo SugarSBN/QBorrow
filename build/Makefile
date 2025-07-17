@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow-1
+CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow-1/build
+CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow-1/build/CMakeFiles /Users/subonan/subonan_THU/QBorrow-1/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles /Users/subonan/subonan_THU/QBorrow/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow-1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -221,17 +221,17 @@ eg7-not-disjoint/fast:
 .PHONY : eg7-not-disjoint/fast
 
 #=============================================================================
-# Target rules for targets named eg8-boolean
+# Target rules for targets named eg8-three-controlled
 
 # Build rule for target.
-eg8-boolean: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg8-boolean
-.PHONY : eg8-boolean
+eg8-three-controlled: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg8-three-controlled
+.PHONY : eg8-three-controlled
 
 # fast build rule for target.
-eg8-boolean/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg8-boolean.dir/build.make CMakeFiles/eg8-boolean.dir/build
-.PHONY : eg8-boolean/fast
+eg8-three-controlled/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg8-three-controlled.dir/build.make CMakeFiles/eg8-three-controlled.dir/build
+.PHONY : eg8-three-controlled/fast
 
 src/backend/Interpreter.o: src/backend/Interpreter.cpp.o
 .PHONY : src/backend/Interpreter.o
@@ -632,7 +632,7 @@ help:
 	@echo "... eg5-nested-borrow-alloc"
 	@echo "... eg6-out-of-range"
 	@echo "... eg7-not-disjoint"
-	@echo "... eg8-boolean"
+	@echo "... eg8-three-controlled"
 	@echo "... qborrow"
 	@echo "... src/backend/Interpreter.o"
 	@echo "... src/backend/Interpreter.i"

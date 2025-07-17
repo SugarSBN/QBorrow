@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.30.5/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow-1
+CMAKE_SOURCE_DIR = /Users/subonan/subonan_THU/QBorrow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow-1/build
+CMAKE_BINARY_DIR = /Users/subonan/subonan_THU/QBorrow/build
 
 # Utility rule file for eg8-boolean.
 
@@ -67,8 +67,8 @@ include CMakeFiles/eg8-boolean.dir/compiler_depend.make
 include CMakeFiles/eg8-boolean.dir/progress.make
 
 CMakeFiles/eg8-boolean: qborrow
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/subonan/subonan_THU/QBorrow-1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running qborrow with example eg8-boolean.qbr"
-	env DYLD_LIBRARY_PATH="/opt/homebrew/lib" /Users/subonan/subonan_THU/QBorrow-1/build/qborrow /Users/subonan/subonan_THU/QBorrow-1/examples/eg8-boolean.qbr $(ARGS)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running qborrow with example eg8-boolean.qbr"
+	env DYLD_LIBRARY_PATH="/opt/homebrew/lib" /Users/subonan/subonan_THU/QBorrow/build/qborrow /Users/subonan/subonan_THU/QBorrow/examples/eg8-boolean.qbr $(ARGS)
 
 eg8-boolean: CMakeFiles/eg8-boolean
 eg8-boolean: CMakeFiles/eg8-boolean.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/eg8-boolean.dir/clean:
 .PHONY : CMakeFiles/eg8-boolean.dir/clean
 
 CMakeFiles/eg8-boolean.dir/depend:
-	cd /Users/subonan/subonan_THU/QBorrow-1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/subonan/subonan_THU/QBorrow-1 /Users/subonan/subonan_THU/QBorrow-1 /Users/subonan/subonan_THU/QBorrow-1/build /Users/subonan/subonan_THU/QBorrow-1/build /Users/subonan/subonan_THU/QBorrow-1/build/CMakeFiles/eg8-boolean.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/subonan/subonan_THU/QBorrow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/subonan/subonan_THU/QBorrow /Users/subonan/subonan_THU/QBorrow /Users/subonan/subonan_THU/QBorrow/build /Users/subonan/subonan_THU/QBorrow/build /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles/eg8-boolean.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/eg8-boolean.dir/depend
 

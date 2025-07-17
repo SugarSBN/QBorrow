@@ -1,6 +1,6 @@
 CMakeFiles/qborrow.dir/src/frontend/Argument.cpp.o: \
-  /Users/subonan/subonan_THU/QBorrow-1/src/frontend/Argument.cpp \
-  /Users/subonan/subonan_THU/QBorrow-1/include/frontend/Argument.h \
+  /Users/subonan/subonan_THU/QBorrow/src/frontend/Argument.cpp \
+  /Users/subonan/subonan_THU/QBorrow/include/frontend/Argument.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/usr/include/c++/v1/__assertion_handler \
