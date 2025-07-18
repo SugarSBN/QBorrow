@@ -102,8 +102,10 @@ void Interpreter::interpret() {
 bool Interpreter::verify() {
     
     std::vector<std::shared_ptr<Stmt> > stmts = program_->get_statements();
+
     try {
         for (size_t i = 0;i < stmts.size();i++) {
+
             if (stmts[i] -> get_type() == Stmt::Stmt_Type::BORROW &&
                 std::get<Stmt::Stmt_Borrow>(stmts[i] -> get_stmt()).need_check_) {
 
@@ -114,15 +116,15 @@ bool Interpreter::verify() {
                 size_t j = i + 1;
                 while (j < stmts.size() && 
                     (stmts[j] -> get_type() != Stmt::Stmt_Type::REL || 
-                        std::get<Stmt::Stmt_Rel>(stmts[j] -> get_stmt()).id_ != name)) 
+                     std::get<Stmt::Stmt_Rel>(stmts[j] -> get_stmt()).id_ != name)) 
                     j++;
                 
-
                 std::map<std::string, cvc5::Term> current_semantics = j == stmts.size() ? semantics_.back() : semantics_[j];
 
                 for (int idx = 1;idx <= size; idx++) {
                     std::string qubit_name = name + std::to_string(idx) + "_";
-                    std::cout << "Verifying borrow qubit: " << qubit_name << std::endl;
+                    std::cout << "Verifying borrowed qubit: " << qubit_name << std::endl;
+                    
 
                     cvc5::Term qubit_term = qubits_[qubit_name];
                     cvc5::Term final_term = current_semantics[qubit_name];
@@ -131,11 +133,15 @@ bool Interpreter::verify() {
                         equivalent to: final_term ==> qubit_term
                         equivalent to: neg (final_term ==> qubit_term) is unSatisfiable
                     */
+                    solver_.resetAssertions();
                     solver_.assertFormula(tm_.mkTerm(cvc5::Kind::NOT, {tm_.mkTerm(cvc5::Kind::IMPLIES, {final_term, qubit_term})}));
 
                     cvc5::Result result = solver_.checkSat();
                     if (result.isSat()) {
                         throw std::runtime_error("Line " + std::to_string(stmts[i]->get_lineno()) + ": borrowed qubit " + qubit_name + " is not safely uncomputed.");
+                    }
+                    if (!result.isUnsat()) {
+                        throw std::runtime_error("Line " + std::to_string(stmts[i]->get_lineno()) + ": safe uncomputation of borrowed qubit " + qubit_name + " cannot be verified.");
                     } 
 
                     
@@ -143,24 +149,23 @@ bool Interpreter::verify() {
 
                         if (name == qubit_name) continue;
 
-                        solver_.resetAssertions();
                         /*
                             when_false == when_true 
                             if and only if when_false xor when_true is unsatisfiable
                         */
                         cvc5::Term when_false = term.substitute({qubit_term}, tm_.mkFalse());
                         cvc5::Term when_true = term.substitute({qubit_term}, tm_.mkTrue());
-                        // std::cout << "Term " << term.toString() << std::endl;
-                        // std::cout << "when_false: " << when_false.toString() << std::endl;
-                        // std::cout << "when_true: " << when_true.toString() << std::endl;
+                        solver_.resetAssertions();
                         solver_.assertFormula(tm_.mkTerm(cvc5::Kind::XOR, {when_false, when_true}));
-                        // std::cout << tm_.mkTerm(cvc5::Kind::XOR, {when_false, when_true}).toString() << std::endl;
                         
                         result = solver_.checkSat();
 
                         if (result.isSat()) {
                             throw std::runtime_error("Line " + std::to_string(stmts[i]->get_lineno()) + ": borrowed qubit " + qubit_name + " is not safely uncomputed.");
                         }
+                        if (!result.isUnsat()) {
+                            throw std::runtime_error("Line " + std::to_string(stmts[i]->get_lineno()) + ": safe uncomputation of borrowed qubit " + qubit_name + " cannot be verified.");
+                        } 
                     }
                     
                 }

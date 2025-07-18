@@ -43,8 +43,7 @@ int main(int argc, char* argv[]) {
     /*
         Preprocessing
     */
-    const auto& preprocessor = Preprocessor::make_preprocessor(std::cout, std::cerr, 
-                                                    argument_parser -> get_need_print_preprocess()); 
+    const auto& preprocessor = Preprocessor::make_preprocessor(std::cout, std::cerr, argument_parser -> get_need_print_preprocess()); 
 
     if (!preprocessor -> preprocess(program)) {
         std::cerr << RED << "[Preprocessing failed]" << RESET << std::endl;
@@ -53,13 +52,14 @@ int main(int argc, char* argv[]) {
 
     const auto& interpreter = Interpreter::make_interpreter(program, std::cerr);
 
+
     interpreter -> interpret();
 
     if (!interpreter -> verify()) {
         return 1;
     }
-    
-    std::cout<< BLUE << "[Interpretation completed]" << RESET << std::endl;
+
+    std::cout<< BLUE << "[Verification completed, all borrowed dirty qubits have been safely uncomputed]" << RESET << std::endl;
 
     return 0;
 }
