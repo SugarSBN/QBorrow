@@ -33,7 +33,7 @@ cmake -DANTLR4_JAR_PATH=/path/to/antlr-4.13.2-complete.jar -DANTLR4_RUNTIME_PREF
 make eg9-adder
 ```
 
-Make sure that the following files & folders exists:
+Make sure that the following files & folders exist:
 * /path/to/antlr-4.13.2-complete.jar 
 * /path/to/antlr4/runtime/cpp/include/antlr4-runtime/antlr4-runtime.h
 * /path/to/antlr4/runtime/cpp/lib
