@@ -233,6 +233,19 @@ eg8-three-controlled/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg8-three-controlled.dir/build.make CMakeFiles/eg8-three-controlled.dir/build
 .PHONY : eg8-three-controlled/fast
 
+#=============================================================================
+# Target rules for targets named eg9-adder
+
+# Build rule for target.
+eg9-adder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg9-adder
+.PHONY : eg9-adder
+
+# fast build rule for target.
+eg9-adder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg9-adder.dir/build.make CMakeFiles/eg9-adder.dir/build
+.PHONY : eg9-adder/fast
+
 src/backend/Interpreter.o: src/backend/Interpreter.cpp.o
 .PHONY : src/backend/Interpreter.o
 
@@ -633,6 +646,7 @@ help:
 	@echo "... eg6-out-of-range"
 	@echo "... eg7-not-disjoint"
 	@echo "... eg8-three-controlled"
+	@echo "... eg9-adder"
 	@echo "... qborrow"
 	@echo "... src/backend/Interpreter.o"
 	@echo "... src/backend/Interpreter.i"

@@ -18,7 +18,7 @@ public:
     /*
         preprocess the program, removing LET and FOR statements
     */
-    void preprocess(std::shared_ptr<Program>& program);
+    bool preprocess(std::shared_ptr<Program>& program);
 
 private:
     

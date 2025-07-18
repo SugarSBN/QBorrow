@@ -17,10 +17,11 @@ std::shared_ptr<Preprocessor> Preprocessor::make_preprocessor(std::ostream& debu
     return std::make_shared<Preprocessor>(Preprocessor(debug_output, error_output, need_print));
 }
 
-void Preprocessor::preprocess(std::shared_ptr<Program>& program) {
+bool Preprocessor::preprocess(std::shared_ptr<Program>& program) {
     try {
 
         while (program -> eliminate_let_statements());
+
 
         while (program -> eliminate_for_statements());
 
@@ -41,6 +42,7 @@ void Preprocessor::preprocess(std::shared_ptr<Program>& program) {
         error_output_ << RED << "[Preprocessing failed] " << ex.what() << RESET << std::endl;
         debug_output_ << "Last processed program:" << std::endl;
         debug_output_ << (*program) << std::endl;
-        return;
+        return false;
     }
+    return true;
 }

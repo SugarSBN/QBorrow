@@ -118,7 +118,11 @@ std::shared_ptr<Stmt> Parser::visit_statement(QBorrowParser::StatementContext* c
 
     } else if (ctx -> getStart() -> getText() == "borrow") {
 
-       return Stmt::make_borrow(visit_register(ctx -> reg(0)), lineno);
+       return Stmt::make_borrow(visit_register(ctx -> reg(0)), true, lineno);
+
+    } else if (ctx -> getStart() -> getText() == "borrow@") {
+
+       return Stmt::make_borrow(visit_register(ctx -> reg(0)), false, lineno);
 
     } else if (ctx->getStart()->getText() == "alloc") {
 

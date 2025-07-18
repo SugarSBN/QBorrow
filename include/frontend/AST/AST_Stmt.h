@@ -37,6 +37,7 @@ public:
 
     struct Stmt_Borrow {
         std::shared_ptr<Register> register_;
+        bool need_check_;
     };
 
     struct Stmt_Alloc {
@@ -75,7 +76,7 @@ public:
         factory methods for creating pointers to statements
     */ 
     static std::shared_ptr<Stmt> make_let     (const std::string& name, const std::shared_ptr<Expr>& expr, const int& lineno);
-    static std::shared_ptr<Stmt> make_borrow  (const std::shared_ptr<Register>& reg, const int& lineno);
+    static std::shared_ptr<Stmt> make_borrow  (const std::shared_ptr<Register>& reg, const bool& need_check, const int& lineno);
     static std::shared_ptr<Stmt> make_alloc   (const std::shared_ptr<Register>& reg, const int& lineno);
     static std::shared_ptr<Stmt> make_rel     (const std::string& id, const int& lineno);
     static std::shared_ptr<Stmt> make_x       (const std::shared_ptr<Register>& target, const int& lineno);
@@ -130,6 +131,7 @@ private:
     explicit Stmt (Stmt_Type t, const std::string& name, const std::shared_ptr<Expr>& expr, const int& lineno);
     explicit Stmt (Stmt_Type t, const std::string& name, const int& lineno);
     explicit Stmt (Stmt_Type t, const std::shared_ptr<Register>& reg, const int& lineno);
+    explicit Stmt (Stmt_Type t, const std::shared_ptr<Register>& reg, const bool& need_check, const int& lineno);
     explicit Stmt (Stmt_Type t, const std::shared_ptr<Register>& control, const std::shared_ptr<Register>& target, const int& lineno);
     explicit Stmt (Stmt_Type t, 
                    const std::shared_ptr<Register>& control1, 

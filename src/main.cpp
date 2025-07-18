@@ -46,14 +46,19 @@ int main(int argc, char* argv[]) {
     const auto& preprocessor = Preprocessor::make_preprocessor(std::cout, std::cerr, 
                                                     argument_parser -> get_need_print_preprocess()); 
 
-    preprocessor -> preprocess(program);
-    
+    if (!preprocessor -> preprocess(program)) {
+        std::cerr << RED << "[Preprocessing failed]" << RESET << std::endl;
+        return 1;
+    } 
 
     const auto& interpreter = Interpreter::make_interpreter(program, std::cerr);
 
     interpreter -> interpret();
 
-    interpreter -> verify();
+    if (!interpreter -> verify()) {
+        return 1;
+    }
+    
     std::cout<< BLUE << "[Interpretation completed]" << RESET << std::endl;
 
     return 0;

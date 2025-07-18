@@ -1,0 +1,38 @@
+
+
+let n = 10;
+
+borrow@ a[n];
+borrow g[n - 1];
+
+CNOT[g[n - 1], a[n]];
+
+for i = (n - 1) to 2 {
+    CNOT[a[i], g[i]];
+    X[a[i]];
+    CCNOT[g[i - 1], a[i], g[i]];
+}
+
+CNOT[a[1], g[1]];
+
+for i = 2 to (n - 1) {
+    CCNOT[g[i - 1], a[i], g[i]];
+}
+
+CNOT[g[n - 1], a[n]];
+
+X[a[n]];
+
+// repeat the circuit to uncompute
+
+for i = (n - 1) to 2 {
+    CNOT[a[i], g[i]];
+    X[a[i]];
+    CCNOT[g[i - 1], a[i], g[i]];
+}
+
+CNOT[a[1], g[1]];
+
+for i = 2 to (n - 1) {
+    CCNOT[g[i - 1], a[i], g[i]];
+}

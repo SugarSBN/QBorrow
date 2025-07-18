@@ -7,5 +7,6 @@
 /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles/eg6-out-of-range.dir
 /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles/eg7-not-disjoint.dir
 /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles/eg8-three-controlled.dir
+/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles/eg9-adder.dir
 /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles/edit_cache.dir
 /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles/rebuild_cache.dir

@@ -56,54 +56,56 @@ void qborrowParserInitialize() {
       "program", "statement", "reg", "expr", "term", "factor"
     },
     std::vector<std::string>{
-      "", "'let'", "'='", "';'", "'borrow'", "'alloc'", "'release'", "'X'", 
-      "'['", "']'", "'CNOT'", "','", "'CCNOT'", "'for'", "'to'", "'{'", 
-      "'}'", "'('", "')'", "'+'", "'-'", "'*'"
+      "", "'let'", "'='", "';'", "'borrow'", "'borrow@'", "'alloc'", "'release'", 
+      "'X'", "'['", "']'", "'CNOT'", "','", "'CCNOT'", "'for'", "'to'", 
+      "'{'", "'}'", "'('", "')'", "'+'", "'-'", "'*'"
     },
     std::vector<std::string>{
       "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 
-      "", "", "ADD", "SUB", "MUL", "ID", "NUMBER", "WS", "LINE_COMMENT", 
+      "", "", "", "ADD", "SUB", "MUL", "ID", "NUMBER", "WS", "LINE_COMMENT", 
       "BLOCK_COMMENT"
     }
   );
   static const int32_t serializedATNSegment[] = {
-  	4,1,26,124,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,1,0,4,0,14,
+  	4,1,27,128,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,1,0,4,0,14,
   	8,0,11,0,12,0,15,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
   	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  	1,1,1,1,1,1,5,1,69,8,1,10,1,12,1,72,9,1,1,1,1,1,3,1,76,8,1,1,2,1,2,1,
-  	2,1,2,1,2,1,2,3,2,84,8,2,1,3,1,3,1,3,1,3,1,3,1,3,3,3,92,8,3,1,3,1,3,1,
-  	3,1,3,1,3,1,3,5,3,100,8,3,10,3,12,3,103,9,3,1,4,1,4,1,4,1,4,1,4,1,4,5,
-  	4,111,8,4,10,4,12,4,114,9,4,1,5,1,5,1,5,1,5,1,5,1,5,3,5,122,8,5,1,5,0,
-  	2,6,8,6,0,2,4,6,8,10,0,0,134,0,13,1,0,0,0,2,75,1,0,0,0,4,83,1,0,0,0,6,
-  	91,1,0,0,0,8,104,1,0,0,0,10,121,1,0,0,0,12,14,3,2,1,0,13,12,1,0,0,0,14,
-  	15,1,0,0,0,15,13,1,0,0,0,15,16,1,0,0,0,16,17,1,0,0,0,17,18,5,0,0,1,18,
-  	1,1,0,0,0,19,20,5,1,0,0,20,21,5,22,0,0,21,22,5,2,0,0,22,23,3,6,3,0,23,
-  	24,5,3,0,0,24,76,1,0,0,0,25,26,5,4,0,0,26,27,3,4,2,0,27,28,5,3,0,0,28,
-  	76,1,0,0,0,29,30,5,5,0,0,30,31,3,4,2,0,31,32,5,3,0,0,32,76,1,0,0,0,33,
-  	34,5,6,0,0,34,35,5,22,0,0,35,76,5,3,0,0,36,37,5,7,0,0,37,38,5,8,0,0,38,
-  	39,3,4,2,0,39,40,5,9,0,0,40,41,5,3,0,0,41,76,1,0,0,0,42,43,5,10,0,0,43,
-  	44,5,8,0,0,44,45,3,4,2,0,45,46,5,11,0,0,46,47,3,4,2,0,47,48,5,9,0,0,48,
-  	49,5,3,0,0,49,76,1,0,0,0,50,51,5,12,0,0,51,52,5,8,0,0,52,53,3,4,2,0,53,
-  	54,5,11,0,0,54,55,3,4,2,0,55,56,5,11,0,0,56,57,3,4,2,0,57,58,5,9,0,0,
-  	58,59,5,3,0,0,59,76,1,0,0,0,60,61,5,13,0,0,61,62,5,22,0,0,62,63,5,2,0,
-  	0,63,64,3,6,3,0,64,65,5,14,0,0,65,66,3,6,3,0,66,70,5,15,0,0,67,69,3,2,
-  	1,0,68,67,1,0,0,0,69,72,1,0,0,0,70,68,1,0,0,0,70,71,1,0,0,0,71,73,1,0,
-  	0,0,72,70,1,0,0,0,73,74,5,16,0,0,74,76,1,0,0,0,75,19,1,0,0,0,75,25,1,
-  	0,0,0,75,29,1,0,0,0,75,33,1,0,0,0,75,36,1,0,0,0,75,42,1,0,0,0,75,50,1,
-  	0,0,0,75,60,1,0,0,0,76,3,1,0,0,0,77,78,5,22,0,0,78,79,5,8,0,0,79,80,3,
-  	6,3,0,80,81,5,9,0,0,81,84,1,0,0,0,82,84,5,22,0,0,83,77,1,0,0,0,83,82,
-  	1,0,0,0,84,5,1,0,0,0,85,86,6,3,-1,0,86,87,5,20,0,0,87,92,3,8,4,0,88,89,
-  	5,19,0,0,89,92,3,8,4,0,90,92,3,8,4,0,91,85,1,0,0,0,91,88,1,0,0,0,91,90,
-  	1,0,0,0,92,101,1,0,0,0,93,94,10,5,0,0,94,95,5,19,0,0,95,100,3,8,4,0,96,
-  	97,10,4,0,0,97,98,5,20,0,0,98,100,3,8,4,0,99,93,1,0,0,0,99,96,1,0,0,0,
-  	100,103,1,0,0,0,101,99,1,0,0,0,101,102,1,0,0,0,102,7,1,0,0,0,103,101,
-  	1,0,0,0,104,105,6,4,-1,0,105,106,3,10,5,0,106,112,1,0,0,0,107,108,10,
-  	2,0,0,108,109,5,21,0,0,109,111,3,10,5,0,110,107,1,0,0,0,111,114,1,0,0,
-  	0,112,110,1,0,0,0,112,113,1,0,0,0,113,9,1,0,0,0,114,112,1,0,0,0,115,122,
-  	5,23,0,0,116,122,5,22,0,0,117,118,5,17,0,0,118,119,3,6,3,0,119,120,5,
-  	18,0,0,120,122,1,0,0,0,121,115,1,0,0,0,121,116,1,0,0,0,121,117,1,0,0,
-  	0,122,11,1,0,0,0,9,15,70,75,83,91,99,101,112,121
+  	1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,73,8,1,10,1,12,1,76,9,1,1,1,1,1,3,1,80,
+  	8,1,1,2,1,2,1,2,1,2,1,2,1,2,3,2,88,8,2,1,3,1,3,1,3,1,3,1,3,1,3,3,3,96,
+  	8,3,1,3,1,3,1,3,1,3,1,3,1,3,5,3,104,8,3,10,3,12,3,107,9,3,1,4,1,4,1,4,
+  	1,4,1,4,1,4,5,4,115,8,4,10,4,12,4,118,9,4,1,5,1,5,1,5,1,5,1,5,1,5,3,5,
+  	126,8,5,1,5,0,2,6,8,6,0,2,4,6,8,10,0,0,139,0,13,1,0,0,0,2,79,1,0,0,0,
+  	4,87,1,0,0,0,6,95,1,0,0,0,8,108,1,0,0,0,10,125,1,0,0,0,12,14,3,2,1,0,
+  	13,12,1,0,0,0,14,15,1,0,0,0,15,13,1,0,0,0,15,16,1,0,0,0,16,17,1,0,0,0,
+  	17,18,5,0,0,1,18,1,1,0,0,0,19,20,5,1,0,0,20,21,5,23,0,0,21,22,5,2,0,0,
+  	22,23,3,6,3,0,23,24,5,3,0,0,24,80,1,0,0,0,25,26,5,4,0,0,26,27,3,4,2,0,
+  	27,28,5,3,0,0,28,80,1,0,0,0,29,30,5,5,0,0,30,31,3,4,2,0,31,32,5,3,0,0,
+  	32,80,1,0,0,0,33,34,5,6,0,0,34,35,3,4,2,0,35,36,5,3,0,0,36,80,1,0,0,0,
+  	37,38,5,7,0,0,38,39,5,23,0,0,39,80,5,3,0,0,40,41,5,8,0,0,41,42,5,9,0,
+  	0,42,43,3,4,2,0,43,44,5,10,0,0,44,45,5,3,0,0,45,80,1,0,0,0,46,47,5,11,
+  	0,0,47,48,5,9,0,0,48,49,3,4,2,0,49,50,5,12,0,0,50,51,3,4,2,0,51,52,5,
+  	10,0,0,52,53,5,3,0,0,53,80,1,0,0,0,54,55,5,13,0,0,55,56,5,9,0,0,56,57,
+  	3,4,2,0,57,58,5,12,0,0,58,59,3,4,2,0,59,60,5,12,0,0,60,61,3,4,2,0,61,
+  	62,5,10,0,0,62,63,5,3,0,0,63,80,1,0,0,0,64,65,5,14,0,0,65,66,5,23,0,0,
+  	66,67,5,2,0,0,67,68,3,6,3,0,68,69,5,15,0,0,69,70,3,6,3,0,70,74,5,16,0,
+  	0,71,73,3,2,1,0,72,71,1,0,0,0,73,76,1,0,0,0,74,72,1,0,0,0,74,75,1,0,0,
+  	0,75,77,1,0,0,0,76,74,1,0,0,0,77,78,5,17,0,0,78,80,1,0,0,0,79,19,1,0,
+  	0,0,79,25,1,0,0,0,79,29,1,0,0,0,79,33,1,0,0,0,79,37,1,0,0,0,79,40,1,0,
+  	0,0,79,46,1,0,0,0,79,54,1,0,0,0,79,64,1,0,0,0,80,3,1,0,0,0,81,82,5,23,
+  	0,0,82,83,5,9,0,0,83,84,3,6,3,0,84,85,5,10,0,0,85,88,1,0,0,0,86,88,5,
+  	23,0,0,87,81,1,0,0,0,87,86,1,0,0,0,88,5,1,0,0,0,89,90,6,3,-1,0,90,91,
+  	5,21,0,0,91,96,3,8,4,0,92,93,5,20,0,0,93,96,3,8,4,0,94,96,3,8,4,0,95,
+  	89,1,0,0,0,95,92,1,0,0,0,95,94,1,0,0,0,96,105,1,0,0,0,97,98,10,5,0,0,
+  	98,99,5,20,0,0,99,104,3,8,4,0,100,101,10,4,0,0,101,102,5,21,0,0,102,104,
+  	3,8,4,0,103,97,1,0,0,0,103,100,1,0,0,0,104,107,1,0,0,0,105,103,1,0,0,
+  	0,105,106,1,0,0,0,106,7,1,0,0,0,107,105,1,0,0,0,108,109,6,4,-1,0,109,
+  	110,3,10,5,0,110,116,1,0,0,0,111,112,10,2,0,0,112,113,5,22,0,0,113,115,
+  	3,10,5,0,114,111,1,0,0,0,115,118,1,0,0,0,116,114,1,0,0,0,116,117,1,0,
+  	0,0,117,9,1,0,0,0,118,116,1,0,0,0,119,126,5,24,0,0,120,126,5,23,0,0,121,
+  	122,5,18,0,0,122,123,3,6,3,0,123,124,5,19,0,0,124,126,1,0,0,0,125,119,
+  	1,0,0,0,125,120,1,0,0,0,125,121,1,0,0,0,126,11,1,0,0,0,9,15,74,79,87,
+  	95,103,105,116,125
   };
   staticData->serializedATN = antlr4::atn::SerializedATNView(serializedATNSegment, sizeof(serializedATNSegment) / sizeof(serializedATNSegment[0]));
 
@@ -219,7 +221,7 @@ QBorrowParser::ProgramContext* QBorrowParser::program() {
       _errHandler->sync(this);
       _la = _input->LA(1);
     } while ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & 13554) != 0));
+      ((1ULL << _la) & 27122) != 0));
     setState(17);
     match(QBorrowParser::EOF);
    
@@ -305,7 +307,7 @@ QBorrowParser::StatementContext* QBorrowParser::statement() {
     exitRule();
   });
   try {
-    setState(75);
+    setState(79);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case QBorrowParser::T__0: {
@@ -350,7 +352,7 @@ QBorrowParser::StatementContext* QBorrowParser::statement() {
         setState(33);
         match(QBorrowParser::T__5);
         setState(34);
-        match(QBorrowParser::ID);
+        reg();
         setState(35);
         match(QBorrowParser::T__2);
         break;
@@ -358,90 +360,101 @@ QBorrowParser::StatementContext* QBorrowParser::statement() {
 
       case QBorrowParser::T__6: {
         enterOuterAlt(_localctx, 5);
-        setState(36);
-        match(QBorrowParser::T__6);
         setState(37);
-        match(QBorrowParser::T__7);
+        match(QBorrowParser::T__6);
         setState(38);
-        reg();
+        match(QBorrowParser::ID);
         setState(39);
-        match(QBorrowParser::T__8);
-        setState(40);
         match(QBorrowParser::T__2);
         break;
       }
 
-      case QBorrowParser::T__9: {
+      case QBorrowParser::T__7: {
         enterOuterAlt(_localctx, 6);
-        setState(42);
-        match(QBorrowParser::T__9);
-        setState(43);
+        setState(40);
         match(QBorrowParser::T__7);
+        setState(41);
+        match(QBorrowParser::T__8);
+        setState(42);
+        reg();
+        setState(43);
+        match(QBorrowParser::T__9);
         setState(44);
-        reg();
-        setState(45);
-        match(QBorrowParser::T__10);
+        match(QBorrowParser::T__2);
+        break;
+      }
+
+      case QBorrowParser::T__10: {
+        enterOuterAlt(_localctx, 7);
         setState(46);
-        reg();
+        match(QBorrowParser::T__10);
         setState(47);
         match(QBorrowParser::T__8);
         setState(48);
-        match(QBorrowParser::T__2);
-        break;
-      }
-
-      case QBorrowParser::T__11: {
-        enterOuterAlt(_localctx, 7);
-        setState(50);
+        reg();
+        setState(49);
         match(QBorrowParser::T__11);
+        setState(50);
+        reg();
         setState(51);
-        match(QBorrowParser::T__7);
+        match(QBorrowParser::T__9);
         setState(52);
-        reg();
-        setState(53);
-        match(QBorrowParser::T__10);
-        setState(54);
-        reg();
-        setState(55);
-        match(QBorrowParser::T__10);
-        setState(56);
-        reg();
-        setState(57);
-        match(QBorrowParser::T__8);
-        setState(58);
         match(QBorrowParser::T__2);
         break;
       }
 
       case QBorrowParser::T__12: {
         enterOuterAlt(_localctx, 8);
-        setState(60);
+        setState(54);
         match(QBorrowParser::T__12);
+        setState(55);
+        match(QBorrowParser::T__8);
+        setState(56);
+        reg();
+        setState(57);
+        match(QBorrowParser::T__11);
+        setState(58);
+        reg();
+        setState(59);
+        match(QBorrowParser::T__11);
+        setState(60);
+        reg();
         setState(61);
-        match(QBorrowParser::ID);
+        match(QBorrowParser::T__9);
         setState(62);
-        match(QBorrowParser::T__1);
-        setState(63);
-        expr(0);
+        match(QBorrowParser::T__2);
+        break;
+      }
+
+      case QBorrowParser::T__13: {
+        enterOuterAlt(_localctx, 9);
         setState(64);
         match(QBorrowParser::T__13);
         setState(65);
-        expr(0);
+        match(QBorrowParser::ID);
         setState(66);
+        match(QBorrowParser::T__1);
+        setState(67);
+        expr(0);
+        setState(68);
         match(QBorrowParser::T__14);
+        setState(69);
+        expr(0);
         setState(70);
+        match(QBorrowParser::T__15);
+        setState(74);
         _errHandler->sync(this);
         _la = _input->LA(1);
         while ((((_la & ~ 0x3fULL) == 0) &&
-          ((1ULL << _la) & 13554) != 0)) {
-          setState(67);
+          ((1ULL << _la) & 27122) != 0)) {
+          setState(71);
           statement();
-          setState(72);
+          setState(76);
           _errHandler->sync(this);
           _la = _input->LA(1);
         }
-        setState(73);
-        match(QBorrowParser::T__15);
+        setState(77);
+        match(QBorrowParser::T__16);
         break;
       }
 
@@ -510,25 +523,25 @@ QBorrowParser::RegContext* QBorrowParser::reg() {
     exitRule();
   });
   try {
-    setState(83);
+    setState(87);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 3, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(77);
+      setState(81);
       match(QBorrowParser::ID);
-      setState(78);
-      match(QBorrowParser::T__7);
-      setState(79);
-      expr(0);
-      setState(80);
+      setState(82);
       match(QBorrowParser::T__8);
+      setState(83);
+      expr(0);
+      setState(84);
+      match(QBorrowParser::T__9);
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(82);
+      setState(86);
       match(QBorrowParser::ID);
       break;
     }
@@ -620,29 +633,29 @@ QBorrowParser::ExprContext* QBorrowParser::expr(int precedence) {
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(91);
+    setState(95);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case QBorrowParser::SUB: {
-        setState(86);
+        setState(90);
         match(QBorrowParser::SUB);
-        setState(87);
+        setState(91);
         term(0);
         break;
       }
 
       case QBorrowParser::ADD: {
-        setState(88);
+        setState(92);
         match(QBorrowParser::ADD);
-        setState(89);
+        setState(93);
         term(0);
         break;
       }
 
-      case QBorrowParser::T__16:
+      case QBorrowParser::T__17:
       case QBorrowParser::ID:
       case QBorrowParser::NUMBER: {
-        setState(90);
+        setState(94);
         term(0);
         break;
       }
@@ -651,7 +664,7 @@ QBorrowParser::ExprContext* QBorrowParser::expr(int precedence) {
       throw NoViableAltException(this);
     }
     _ctx->stop = _input->LT(-1);
-    setState(101);
+    setState(105);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 6, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -659,18 +672,18 @@ QBorrowParser::ExprContext* QBorrowParser::expr(int precedence) {
         if (!_parseListeners.empty())
           triggerExitRuleEvent();
         previousContext = _localctx;
-        setState(99);
+        setState(103);
         _errHandler->sync(this);
         switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 5, _ctx)) {
         case 1: {
           _localctx = _tracker.createInstance<ExprContext>(parentContext, parentState);
           pushNewRecursionContext(_localctx, startState, RuleExpr);
-          setState(93);
+          setState(97);
 
           if (!(precpred(_ctx, 5))) throw FailedPredicateException(this, "precpred(_ctx, 5)");
-          setState(94);
+          setState(98);
           match(QBorrowParser::ADD);
-          setState(95);
+          setState(99);
           term(0);
           break;
         }
@@ -678,12 +691,12 @@ QBorrowParser::ExprContext* QBorrowParser::expr(int precedence) {
         case 2: {
           _localctx = _tracker.createInstance<ExprContext>(parentContext, parentState);
           pushNewRecursionContext(_localctx, startState, RuleExpr);
-          setState(96);
+          setState(100);
 
           if (!(precpred(_ctx, 4))) throw FailedPredicateException(this, "precpred(_ctx, 4)");
-          setState(97);
+          setState(101);
           match(QBorrowParser::SUB);
-          setState(98);
+          setState(102);
           term(0);
           break;
         }
@@ -692,7 +705,7 @@ QBorrowParser::ExprContext* QBorrowParser::expr(int precedence) {
           break;
         } 
       }
-      setState(103);
+      setState(107);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 6, _ctx);
     }
@@ -774,10 +787,10 @@ QBorrowParser::TermContext* QBorrowParser::term(int precedence) {
   try {
     size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(105);
+    setState(109);
     factor();
     _ctx->stop = _input->LT(-1);
-    setState(112);
+    setState(116);
     _errHandler->sync(this);
     alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx);
     while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER) {
@@ -787,15 +800,15 @@ QBorrowParser::TermContext* QBorrowParser::term(int precedence) {
         previousContext = _localctx;
         _localctx = _tracker.createInstance<TermContext>(parentContext, parentState);
         pushNewRecursionContext(_localctx, startState, RuleTerm);
-        setState(107);
+        setState(111);
 
         if (!(precpred(_ctx, 2))) throw FailedPredicateException(this, "precpred(_ctx, 2)");
-        setState(108);
+        setState(112);
         match(QBorrowParser::MUL);
-        setState(109);
+        setState(113);
         factor(); 
       }
-      setState(114);
+      setState(118);
       _errHandler->sync(this);
       alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx);
     }
@@ -863,31 +876,31 @@ QBorrowParser::FactorContext* QBorrowParser::factor() {
     exitRule();
   });
   try {
-    setState(121);
+    setState(125);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case QBorrowParser::NUMBER: {
         enterOuterAlt(_localctx, 1);
-        setState(115);
+        setState(119);
         match(QBorrowParser::NUMBER);
         break;
       }
 
       case QBorrowParser::ID: {
         enterOuterAlt(_localctx, 2);
-        setState(116);
+        setState(120);
         match(QBorrowParser::ID);
         break;
       }
 
-      case QBorrowParser::T__16: {
+      case QBorrowParser::T__17: {
         enterOuterAlt(_localctx, 3);
-        setState(117);
-        match(QBorrowParser::T__16);
-        setState(118);
-        expr(0);
-        setState(119);
+        setState(121);
         match(QBorrowParser::T__17);
+        setState(122);
+        expr(0);
+        setState(123);
+        match(QBorrowParser::T__18);
         break;
       }
 

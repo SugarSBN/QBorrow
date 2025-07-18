@@ -94,7 +94,16 @@ bool Program::eliminate_for_statements() {
 
 
     std::vector<std::shared_ptr<Stmt> > body = std::get<Stmt::Stmt_For>(statements_[i] -> get_stmt()).body_;
-    for (int j = start; j < end; j++) {
+    
+
+    auto terminate = [start, end](int p) {
+        return start <= end ? p <= end : p >= end; 
+    };
+    auto inc = [start, end](int p) {
+        return start <= end ? p + 1 : p - 1;
+    };
+    for (int j = start; terminate(j); j = inc(j)) {
+        
         for (const auto& stmt : body) {
 
             std::shared_ptr<Stmt> new_stmt = stmt -> clone();

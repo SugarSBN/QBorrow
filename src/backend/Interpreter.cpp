@@ -96,26 +96,81 @@ void Interpreter::interpret() {
         error_output_ << RED << "[Interpretation failed] Program not preprocessed." << RESET << std::endl;
         throw;
     }
-        error_output_ << "Interpretation successful." << std::endl;
     
 }
 
 bool Interpreter::verify() {
-
-    std::map<std::string, cvc5::Term> current_semantics = semantics_.back();
-
-    cvc5::Term q1_1 = qubits_.at("_q1_1_");
-    cvc5::Term output = current_semantics.at("_q1_1_");
-
-    cvc5::Term zero_to_zero = tm_.mkTerm(cvc5::Kind::IMPLIES, {q1_1, output});
-
-    solver_.assertFormula(tm_.mkTerm(cvc5::Kind::NOT, {zero_to_zero}));
-
-    cvc5::Result result = solver_.checkSat();
-
-    std::cout << zero_to_zero << std::endl;
-    std::cout << "Result: " << result << std::endl;
+    
+    std::vector<std::shared_ptr<Stmt> > stmts = program_->get_statements();
+    try {
+        for (size_t i = 0;i < stmts.size();i++) {
+            if (stmts[i] -> get_type() == Stmt::Stmt_Type::BORROW &&
+                std::get<Stmt::Stmt_Borrow>(stmts[i] -> get_stmt()).need_check_) {
 
 
-    return true;
+                std::string name = std::get<Stmt::Stmt_Borrow>(stmts[i] -> get_stmt()).register_ -> get_name();
+                int size = std::get<Stmt::Stmt_Borrow>(stmts[i] -> get_stmt()).register_ -> get_size() -> get_number();
+                
+                size_t j = i + 1;
+                while (j < stmts.size() && 
+                    (stmts[j] -> get_type() != Stmt::Stmt_Type::REL || 
+                        std::get<Stmt::Stmt_Rel>(stmts[j] -> get_stmt()).id_ != name)) 
+                    j++;
+                
+
+                std::map<std::string, cvc5::Term> current_semantics = j == stmts.size() ? semantics_.back() : semantics_[j];
+
+                for (int idx = 1;idx <= size; idx++) {
+                    std::string qubit_name = name + std::to_string(idx) + "_";
+                    std::cout << "Verifying borrow qubit: " << qubit_name << std::endl;
+
+                    cvc5::Term qubit_term = qubits_[qubit_name];
+                    cvc5::Term final_term = current_semantics[qubit_name];
+                    /* 
+                        qubit_term = false ==> final_term = false
+                        equivalent to: final_term ==> qubit_term
+                        equivalent to: neg (final_term ==> qubit_term) is unSatisfiable
+                    */
+                    solver_.assertFormula(tm_.mkTerm(cvc5::Kind::NOT, {tm_.mkTerm(cvc5::Kind::IMPLIES, {final_term, qubit_term})}));
+
+                    cvc5::Result result = solver_.checkSat();
+                    if (result.isSat()) {
+                        throw std::runtime_error("Line " + std::to_string(stmts[i]->get_lineno()) + ": borrowed qubit " + qubit_name + " is not safely uncomputed.");
+                    } 
+
+                    
+                    for (const auto& [name, term] : current_semantics) {
+
+                        if (name == qubit_name) continue;
+
+                        solver_.resetAssertions();
+                        /*
+                            when_false == when_true 
+                            if and only if when_false xor when_true is unsatisfiable
+                        */
+                        cvc5::Term when_false = term.substitute({qubit_term}, tm_.mkFalse());
+                        cvc5::Term when_true = term.substitute({qubit_term}, tm_.mkTrue());
+                        // std::cout << "Term " << term.toString() << std::endl;
+                        // std::cout << "when_false: " << when_false.toString() << std::endl;
+                        // std::cout << "when_true: " << when_true.toString() << std::endl;
+                        solver_.assertFormula(tm_.mkTerm(cvc5::Kind::XOR, {when_false, when_true}));
+                        // std::cout << tm_.mkTerm(cvc5::Kind::XOR, {when_false, when_true}).toString() << std::endl;
+                        
+                        result = solver_.checkSat();
+
+                        if (result.isSat()) {
+                            throw std::runtime_error("Line " + std::to_string(stmts[i]->get_lineno()) + ": borrowed qubit " + qubit_name + " is not safely uncomputed.");
+                        }
+                    }
+                    
+                }
+            }
+        }
+        return true;
+    }
+    catch (const std::exception& e) {
+        error_output_ << RED << e.what() << std::endl;
+        error_output_ << RED << "[Verification failed]" << RESET << std::endl;
+        return false;
+    }
 }

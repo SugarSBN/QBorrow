@@ -7,3 +7,4 @@ f118882c460d89a8af7651aad8bbbbcf CMakeFiles/eg4-nested-borrow
 5463ca192f3b6f5949384aafbfd1d46e CMakeFiles/eg6-out-of-range
 e382be8eb70e533b35f96c96db04e032 CMakeFiles/eg7-not-disjoint
 850f5bc5ba1d3e9cea00a75ce0bbd723 CMakeFiles/eg8-three-controlled
+179fb1e0bcd77e71a93eadcf54665763 CMakeFiles/eg9-adder

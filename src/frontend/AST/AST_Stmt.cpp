@@ -13,9 +13,6 @@ Stmt::Stmt (Stmt_Type t, const std::string& name, const int& lineno)
 Stmt::Stmt (Stmt_Type t, const std::shared_ptr<Register>& reg, const int& lineno)
     : type_(t), lineno_(lineno) {
     switch (t) {
-        case Stmt_Type::BORROW:
-            stmt_ = Stmt_Borrow{reg};
-            break;
         case Stmt_Type::ALLOC:
             stmt_ = Stmt_Alloc{reg};
             break;
@@ -26,6 +23,10 @@ Stmt::Stmt (Stmt_Type t, const std::shared_ptr<Register>& reg, const int& lineno
             throw std::runtime_error("Invalid Stmt_Type for Register");
     }
 }
+
+
+Stmt::Stmt (Stmt_Type t, const std::shared_ptr<Register>& reg, const bool& need_check, const int& lineno) 
+    : stmt_(Stmt_Borrow{reg, need_check}), type_(t), lineno_(lineno) {}
 
 Stmt::Stmt (Stmt_Type t, const std::shared_ptr<Register>& control, const std::shared_ptr<Register>& target, const int& lineno) 
     : stmt_(Stmt_CNOT{control, target}), type_(t), lineno_(lineno) {}
@@ -54,7 +55,7 @@ std::shared_ptr<Stmt> Stmt::clone() const {
         }
         case Stmt_Type::BORROW: {
             const auto& borrow_stmt = std::get<Stmt_Borrow>(stmt_);
-            return make_borrow(borrow_stmt.register_ -> clone(), lineno_);
+            return make_borrow(borrow_stmt.register_ -> clone(), borrow_stmt.need_check_, lineno_);
         }
         case Stmt_Type::ALLOC: {
             const auto& alloc_stmt = std::get<Stmt_Alloc>(stmt_);
@@ -104,8 +105,8 @@ std::shared_ptr<Stmt> Stmt::make_let(const std::string& name, const std::shared_
         return std::make_shared<Stmt>(Stmt(Stmt_Type::LET, name, expr, lineno));
 }
 
-std::shared_ptr<Stmt> Stmt::make_borrow(const std::shared_ptr<Register>& reg, const int& lineno) {
-        return std::make_shared<Stmt>(Stmt(Stmt_Type::BORROW, reg, lineno));
+std::shared_ptr<Stmt> Stmt::make_borrow(const std::shared_ptr<Register>& reg, const bool& need_check, const int& lineno) {
+        return std::make_shared<Stmt>(Stmt(Stmt_Type::BORROW, reg, need_check, lineno));
 }
 
 std::shared_ptr<Stmt> Stmt::make_alloc(const std::shared_ptr<Register>& reg, const int& lineno) {
@@ -364,7 +365,8 @@ void Stmt::print_stmt(std::ostream& os, const int& layer) const {
         }
         case Stmt_Type::BORROW : {
             const auto& borrow_stmt = std::get<Stmt_Borrow>(stmt_);
-            os << BLUE << "borrow " << RESET << (*borrow_stmt.register_) << ";";
+            os << BLUE << (borrow_stmt.need_check_ ? "borrow " : "borrow@ ") << RESET << (*borrow_stmt.register_) << ";";
+            
             break;
         }
         case Stmt_Type::ALLOC : {

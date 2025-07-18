@@ -7,6 +7,7 @@ program : statement+ EOF;
 statement 
     : 'let' ID '=' expr ';'
     | 'borrow' reg ';'
+    | 'borrow@' reg ';'
     | 'alloc' reg ';'
     | 'release' ID ';'
     | 'X' '[' reg ']' ';'

@@ -80,6 +80,7 @@ clean: CMakeFiles/eg5-nested-borrow-alloc.dir/clean
 clean: CMakeFiles/eg6-out-of-range.dir/clean
 clean: CMakeFiles/eg7-not-disjoint.dir/clean
 clean: CMakeFiles/eg8-three-controlled.dir/clean
+clean: CMakeFiles/eg9-adder.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -89,7 +90,7 @@ clean: CMakeFiles/eg8-three-controlled.dir/clean
 CMakeFiles/qborrow.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/qborrow.dir/build.make CMakeFiles/qborrow.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25 "Built target qborrow"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26 "Built target qborrow"
 .PHONY : CMakeFiles/qborrow.dir/all
 
 # Build rule for subdir invocation for target.
@@ -315,6 +316,32 @@ eg8-three-controlled: CMakeFiles/eg8-three-controlled.dir/rule
 CMakeFiles/eg8-three-controlled.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg8-three-controlled.dir/build.make CMakeFiles/eg8-three-controlled.dir/clean
 .PHONY : CMakeFiles/eg8-three-controlled.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/eg9-adder.dir
+
+# All Build rule for target.
+CMakeFiles/eg9-adder.dir/all: CMakeFiles/qborrow.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg9-adder.dir/build.make CMakeFiles/eg9-adder.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg9-adder.dir/build.make CMakeFiles/eg9-adder.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/subonan/subonan_THU/QBorrow/build/CMakeFiles --progress-num=9 "Built target eg9-adder"
+.PHONY : CMakeFiles/eg9-adder.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/eg9-adder.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles 18
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/eg9-adder.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/subonan/subonan_THU/QBorrow/build/CMakeFiles 0
+.PHONY : CMakeFiles/eg9-adder.dir/rule
+
+# Convenience name for target.
+eg9-adder: CMakeFiles/eg9-adder.dir/rule
+.PHONY : eg9-adder
+
+# clean rule for target.
+CMakeFiles/eg9-adder.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg9-adder.dir/build.make CMakeFiles/eg9-adder.dir/clean
+.PHONY : CMakeFiles/eg9-adder.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
