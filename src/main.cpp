@@ -1,11 +1,13 @@
 #include <iostream> 
 #include <string>   
 #include <fstream>  
+#include <chrono>
 #include "Argument.h"
 #include "Parser.h" 
 #include "Preprocessor.h"
 #include "QBorrowParser.h" 
-#include "Interpreter.h"
+#include "Verifier_Bitwuzla.h"
+#include "Verifier_CVC5.h"
 
 #define RED "\033[1;31m"
 #define BLUE "\033[34m"
@@ -50,16 +52,43 @@ int main(int argc, char* argv[]) {
         return 1;
     } 
 
-    const auto& interpreter = Interpreter::make_interpreter(program, std::cerr);
+    const auto& verifier_bitwuzla = Verifier_Bitwuzla::make_verifier(program, std::cerr);
+    verifier_bitwuzla -> interpret();
 
+    /*
+        timer for verification
+    */
+    using Clock = std::chrono::high_resolution_clock;
+    using std::chrono::seconds;
+    Clock::time_point start_time = Clock::now();
 
-    interpreter -> interpret();
+    // interpreter -> interpret();
 
-    if (!interpreter -> verify()) {
+    if (!verifier_bitwuzla -> verify()) {
         return 1;
     }
 
+    Clock::time_point end_time = Clock::now();
+    seconds elapsed_bitwuzla = duration_cast<seconds>(end_time - start_time);
+
     std::cout<< BLUE << "[Verification completed, all borrowed dirty qubits have been safely uncomputed]" << RESET << std::endl;
+
+    const auto& verifier_cvc5 = Verifier_CVC5::make_verifier(program, std::cerr);
+    verifier_cvc5 -> interpret();
+
+    start_time = Clock::now();
+
+    if (!verifier_cvc5 -> verify()) {
+        return 1;
+    }
+    end_time = Clock::now();
+    seconds elapsed_cvc5 = duration_cast<seconds>(end_time - start_time);
+
+    std::cout<< BLUE << "[Verification completed, all borrowed dirty qubits have been safely uncomputed]" << RESET << std::endl;
+
+    std::cout<<"Bitwuzla Verification duration: " << elapsed_bitwuzla.count() << " seconds" << std::endl;
+    std::cout<<"CVC5 Verification duration: " << elapsed_cvc5.count() << " seconds" << std::endl;
+
 
     return 0;
 }

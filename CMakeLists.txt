@@ -80,7 +80,7 @@ list(APPEND PROJECT_LINK_LIBS "antlr4-runtime")
 
  
 
-## CVC5 
+# CVC5 
 
 set(CVC5_DEFAULT_PREFIX_PATH "/usr/local")
 set(CVC5_INCLUDE_DEFAULT "${CVC5_DEFAULT_PREFIX_PATH}/include/")
@@ -105,6 +105,36 @@ endif()
 list(APPEND PROJECT_INCLUDE_DIRS "${CVC5_INCLUDE_DIRS}")
 list(APPEND PROJECT_LINK_DIRS "${CVC5_LIB_DIRS}")
 list(APPEND PROJECT_LINK_LIBS "cvc5") # CVC5 库名
+
+
+# Bitwuzla
+
+set(BITWUZLA_DEFAULT_PREFIX_PATH "/Users/subonan/local/bitwuzla")
+set(BITWUZLA_INCLUDE_DEFAULT "${BITWUZLA_DEFAULT_PREFIX_PATH}/include/")
+set(BITWUZLA_LIB_DEFAULT "${BITWUZLA_DEFAULT_PREFIX_PATH}/lib") 
+set(BITWUZLA_FOUND FALSE)
+
+if(EXISTS "${BITWUZLA_INCLUDE_DEFAULT}/bitwuzla/cpp/bitwuzla.h")
+    set(BITWUZLA_INCLUDE_DIRS "${BITWUZLA_INCLUDE_DEFAULT}" CACHE PATH "Bitwulza include directory" FORCE)
+    set(BITWUZLA_LIB_DIRS "${BITWUZLA_LIB_DEFAULT}" CACHE PATH "Bitwulza library directory" FORCE)
+    set(BITWUZLA_FOUND TRUE)
+    message(STATUS "Using default Bitwuzla library: ${BITWUZLA_DEFAULT_PREFIX_PATH} (include & lib assumed)")
+else()
+    set(BITWUZLA_INCLUDE_DIRS "" CACHE PATH "Bitwulza include directory" FORCE)
+    set(BITWUZLA_LIB_DIRS "" CACHE PATH "Bitwuzla library directory" FORCE)
+    message(FATAL_ERROR "Bitwulza include directory not found at default path: ${BITWUZLA_DEFAULT_PREFIX_PATH}/include.
+    Please provide its installation prefix using CMake argument:
+    cmake -DBITWUZLA_PREFIX_PATH=/path/to/bitwuzla ..
+    (ensure it contains an 'include' subdirectory with /path/to/bitwuzla/include/bitwuzla/cpp/bitwuzla.h and a 'lib' subdirectory for libraries)")
+endif()
+
+
+list(APPEND PROJECT_INCLUDE_DIRS "${BITWUZLA_INCLUDE_DIRS}")
+list(APPEND PROJECT_LINK_DIRS "${BITWUZLA_LIB_DIRS}")
+list(APPEND PROJECT_LINK_LIBS "bitwuzla") # CVC5 库名
+list(APPEND PROJECT_LINK_LIBS "bitwuzlabb") 
+list(APPEND PROJECT_LINK_LIBS "bitwuzlabv") 
+list(APPEND PROJECT_LINK_LIBS "bitwuzlals") 
 
  
 
@@ -188,7 +218,8 @@ add_executable(${PROJECT_NAME}
     src/frontend/antlr-gen/QBorrowParser.cpp
     src/frontend/antlr-gen/QBorrowVisitor.cpp
 
-    src/backend/Interpreter.cpp
+    src/backend/Verifier_CVC5.cpp
+    src/backend/Verifier_Bitwuzla.cpp
 )
 
 # ( -I)
@@ -208,7 +239,8 @@ target_link_directories(${PROJECT_NAME} PRIVATE
 
 # ( -l)
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    ${PROJECT_LINK_LIBS}                     
+    ${PROJECT_LINK_LIBS}            
+    "gmp"
 )
 
 

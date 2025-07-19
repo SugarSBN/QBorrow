@@ -1,6 +1,6 @@
 
 
-let n = 100;
+let n = 50;
 
 borrow@ a[n]; // symbol '@' indicates to skip the safety checking
 borrow g[n - 1];

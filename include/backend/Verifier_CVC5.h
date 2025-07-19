@@ -5,13 +5,13 @@
 #include "cvc5/cvc5.h"
 
 
-class Interpreter {
+class Verifier_CVC5 {
 
 public:
 
 
 
-    static std::shared_ptr<Interpreter> make_interpreter(const std::shared_ptr<Program>& program, 
+    static std::shared_ptr<Verifier_CVC5> make_verifier(const std::shared_ptr<Program>& program, 
                                                          std::ostream& error_output);
 
     void interpret();
@@ -20,7 +20,7 @@ public:
 
 private:
     
-    explicit Interpreter(const std::shared_ptr<Program>& program, 
+    explicit Verifier_CVC5(const std::shared_ptr<Program>& program, 
                          std::ostream& error_output);
     
 

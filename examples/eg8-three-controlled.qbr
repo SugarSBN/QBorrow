@@ -1,9 +1,7 @@
 borrow@ q[4];
 
-X[q[1]];
 
 borrow anc;
-
     CCNOT[q[1], q[2], anc];
     CCNOT[anc, q[3], q[4]];
     CCNOT[q[1], q[2], anc];
@@ -19,6 +17,5 @@ borrow anc;
 
 release anc;
 
-X[q[1]];
 
 release q;

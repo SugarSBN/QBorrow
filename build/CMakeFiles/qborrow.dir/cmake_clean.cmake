@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/qborrow.dir/src/backend/Interpreter.cpp.o"
-  "CMakeFiles/qborrow.dir/src/backend/Interpreter.cpp.o.d"
+  "CMakeFiles/qborrow.dir/src/backend/Verifier_Bitwuzla.cpp.o"
+  "CMakeFiles/qborrow.dir/src/backend/Verifier_Bitwuzla.cpp.o.d"
+  "CMakeFiles/qborrow.dir/src/backend/Verifier_CVC5.cpp.o"
+  "CMakeFiles/qborrow.dir/src/backend/Verifier_CVC5.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Expr.cpp.o.d"
   "CMakeFiles/qborrow.dir/src/frontend/AST/AST_Register.cpp.o"
