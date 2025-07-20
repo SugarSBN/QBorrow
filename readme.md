@@ -40,6 +40,8 @@ Make sure that the following files & folders exist:
 * /path/to/antlr4/runtime/cpp/lib
 * /path/to/cvc5/include/cvc5/cvc5.h
 * /path/to/cvc5/lib
+* /path/to/bitwuzla/include/bitwuzla/cpp/bitwuzla.h
+* /path/to/bitwuzla/lib
 
 # Performance
 For adder circuit:
