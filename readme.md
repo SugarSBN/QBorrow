@@ -41,7 +41,7 @@ Make sure that the following files & folders exist:
 * /path/to/cvc5/include/cvc5/cvc5.h
 * /path/to/cvc5/lib
 
-# Benchmarks
+# Performance
 For adder circuit:
 ||50 qubits| 100 qubits| 200 qubits |
 |----|---|---|---|
