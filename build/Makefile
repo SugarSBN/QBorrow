@@ -130,121 +130,30 @@ qborrow/fast:
 .PHONY : qborrow/fast
 
 #=============================================================================
-# Target rules for targets named eg1-syntax-parse
+# Target rules for targets named adder
 
 # Build rule for target.
-eg1-syntax-parse: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg1-syntax-parse
-.PHONY : eg1-syntax-parse
+adder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 adder
+.PHONY : adder
 
 # fast build rule for target.
-eg1-syntax-parse/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg1-syntax-parse.dir/build.make CMakeFiles/eg1-syntax-parse.dir/build
-.PHONY : eg1-syntax-parse/fast
+adder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/adder.dir/build.make CMakeFiles/adder.dir/build
+.PHONY : adder/fast
 
 #=============================================================================
-# Target rules for targets named eg2-nested-let
+# Target rules for targets named mcx
 
 # Build rule for target.
-eg2-nested-let: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg2-nested-let
-.PHONY : eg2-nested-let
+mcx: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mcx
+.PHONY : mcx
 
 # fast build rule for target.
-eg2-nested-let/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg2-nested-let.dir/build.make CMakeFiles/eg2-nested-let.dir/build
-.PHONY : eg2-nested-let/fast
-
-#=============================================================================
-# Target rules for targets named eg3-nested-for
-
-# Build rule for target.
-eg3-nested-for: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg3-nested-for
-.PHONY : eg3-nested-for
-
-# fast build rule for target.
-eg3-nested-for/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg3-nested-for.dir/build.make CMakeFiles/eg3-nested-for.dir/build
-.PHONY : eg3-nested-for/fast
-
-#=============================================================================
-# Target rules for targets named eg4-nested-borrow
-
-# Build rule for target.
-eg4-nested-borrow: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg4-nested-borrow
-.PHONY : eg4-nested-borrow
-
-# fast build rule for target.
-eg4-nested-borrow/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg4-nested-borrow.dir/build.make CMakeFiles/eg4-nested-borrow.dir/build
-.PHONY : eg4-nested-borrow/fast
-
-#=============================================================================
-# Target rules for targets named eg5-nested-borrow-alloc
-
-# Build rule for target.
-eg5-nested-borrow-alloc: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg5-nested-borrow-alloc
-.PHONY : eg5-nested-borrow-alloc
-
-# fast build rule for target.
-eg5-nested-borrow-alloc/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg5-nested-borrow-alloc.dir/build.make CMakeFiles/eg5-nested-borrow-alloc.dir/build
-.PHONY : eg5-nested-borrow-alloc/fast
-
-#=============================================================================
-# Target rules for targets named eg6-out-of-range
-
-# Build rule for target.
-eg6-out-of-range: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg6-out-of-range
-.PHONY : eg6-out-of-range
-
-# fast build rule for target.
-eg6-out-of-range/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg6-out-of-range.dir/build.make CMakeFiles/eg6-out-of-range.dir/build
-.PHONY : eg6-out-of-range/fast
-
-#=============================================================================
-# Target rules for targets named eg7-not-disjoint
-
-# Build rule for target.
-eg7-not-disjoint: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg7-not-disjoint
-.PHONY : eg7-not-disjoint
-
-# fast build rule for target.
-eg7-not-disjoint/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg7-not-disjoint.dir/build.make CMakeFiles/eg7-not-disjoint.dir/build
-.PHONY : eg7-not-disjoint/fast
-
-#=============================================================================
-# Target rules for targets named eg8-three-controlled
-
-# Build rule for target.
-eg8-three-controlled: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg8-three-controlled
-.PHONY : eg8-three-controlled
-
-# fast build rule for target.
-eg8-three-controlled/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg8-three-controlled.dir/build.make CMakeFiles/eg8-three-controlled.dir/build
-.PHONY : eg8-three-controlled/fast
-
-#=============================================================================
-# Target rules for targets named eg9-adder
-
-# Build rule for target.
-eg9-adder: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eg9-adder
-.PHONY : eg9-adder
-
-# fast build rule for target.
-eg9-adder/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/eg9-adder.dir/build.make CMakeFiles/eg9-adder.dir/build
-.PHONY : eg9-adder/fast
+mcx/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcx.dir/build.make CMakeFiles/mcx.dir/build
+.PHONY : mcx/fast
 
 src/backend/Verifier_Bitwuzla.o: src/backend/Verifier_Bitwuzla.cpp.o
 .PHONY : src/backend/Verifier_Bitwuzla.o
@@ -662,15 +571,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... eg1-syntax-parse"
-	@echo "... eg2-nested-let"
-	@echo "... eg3-nested-for"
-	@echo "... eg4-nested-borrow"
-	@echo "... eg5-nested-borrow-alloc"
-	@echo "... eg6-out-of-range"
-	@echo "... eg7-not-disjoint"
-	@echo "... eg8-three-controlled"
-	@echo "... eg9-adder"
+	@echo "... adder"
+	@echo "... mcx"
 	@echo "... qborrow"
 	@echo "... src/backend/Verifier_Bitwuzla.o"
 	@echo "... src/backend/Verifier_Bitwuzla.i"

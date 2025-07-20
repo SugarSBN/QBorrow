@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
         timer for verification
     */
     using Clock = std::chrono::high_resolution_clock;
-    using std::chrono::seconds;
+    // using std::chrono::seconds;
     Clock::time_point start_time = Clock::now();
 
     // interpreter -> interpret();
@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
     }
 
     Clock::time_point end_time = Clock::now();
-    seconds elapsed_bitwuzla = duration_cast<seconds>(end_time - start_time);
+    std::chrono::seconds elapsed_bitwuzla = std::chrono::duration_cast<std::chrono::seconds>(end_time - start_time);
 
     std::cout<< BLUE << "[Verification completed, all borrowed dirty qubits have been safely uncomputed]" << RESET << std::endl;
 
@@ -82,7 +82,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     end_time = Clock::now();
-    seconds elapsed_cvc5 = duration_cast<seconds>(end_time - start_time);
+    std::chrono::seconds elapsed_cvc5 = std::chrono::duration_cast<std::chrono::seconds>(end_time - start_time);
 
     std::cout<< BLUE << "[Verification completed, all borrowed dirty qubits have been safely uncomputed]" << RESET << std::endl;
 

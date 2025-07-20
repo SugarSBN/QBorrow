@@ -1,0 +1,113 @@
+let m = 1600;
+let n = m + (m - 1); // n-controlled NOT gate
+
+borrow@ q[n];
+borrow@ t;
+
+borrow anc;
+
+// first part
+CCNOT[q[n - 1], q[n], anc];
+
+for i = (m - 2) to 2 {
+    CCNOT[q[2 * i - 1], q[2 * i + 1], q[2 * i + 2]];
+}
+
+CCNOT[q[1], q[3], q[4]];
+
+for i = 2 to (m - 2) {
+    CCNOT[q[2 * i - 1], q[2 * i + 1], q[2 * i + 2]];
+}
+
+CCNOT[q[n - 1], q[n], anc];
+
+for i = (m - 2) to 2 {
+    CCNOT[q[2 * i - 1], q[2 * i + 1], q[2 * i + 2]];
+}
+
+CCNOT[q[1], q[3], q[4]];
+
+for i = 2 to (m - 2) {
+    CCNOT[q[2 * i - 1], q[2 * i + 1], q[2 * i + 2]];
+}
+
+// second part
+
+CCNOT[q[n], anc, t];
+
+for i = (m - 1) to 3 {
+    CCNOT[q[2 * i - 1], q[2 * i], q[2 * i + 1]];
+}
+
+CCNOT[q[2], q[4], q[5]];
+
+for i = 3 to (m - 1) {
+    CCNOT[q[2 * i - 1], q[2 * i], q[2 * i + 1]];
+}
+
+CCNOT[q[n], anc, t];
+
+for i = (m - 1) to 3 {
+    CCNOT[q[2 * i - 1], q[2 * i], q[2 * i + 1]];
+}
+
+CCNOT[q[2], q[4], q[5]];
+
+for i = 3 to (m - 1) {
+    CCNOT[q[2 * i - 1], q[2 * i], q[2 * i + 1]];
+}
+
+
+// third part
+
+CCNOT[q[n - 1], q[n], anc];
+
+for i = (m - 2) to 2 {
+    CCNOT[q[2 * i - 1], q[2 * i + 1], q[2 * i + 2]];
+}
+
+CCNOT[q[1], q[3], q[4]];
+
+for i = 2 to (m - 2) {
+    CCNOT[q[2 * i - 1], q[2 * i + 1], q[2 * i + 2]];
+}
+
+CCNOT[q[n - 1], q[n], anc];
+
+for i = (m - 2) to 2 {
+    CCNOT[q[2 * i - 1], q[2 * i + 1], q[2 * i + 2]];
+}
+
+CCNOT[q[1], q[3], q[4]];
+
+for i = 2 to (m - 2) {
+    CCNOT[q[2 * i - 1], q[2 * i + 1], q[2 * i + 2]];
+}
+
+// fourth part 
+
+CCNOT[q[n], anc, t];
+
+for i = (m - 1) to 3 {
+    CCNOT[q[2 * i - 1], q[2 * i], q[2 * i + 1]];
+}
+
+CCNOT[q[2], q[4], q[5]];
+
+for i = 3 to (m - 1) {
+    CCNOT[q[2 * i - 1], q[2 * i], q[2 * i + 1]];
+}
+
+CCNOT[q[n], anc, t];
+
+release anc;
+
+for i = (m - 1) to 3 {
+    CCNOT[q[2 * i - 1], q[2 * i], q[2 * i + 1]];
+}
+
+CCNOT[q[2], q[4], q[5]];
+
+for i = 3 to (m - 1) {
+    CCNOT[q[2 * i - 1], q[2 * i], q[2 * i + 1]];
+}

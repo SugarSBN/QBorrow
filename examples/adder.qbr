@@ -3,7 +3,7 @@
 let n = 50;
 
 borrow@ a[n]; // symbol '@' indicates to skip the safety checking
-borrow g[n - 1];
+borrow g[n - 1]; // dirty qubits
 
 CNOT[g[n - 1], a[n]];
 

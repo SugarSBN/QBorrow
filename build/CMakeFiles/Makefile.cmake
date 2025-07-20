@@ -49,13 +49,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/qborrow.dir/DependInfo.cmake"
-  "CMakeFiles/eg1-syntax-parse.dir/DependInfo.cmake"
-  "CMakeFiles/eg2-nested-let.dir/DependInfo.cmake"
-  "CMakeFiles/eg3-nested-for.dir/DependInfo.cmake"
-  "CMakeFiles/eg4-nested-borrow.dir/DependInfo.cmake"
-  "CMakeFiles/eg5-nested-borrow-alloc.dir/DependInfo.cmake"
-  "CMakeFiles/eg6-out-of-range.dir/DependInfo.cmake"
-  "CMakeFiles/eg7-not-disjoint.dir/DependInfo.cmake"
-  "CMakeFiles/eg8-three-controlled.dir/DependInfo.cmake"
-  "CMakeFiles/eg9-adder.dir/DependInfo.cmake"
+  "CMakeFiles/adder.dir/DependInfo.cmake"
+  "CMakeFiles/mcx.dir/DependInfo.cmake"
   )
