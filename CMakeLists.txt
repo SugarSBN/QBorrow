@@ -12,6 +12,15 @@ set(PROJECT_LINK_DIRS "/opt/homebrew/lib;/usr/local/lib")
 #  (for -l)
 set(PROJECT_LINK_LIBS "")
 
+#========================================================================================
+# Modify according to the installation path.                                            #
+                                                                                        #
+set(ANTLR4_JAR_DEFAULT_PATH "/Users/subonan/local/antlr4/antlr-4.13.2-complete.jar")    #
+set(ANTLR4_RUNTIME_DEFAULT_PREFIX_PATH "/Users/subonan/local/antlr4/runtime/cpp")       #
+set(BITWUZLA_DEFAULT_PREFIX_PATH "/Users/subonan/local/bitwuzla")                       #
+set(CVC5_DEFAULT_PREFIX_PATH "/usr/local")                                              #
+                                                                                        #
+#=======================================================================================
  
 
 ## check java configuration
@@ -34,7 +43,6 @@ endif()
 ### antlr4 jar file path
 
 # by default
-set(ANTLR4_JAR_DEFAULT_PATH "/Users/subonan/local/antlr4/antlr-4.13.2-complete.jar")
 
 # otherwise, specified by user
 if(EXISTS "${ANTLR4_JAR_DEFAULT_PATH}")
@@ -54,7 +62,6 @@ endif()
 ### 2. ANTLR4 Runtime C++
 
 # by default, contain include and lib directories
-set(ANTLR4_RUNTIME_DEFAULT_PREFIX_PATH "/Users/subonan/local/antlr4/runtime/cpp")
 set(ANTLR4_RUNTIME_INCLUDE_DEFAULT "${ANTLR4_RUNTIME_DEFAULT_PREFIX_PATH}/include/antlr4-runtime")
 set(ANTLR4_RUNTIME_LIB_DEFAULT "${ANTLR4_RUNTIME_DEFAULT_PREFIX_PATH}/lib") 
 
@@ -82,7 +89,6 @@ list(APPEND PROJECT_LINK_LIBS "antlr4-runtime")
 
 # CVC5 
 
-set(CVC5_DEFAULT_PREFIX_PATH "/usr/local")
 set(CVC5_INCLUDE_DEFAULT "${CVC5_DEFAULT_PREFIX_PATH}/include/")
 set(CVC5_LIB_DEFAULT "${CVC5_DEFAULT_PREFIX_PATH}/lib") 
 
@@ -104,12 +110,11 @@ endif()
 
 list(APPEND PROJECT_INCLUDE_DIRS "${CVC5_INCLUDE_DIRS}")
 list(APPEND PROJECT_LINK_DIRS "${CVC5_LIB_DIRS}")
-list(APPEND PROJECT_LINK_LIBS "cvc5") # CVC5 库名
+list(APPEND PROJECT_LINK_LIBS "cvc5") 
 
 
 # Bitwuzla
 
-set(BITWUZLA_DEFAULT_PREFIX_PATH "/Users/subonan/local/bitwuzla")
 set(BITWUZLA_INCLUDE_DEFAULT "${BITWUZLA_DEFAULT_PREFIX_PATH}/include/")
 set(BITWUZLA_LIB_DEFAULT "${BITWUZLA_DEFAULT_PREFIX_PATH}/lib") 
 set(BITWUZLA_FOUND FALSE)
@@ -131,7 +136,7 @@ endif()
 
 list(APPEND PROJECT_INCLUDE_DIRS "${BITWUZLA_INCLUDE_DIRS}")
 list(APPEND PROJECT_LINK_DIRS "${BITWUZLA_LIB_DIRS}")
-list(APPEND PROJECT_LINK_LIBS "bitwuzla") # CVC5 库名
+list(APPEND PROJECT_LINK_LIBS "bitwuzla") 
 list(APPEND PROJECT_LINK_LIBS "bitwuzlabb") 
 list(APPEND PROJECT_LINK_LIBS "bitwuzlabv") 
 list(APPEND PROJECT_LINK_LIBS "bitwuzlals") 

@@ -1,4 +1,4 @@
-let m = 1600;
+let m = 1750;
 let n = m + (m - 1); // n-controlled NOT gate
 
 borrow@ q[n];

@@ -1,41 +1,41 @@
 
 
-let n = 50;
+let n = 200;
 
-borrow@ a[n]; // symbol '@' indicates to skip the safety checking
-borrow g[n - 1]; // dirty qubits
+borrow@ q[n]; // symbol '@' indicates to skip the safety checking
+borrow a[n - 1]; // dirty qubits
 
-CNOT[g[n - 1], a[n]];
+CNOT[a[n - 1], q[n]];
 
 for i = (n - 1) to 2 {
-    CNOT[a[i], g[i]];
-    X[a[i]];
-    CCNOT[g[i - 1], a[i], g[i]];
+    CNOT[q[i], a[i]];
+    X[q[i]];
+    CCNOT[a[i - 1], q[i], a[i]];
 }
 
-CNOT[a[1], g[1]];
+CNOT[q[1], a[1]];
 
 for i = 2 to (n - 1) {
-    CCNOT[g[i - 1], a[i], g[i]];
+    CCNOT[a[i - 1], q[i], a[i]];
 }
 
-CNOT[g[n - 1], a[n]];
+CNOT[a[n - 1], q[n]];
 
 
-X[a[n]];
+X[q[n]];
 
 // reverse the circuit to uncompute
 
 for i = (n - 1) to 2 {
-    CCNOT[g[i - 1], a[i], g[i]];
+    CCNOT[a[i - 1], q[i], a[i]];
 }
 
 
-CNOT[a[1], g[1]];
+CNOT[q[1], a[1]];
 
 
 for i = 2 to (n - 1) {
-    CCNOT[g[i - 1], a[i], g[i]];
-    X[a[i]];
-    CNOT[a[i], g[i]];
+    CCNOT[a[i - 1], q[i], a[i]];
+    X[q[i]];
+    CNOT[q[i], a[i]];
 }

@@ -12,7 +12,7 @@ cd build
 or
 ```bash
 cd build
-make eg9-adder
+make adder
 ```
 to execute and verify examples.
 
@@ -29,7 +29,13 @@ One can either hardcode the path to includes & libraries into the CMakeLists.txt
 rm -rf build
 mkdir build && cd build
 
+
+cmake ..
+
+or 
+
 cmake -DANTLR4_JAR_PATH=/path/to/antlr-4.13.2-complete.jar -DANTLR4_RUNTIME_PREFIX_PATH=/path/to/antlr4/runtime/cpp -DCVC5_PREFIX_PATH=/path/to/cvc5 -DBITWUZLA_PREFIX_PATH=/path/to/bitwuzla ..
+
 
 make adder
 ```
