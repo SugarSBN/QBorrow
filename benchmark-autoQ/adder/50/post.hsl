@@ -1,0 +1,5 @@
+Constants
+c1 := 1 / sqrt2
+c2 := 1 / sqrt2
+Extended Dirac
+{ c1 |0i> + c2 |1i> : |i|=98}

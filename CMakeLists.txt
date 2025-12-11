@@ -20,7 +20,7 @@ set(ANTLR4_RUNTIME_DEFAULT_PREFIX_PATH "/Users/subonan/local/antlr4/runtime/cpp"
 set(BITWUZLA_DEFAULT_PREFIX_PATH "/Users/subonan/local/bitwuzla")                       #
 set(CVC5_DEFAULT_PREFIX_PATH "/usr/local")                                              #
                                                                                         #
-#=======================================================================================
+#========================================================================================
  
 
 ## check java configuration
