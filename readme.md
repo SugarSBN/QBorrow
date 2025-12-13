@@ -53,15 +53,14 @@ Make sure that the following files & folders exist:
 
 For multi-controlled NOT gate:
 
-||501 qubits| 1001 qubits | 1501 qubits | 2001 qubits| 2501 qubits| 3001 qubits | 3501 qubits|
-|----|---|---|---|---|----|---|---|---|
-CVC5|<1s |1s| 3s|6s|10s|14s|19s|
-Bitwuzla|3s|15s|32s|67s|102s|146s|189s|
+| Tool      | 501 qubits | 1001 qubits | 1501 qubits | 2001 qubits | 2501 qubits | 3001 qubits | 3501 qubits |
+|-----------|------------|-------------|-------------|-------------|-------------|-------------|-------------|
+| CVC5      | <1s        | 1s          | 3s          | 6s          | 10s         | 14s         | 19s         |
+| Bitwuzla  | 3s         | 15s         | 32s         | 67s         | 102s        | 146s        | 189s        |
 
 
 For adder circuit:
-||99 qubits| 149 qubits| 199 qubits | 249 qubits | 299 qubits | 349 qubits | 399 qubits |
-|----|---|---|---|---|---|---|
-CVC5|5s | 23s|73s|170s|357s|660s|1079s|
-Bitwuzla|3s|12s|29s|99s|155s|230s|303s|
-
+| Tool      | 99 qubits | 149 qubits | 199 qubits | 249 qubits | 299 qubits | 349 qubits | 399 qubits |
+|-----------|-----------|------------|------------|------------|------------|------------|------------|
+| CVC5      | 5s        | 23s        | 73s        | 170s       | 357s       | 660s       | 1079s      |
+| Bitwuzla  | 3s        | 12s        | 29s        | 99s        | 155s       | 230s       | 303s       |
