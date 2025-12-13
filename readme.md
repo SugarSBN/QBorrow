@@ -37,7 +37,7 @@ or
 cmake -DANTLR4_JAR_PATH=/path/to/antlr-4.13.2-complete.jar -DANTLR4_RUNTIME_PREFIX_PATH=/path/to/antlr4/runtime/cpp -DCVC5_PREFIX_PATH=/path/to/cvc5 -DBITWUZLA_PREFIX_PATH=/path/to/bitwuzla ..
 
 
-make adder
+make mcx
 ```
 
 Make sure that the following files & folders exist:
@@ -50,15 +50,18 @@ Make sure that the following files & folders exist:
 * /path/to/bitwuzla/lib
 
 # Performance
-For adder circuit:
-||50 qubits| 100 qubits| 200 qubits |
-|----|---|---|---|
-CVC5|4s|71s|1069s|
-Bitwuzla|3s|29s|313s|
 
 For multi-controlled NOT gate:
 
-||200 qubits| 400 qubits | 800 qubits | 1600 qubits| 3200 qubits|
-|----|---|---|---|---|----|
-CVC5|<1s|<1s|1s|4s|16s|
-Bitwuzla|<1s|2s|10s|38s|156s|
+||501 qubits| 1001 qubits | 1501 qubits | 2001 qubits| 2501 qubits| 3001 qubits | 3501 qubits|
+|----|---|---|---|---|----|---|---|---|
+CVC5|<1s |1s| 3s|6s|10s|14s|19s|
+Bitwuzla|3s|15s|32s|67s|102s|146s|189s|
+
+
+For adder circuit:
+||99 qubits| 149 qubits| 199 qubits | 249 qubits | 299 qubits | 349 qubits | 399 qubits |
+|----|---|---|---|---|---|---|
+CVC5|5s | 23s|73s|170s|357s|660s|1079s|
+Bitwuzla|3s|12s|29s|99s|155s|230s|303s|
+
